@@ -1,0 +1,464 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qrivara - About Us</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="about.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="resources.html">Resources</a>
+      <a href="news.html">News</a>
+      <a href="join.html">Join Us</a>
+    </nav>
+  </header>
+
+   <header>
+  <nav style="display: flex; justify-content: center; gap: 8px; font-size: 15px;">
+    <a href="about.html">Home</a>
+    <a href="research.html">Research</a>
+    <a href="resources.html">Resources</a>
+    <a href="news.html">News</a>
+    <a href="join.html">Join Us</a>
+  </nav>
+</header>
+
+<head>
+  <title>Qrivara</title>
+  <style>
+
+  #logo {
+    margin-top: 80px; /* or any value that moves it down */
+  }
+    header {
+      background: #fff;  /* or your preferred header background */
+      text-align: center;
+      padding: 24px 0;
+    }
+    header img.logo {
+      max-width: 350px; /* Adjust for large logo */
+      width: 90vw;
+      height: auto;
+      display: inline-block;
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: #FFFFFF; /* Matching background tone */
+      color: rgb(19, 18, 18);
+      font-family: 'Times New Roman', Times, serif, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 7rem;
+      margin: 30px 0 20px 0;
+      letter-spacing: 1px;
+      font-weight: 300;
+      color: black;
+    }
+    img.integrated-image {
+      max-width: 450px;
+      width: 90vw;
+      height: auto;
+      display: block;
+    }
+      body {
+      margin: 0;
+      min-height: 100vh;
+      background: #FFFFFF;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 80px;
+      padding: 40px;
+    }
+   .tilt-card-container {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+  }
+  .tilt-card {
+    width: 400px;
+    height: 400px;
+    background: rgb(189, 240, 240);
+    border-radius: 32px;
+    border: 1.5px solid rgb(189, 240, 240);
+    cursor: pointer;
+    transition: background .2s, transform .22s cubic-bezier(.18,.83,.39,1.08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .tilt-card:hover {
+    background: rgb(32, 33, 34);
+  }
+
+  .letter {
+    opacity: 0;
+    display: inline-block;
+    animation: fadeInUp 1s forwards;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  
+  </style>
+</head>
+<body>
+
+<h1 id="logo"></h1>
+<script>
+  const text = "Qrivara";
+  const logo = document.getElementById('logo');
+
+  // Wrap each letter in a span, add class, and set animation delay for staggered reveal
+  text.split('').forEach((char, i) => {
+    const span = document.createElement('span');
+    span.textContent = char;
+    span.classList.add('letter','colorful-gradient');
+    span.style.animationDelay = `${i * 0.25}s`; // stagger animations 0.25s apart
+    logo.appendChild(span);
+  });
+</script>
+
+
+
+  <img src="images/white.png" alt="Dilution Refrigerator Quantum Computer" class="integrated-image" />
+
+<div class="tilt-card-container">
+  <div class="tilt-card"></div>
+  <div class="tilt-card"></div>
+  <div class="tilt-card"></div>
+</div>
+
+  <script>
+    const cards = document.querySelectorAll('.tilt-card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        const rotateX = (-y / (rect.height / 2)) * 12;
+        const rotateY = (x / (rect.width / 2)) * 12;
+        card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.04)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)';
+      });
+      card.addEventListener('mouseenter', () => {
+        card.style.transition = 'transform 0.12s cubic-bezier(0.68,0.96,0.68,1)';
+      });
+    });
+  </script>
+
+  <!-- Add this inside your <body> where you want the video to appear -->
+<div style="
+  display: flex; justify-content: center; align-items: center; margin: 60px 0;
+">
+  <video controls style="
+    width: 640px; max-width: 95vw;
+    border-radius: 18px;
+    box-shadow: 0 10px 32px rgba(60,80,140,0.12);
+    background: #fff;
+  ">
+    <source src="your-video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+
+<script>
+const outer = document.getElementById('hScroller');
+const inner = document.getElementById('hScrollerInner');
+const scrollLength = inner.scrollWidth - outer.clientWidth;
+
+window.addEventListener('scroll', () => {
+  const rect = outer.getBoundingClientRect();
+  // When the scroller is in view: Map vertical scroll amount to horizontal movement
+  if (rect.top < window.innerHeight && rect.bottom > 0) {
+    const pct = Math.min(Math.max((window.innerHeight - rect.top) / (rect.height + window.innerHeight), 0), 1);
+    inner.style.transform = `translateX(${-pct * scrollLength}px)`;
+  }
+});
+</script>
+
+</body>
+</html>
+
+<style>
+  body {
+    background: #fff;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  footer {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    background: #fff;
+    overflow: hidden;
+  }
+  #ascii-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    opacity: 0.7;
+  }
+</style>
+
+
+
+
+
+
+<style>
+  .carousel-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 60px auto;
+    overflow: hidden;
+    position: relative;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 32px;
+    will-change: transform;
+  }
+  .carousel-item {
+    flex: 0 0 300px; /* card width */
+    height: 300px;
+    border-radius: 32px;
+    background: rgb(32, 33, 34);
+    border: 2px solid rgb(189, 240, 240);
+    cursor: pointer;
+    color: white;
+    font-family: 'Arial Black', sans-serif;
+    font-weight: bold;
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+  }
+</style>
+
+<div class="carousel-container">
+  <div class="carousel-track" id="carouselTrack">
+    <div class="carousel-item"></div>
+    <div class="carousel-item"></div>
+    <div class="carousel-item"></div>
+    <div class="carousel-item"></div>
+    <div class="carousel-item"></div>
+    <div class="carousel-item"></div>
+    <div class="carousel-item"></div>
+    <div class="carousel-item"></div>
+  </div>
+</div>
+
+<script>
+  const track = document.getElementById('carouselTrack');
+  let translateX = 0;
+
+  function animate() {
+    translateX -= 1; // speed of movement in px per frame
+    if (translateX <= -track.scrollWidth / 2) {
+      translateX = 0;  // reset scroll to loop
+    }
+    track.style.transform = `translateX(${translateX}px)`;
+    requestAnimationFrame(animate);
+  }
+  animate();
+</script>
+
+<section style="font-size: 15px;   font-family: 'Times New Roman', sans-serif; max-width: 800px; margin: auto; line-height: 1.6; color: #333; padding: 2rem;">
+    <!-- Big team picture at the top -->
+    <p style="margin-bottom: 1.5rem;">
+      Welcome to Qrivara — where curiosity sparks discovery, and quantum isn't just a science fiction. Here, we believe that life may throw uncertainties at you, but as <span style="color: #e67e22;">Stephen Hawking</span> said, <q>However difficult life may seem, there is always something you can do and succeed at.</q> So why not keep trying?
+    </p>
+
+    <p style="margin-bottom: 1.5rem;">
+      Just remember, <q><span>When you change the way you look at things, the things you look at change</span></q>, as <span style="color: #e67e22;">Max Planck</span> wisely noted. And if you think you need to be an expert before jumping in, think again—<span style="color: #e67e22;">Niels Bohr</span> reminds us, <q>An expert is a person who has made all the mistakes that can be made in a very narrow field.</q>
+    </p>
+
+    <p style="margin-bottom: 1.5rem;">
+      At Qrivara, we echo <span style="color: #e67e22;">Marie Curie’s</span> fearless spirit <q>Nothing in life is to be feared; it is only to be understood.</q> And like <span style="color: #e67e22;">Einstein</span>, we never stop questioning, because <q>Curiosity has its own reason for existing.</q>
+    </p>
+
+    <p style="margin-bottom: 1.5rem;">
+      Finally, in true <span style="color: #e67e22;">Feynman</span> fashion, we’re comfortable being a little uncertain: <q>I can live with doubt and uncertainty and not knowing. I think it is much more interesting to live not knowing than to have answers that might be wrong.</q>
+    </p>
+
+    <p style="font-weight: 300; color: #e67e22;">
+      So buckle up, keep your mind open, and prepare for a journey where science is as fun as it is profound—because here at Qrivara, we don’t push boundaries, we quantum tunnel right through them!
+    </p>
+  </section>
+
+
+  
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+  body {
+    font-family: 'Times New Roman', serif;
+    margin: 0; padding: 2rem;
+    background: #fff;
+  }
+  .container {
+    display: flex;
+    max-width: 1200px;
+    margin: auto;
+    gap: 2rem;
+  }
+  .text-section {
+    flex: 1;
+  }
+  .graph-section {
+    flex: 1;
+    max-width: 600px;
+    height: 600px;
+  }
+  svg {
+    width: 100%;
+    height: 100%;
+    /*border: 1px solid #ccc;*/
+    /*border-radius: 1rem;*/
+    /*background-color: white;*/
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="text-section">
+    <h1></h1>
+    <p>
+
+  <section class="about-us container my-5 d-flex flex-wrap align-items-start">
+  <div class="about-text flex-fill" style="min-width: 300px; max-width: 600px; margin-right: 2rem; font-family: 'Times New Roman', Times, serif;">
+<p>At Qrivara, we believe true talent is defined by passion, creativity, and the drive to do something extraordinary—not by background, experience, or grades. Our mission is to bridge groundbreaking quantum circuit design with real-world applications, delivering innovative solutions to leaders like Google, IBM, and IQM Quantum Computers.
+
+We empower the ambitious, curious, and highly motivated—those overlooked or rejected due to conventional norms. Whether you lack formal experience or were dismissed for your grades, we see your potential and ideas. Qrivara nurtures visionaries who challenge norms, experiment fearlessly, and shape the future of quantum technology.
+
+If you have talent, drive, and determination to create something unique, Qrivara is the place for you. We celebrate the brilliant “errors” often ignored, turning glitches into breakthroughs. Join us and become part of a team where your potential is recognized and empowered. Check out <a href="join.html" class="highlight-link">Join Us</a> page to become a part of our team.</p>
+  </div>
+</section>
+    </p>
+  </div>
+
+  <div class="graph-section" id="graph"></div>
+</div>
+
+<script>
+  // Example data generation: large number of nodes and links
+  const numNodes = 50;
+  const types = ['A', 'B', 'C', 'D'];
+  const nodes = Array.from({length: numNodes}, (_, i) => ({id: `Node${i + 1}`}));
+  const links = [];
+
+  // Randomly connect nodes with types
+  for(let i=0; i < numNodes * 1.5; i++) {
+    const source = `Node${Math.floor(Math.random() * numNodes) + 1}`;
+    let target = `Node${Math.floor(Math.random() * numNodes) + 1}`;
+    while(target === source) {
+      target = `Node${Math.floor(Math.random() * numNodes) + 1}`;
+    }
+    const type = types[Math.floor(Math.random() * types.length)];
+    links.push({source, target, type});
+  }
+
+  const width = 600;
+  const height = 600;
+
+  const color = d3.scaleOrdinal(types, d3.schemeCategory10);
+
+  const simulation = d3.forceSimulation(nodes)
+    .force("link", d3.forceLink(links).id(d => d.id).distance(60))
+    .force("charge", d3.forceManyBody().strength(-120))
+    .force("center", d3.forceCenter(width / 2, height / 2));
+
+  const svg = d3.select("#graph")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .attr("viewBox", [0, 0, width, height]);
+
+  svg.append("defs").selectAll("marker")
+    .data(types)
+    .join("marker")
+      .attr("id", d => `arrow-${d}`)
+      .attr("viewBox", "0 -5 10 10")
+      .attr("refX", 15)
+      .attr("refY", 0)
+      .attr("markerWidth", 6)
+      .attr("markerHeight", 6)
+      .attr("orient", "auto")
+    .append("path")
+      .attr("fill", color)
+      .attr("d", "M0,-5L10,0L0,5");
+
+  const link = svg.append("g")
+    .attr("fill", "none")
+    .attr("stroke-width", 1.5)
+    .selectAll("path")
+    .data(links)
+    .join("path")
+      .attr("stroke", d => color(d.type))
+      .attr("marker-end", d => `url(#arrow-${d.type})`);
+
+  const node = svg.append("g")
+    .attr("stroke", "#fff")
+    .attr("stroke-width", 1.5)
+    .selectAll("circle")
+    .data(nodes)
+    .join("circle")
+      .attr("r", 6)
+      .attr("fill", "#4682b4")
+      .call(drag(simulation));
+
+  function drag(sim) {
+    function dragstarted(event, d) {
+      if (!event.active) sim.alphaTarget(0.3).restart();
+      d.fx = d.x; d.fy = d.y;
+    }
+    function dragged(event, d) {
+      d.fx = event.x; d.fy = event.y;
+    }
+    function dragended(event, d) {
+      if (!event.active) sim.alphaTarget(0);
+      d.fx = null; d.fy = null;
+    }
+    return d3.drag()
+      .on("start", dragstarted)
+      .on("drag", dragged)
+      .on("end", dragended);
+  }
+
+  function linkArc(d) {
+    const dx = d.target.x - d.source.x,
+          dy = d.target.y - d.source.y,
+          dr = Math.hypot(dx, dy);
+    return `M${d.source.x},${d.source.y} A${dr},${dr} 0 0,1 ${d.target.x},${d.target.y}`;
+  }
+
+  simulation.on("tick", () => {
+    link.attr("d", linkArc);
+    node.attr("cx", d => d.x).attr("cy", d => d.y);
+  });
+</script>
+</body>
+</html>
