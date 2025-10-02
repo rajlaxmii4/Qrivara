@@ -8,18 +8,15 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="research.html">Research</a>
-      <a href="publications.html">Publications</a>
-      <a href="resources.html">Resources</a>
-      <a href="news.html">News</a>
-      <a href="about.html">About Us</a>
-      <a href="join.html">Join Us</a>
-
-    </nav>
-  </header>
+    <header>
+  <nav style="display: flex; justify-content: center; gap: 8px; font-size: 15px; font-family: 'Times New Roman', Times, serif;">
+    <a href="about.html">Home</a>
+    <a href="research.html">Research</a>
+    <a href="resources.html">Resources</a>
+    <a href="news.html">News</a>
+    <a href="join.html">Join Us</a>
+  </nav>
+</header>
 
   <div class="hero" style="background:url('') center/cover no-repeat;">
     <h1>Resources</h1>
@@ -353,137 +350,147 @@
 
 
 
-
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-<div id="streaming-area-chart"></div>
-<script>
-(async function() {
-  const width = 1528;
-  const height = 300;
-  const n = 20;  // number of layers
-  const m = 200; // number of samples per layer
-  const k = 10;  // 'bumps' parameter (controls shape)
-  const offset = d3.stackOffsetWiggle;
-
-  // Bumps function used to generate wavy data
-  function bumps(n, k) {
-    let a = new Array(n).fill(0);
-    for (let i = 0; i < k; ++i) {
-      const x = 1 / (0.1 + Math.random());
-      const y = 2 * Math.random() - 0.5;
-      const z = 10 / (0.1 + Math.random());
-      for (let j = 0; j < n; j++) {
-        const w = (j / n - y) * z;
-        a[j] += x * Math.exp(-w * w);
-      }
-    }
-    return a;
-  }
-
-  const x = d3.scaleLinear([0, m - 1], [0, width]);
-  const y = d3.scaleLinear([0, 1], [height, 0]);
-  const z = d3.interpolateCool;
-
-  const area = d3.area()
-    .x((d, i) => x(i))
-    .y0(d => y(d[0]))
-    .y1(d => y(d[1]));
-
-  const stack = d3.stack()
-    .keys(d3.range(n))
-    .offset(offset)
-    .order(d3.stackOrderNone);
-
-  function randomize() {
-    const layers = stack(d3.transpose(Array.from({length: n}, () => bumps(m, k))));
-    y.domain([
-      d3.min(layers, l => d3.min(l, d => d[0])),
-      d3.max(layers, l => d3.max(l, d => d[1]))
-    ]);
-    return layers;
-  }
-
-  const svg = d3.create("svg")
-    .attr("viewBox", [0, 0, width, height])
-    .attr("width", width)
-    .attr("height", height)
-    .attr("style", "max-width: 100%; height: auto;");
-
-  const path = svg.selectAll("path")
-    .data(randomize())
-    .join("path")
-    .attr("d", area)
-    .attr("fill", () => z(Math.random()));
-
-  document.getElementById("streaming-area-chart").appendChild(svg.node());
-
-  // Animation loop
-  async function animate() {
-    while (true) {
-      path.data(randomize())
-        .transition()
-        .duration(1500)
-        .attr("d", area)
-        .attr("fill", () => z(Math.random()));
-
-      // Wait for the transition to finish
-      await new Promise(resolve => setTimeout(resolve, 2500));
-    }
-  }
-
-  animate();
-})();
-</script>
-
-
-
-   <footer style="background-color: #070606; color: #eee; font-family: 'Times New Roman', serif; padding: 2rem 1rem;">
-  <div style="max-width: 1100px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
-
-  <!-- Newsletter Invitation -->
-    <div style="flex: 1 1 250px; margin: 1rem 0;">
-      <h3 style="color: #ceaf24; margin-bottom: 1rem;">Business Bulletin</h3>
-      <p>
-        Would you like to subscribe to our bulletin for the latest news and insights in quantum technology?  
-        We send bulletins every 4 months.  
-        <br /><br /> <a href="" style="color: #eee; text-decoration: none;">Please fill this form to stay connected.</a>
-      </p>
-    </div>
-
-    <!-- Quicklinks -->
-    <div style="flex: 1 1 250px; margin: 1rem 0;">
-      <h3 style="color: #ceaf24; margin-bottom: 1rem;">Quicklinks</h3>
-      <ul style="list-style-type: none; padding: 0; line-height: 1.8;">
-        <li><a href="" style="color: #eee; text-decoration: none;">News</a></li>
-           <li><a href="" style="color: #eee; text-decoration: none;">People</a></li>
-           <li><a href="" style="color: #eee; text-decoration: none;">Join Us</a></li>
-           <li><a href="" style="color: #eee; text-decoration: none;">EduPhy</a></li>
-           <li><a href="" style="color: #eee; text-decoration: none;">Research</a></li>
-        <li><a href="" style="color: #eee; text-decoration: none;">About Us</a></li>
-        <li><a href="" style="color: #eee; text-decoration: none;">Publications</a></li>   
-        <li><a href="" style="color: #eee; text-decoration: none;">Career Counseling</a></li>
-      </ul>
-    </div>
-
-    
-     <!-- Contact and Follow -->
-    <div style="flex: 1 1 250px; margin: 1rem 0;">
-      <h3 style="color: #ceaf24; margin-bottom: 1rem;">Contact Us</h3>
-      <p><a href="mailto:quantum112358@gmail.com" style="color: #eee; text-decoration: none;">quantum112358@gmail.com</a></p>
-      
-      <h3 style="color: #ceaf24; margin-top: 1.5rem; margin-bottom: 0.5rem;">Follow Us</h3>
-      <p>
-        <a href="https://www.linkedin.com/company/202qlab/" target="_blank" style="color: #eee; text-decoration: none; margin-right: 1.5rem;"> 
-          LinkedIn
-        </a>
-        <a href="https://www.youtube.com/@202q-lab" target="_blank" style="color: #eee; text-decoration: none;">
-          YouTube
-        </a>
-      </p>
-    </div>
-
-  </div>
-</footer>
-
 </body>
 </html>
+
+
+<footer style="background: white; padding: 20px 0; overflow: hidden;">
+  <svg id="quantum-wire-footer" width="100%" height="150" viewBox="0 0 1600 150" style="display: block; margin: auto;"></svg>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script>
+    (function(){
+      const svg = d3.select('#quantum-wire-footer');
+      const width = 1600;
+      const height = 150;
+
+      // Define some wire paths as arrays of points for quantum circuits
+      const wires = [
+        [{x: 20, y: 140}, {x: 100, y: 100}, {x: 250, y: 120}, {x: 400, y: 80}, {x: 500, y: 100}, {x: 600, y: 50}],
+        [{x: 450, y: 130}, {x: 580, y: 90}, {x: 700, y: 110}, {x: 860, y: 80}, {x: 900, y: 75}],
+        [{x: 850, y: 100}, {x: 1000, y: 110}, {x: 1150, y: 40}, {x: 1400, y: 100}],
+        [{x: 1300, y: 140}, {x: 1350, y: 90}, {x: 1500, y: 110}, {x: 1580, y: 70}],
+      ];
+
+      // Draw a thin line path for each wire
+      wires.forEach((points, i) => {
+        const pathData = d3.line()
+          .x(d => d.x)
+          .y(d => d.y)
+          .curve(d3.curveStepAfter)(points);
+
+        svg.append('path')
+          .attr('d', pathData)
+          .attr('fill', 'none')
+          .attr('stroke', 'black')
+          .attr('stroke-width', 2)
+          .attr('id', 'wire-path-' + i);
+      });
+
+      // Create animated nodes on the wires
+      wires.forEach((points, i) => {
+        // Add circles on each node in the wire
+        points.forEach((point, idx) => {
+          const circle = svg.append('circle')
+            .attr('cx', point.x)
+            .attr('cy', point.y)
+            .attr('r', 6)
+            .attr('fill', 'black')
+            .attr('stroke', 'white')
+            .attr('stroke-width', 2);
+
+          // Animate circles with pulsating effect
+          function animateCircle() {
+            circle.transition()
+              .duration(2000)
+              .attr('r', 10)
+              .attr('fill-opacity', 0.35)
+              .transition()
+              .duration(2000)
+              .attr('r', 6)
+              .attr('fill-opacity', 1)
+              .on('end', animateCircle);
+          }
+          // Stagger animation delays slightly for different nodes
+          setTimeout(animateCircle, 300 * (idx + 1));
+        });
+      });
+
+    })();
+  </script>
+</footer>
+
+<footer style="background: white; padding: 20px 0; overflow: hidden;">
+  <svg id="quantum-wire-footer" width="100%" height="180" viewBox="0 0 1600 180" style="display: block; margin: auto;"></svg>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script>
+    (function(){
+      const svg = d3.select('#quantum-wire-footer');
+      const width = 1600;
+      const height = 280;
+
+      // Define more diverse wire paths
+      const wires = [
+        [{x: 10, y: 170}, {x: 90, y: 130}, {x: 230, y: 150}, {x: 350, y: 100}, {x: 480, y: 140}, {x: 600, y: 90}],
+        [{x: 50, y: 120}, {x: 180, y: 80}, {x: 350, y: 110}, {x: 470, y: 60}, {x: 590, y: 110}, {x: 700, y: 45}],
+        [{x: 430, y: 160}, {x: 500, y: 90}, {x: 670, y: 120}, {x: 800, y: 70}, {x: 900, y: 130}],
+        
+        [{x: 850, y: 150}, {x: 970, y: 100}, {x: 1150, y: 125}, {x: 1350, y: 70}, {x: 1500, y: 120}],
+        [{x: 1200, y: 170}, {x: 1270, y: 110}, {x: 1370, y: 140}, {x: 1480, y: 80}, {x: 1580, y: 130}],
+        [{x: 1400, y: 160}, {x: 1450, y: 115}, {x: 1520, y: 100}, {x: 1580, y: 90}],
+        
+         [{x: 70, y: 210}, {x: 200, y: 160}, {x: 130, y: 550}, {x: 450, y: 200}, {x: 580, y: 180}, {x: 400, y: 120}],
+        [{x: 100, y: 150}, {x: 190, y: 20}, {x: 250, y: 410}, {x: 570, y: 160}, {x: 540, y: 100}, {x: 800, y: 85}],
+        [{x: 600, y: 260}, {x: 700, y: 40}, {x: 470, y: 320}, {x: 700, y: 170}, {x: 950, y: 330}],
+      ];
+
+      // Colors for wires and pulses
+      const colors = ['#4e79a7', '#f28e2b', '#e15759', '#76b7b2', '#59a14f', '#edc949'];
+
+      // Draw wires with stepped lines and colors
+      wires.forEach((points, i) => {
+        const pathData = d3.line()
+          .x(d => d.x)
+          .y(d => d.y)
+          .curve(d3.curveStepAfter)(points);
+
+        svg.append('path')
+          .attr('d', pathData)
+          .attr('fill', 'none')
+          .attr('stroke', colors[i % colors.length])
+          .attr('stroke-width', 2);
+      });
+
+      // Add colored pulsating nodes on wires
+      wires.forEach((points, i) => {
+        points.forEach((point, idx) => {
+          const circle = svg.append('circle')
+            .attr('cx', point.x)
+            .attr('cy', point.y)
+            .attr('r', 6)
+            .attr('fill', colors[i % colors.length])
+            .attr('stroke', 'white')
+            .attr('stroke-width', 2)
+            .attr('fill-opacity', 1);
+
+          // Pulsate animation with staggered delay
+          function animateCircle() {
+            circle.transition()
+              .duration(1800)
+              .attr('r', 10)
+              .attr('fill-opacity', 0.3)
+              .transition()
+              .duration(1800)
+              .attr('r', 6)
+              .attr('fill-opacity', 1)
+              .on('end', animateCircle);
+          }
+
+          setTimeout(animateCircle, 300 * (idx + 1) + i * 200);
+        });
+      });
+    })();
+  </script>
+</footer>
+

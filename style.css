@@ -4,11 +4,12 @@ body {
 }
 
 header {
+  position: fixed;
+  top: 0;
+  width: 100%;
   background: #fff;
   color: #0b0b0b;
   padding: 1rem;
-  position: sticky;
-  top: 0;
   z-index: 1000;
 }
 
@@ -52,7 +53,7 @@ section {
 }
 
 footer {
-  background: #111;
+  background: #fff;
   color: #bbb;
   text-align: center;
   padding: 1rem;
@@ -81,7 +82,7 @@ footer {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   width: 260px;   /* fixed width */
-  height: 320px;  /* square shape */
+  height: 350px;  /* square shape */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -99,7 +100,7 @@ footer {
 }
 
 .card-body a.btn {
-  margin: 4px 8px 0 0; /* reduce top margin and add horizontal spacing between buttons */
+  margin: 4px 2px 0 0; /* reduce top margin and add horizontal spacing between buttons */
 }
 
 
@@ -377,12 +378,10 @@ body {
 }
 
 footer, footer > div {
-  margin: 2rem;
-  bottom: 2rem;
+
   padding-left: 2rem; /* or 0/adjust as needed */
   padding-right: 2rem;
-  box-sizing: border-box;
-  background-color: #110e0e;
+  background-color: #fff;
   color: white;
   max-width: 100%; /* override any max-width that reduces width */
 }
