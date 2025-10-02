@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Quantum Gate Matching Game</title>
+<style>
+  body {
+    background: #d494d6;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    overflow-x: hidden;
+  }
+  h1 {
+    margin-bottom: 0.5rem;
+  }
+  #game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 90px);
+    grid-gap: 15px;
+    margin-top: 2rem;
+  }
+  .card {
+    background: #832f8e;
+    border-radius: 12px;
+    width: 90px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    perspective: 1000px;
+    user-select: none;
+  }
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    box-shadow: 0 0 8px #5b1172;
+  }
+  .card.flipped .card-inner {
+    transform: rotateY(180deg);
+  }
+  .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+  }
+  .card-front {
+    background: #8b1b9c;
+  }
+  .card-back {
+    background: #39023a;
+    color: #ceeeff;
+    transform: rotateY(180deg);
+    font-weight: bold;
+  }
+  #stats {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+  }
+  #message {
+    margin-top: 1rem;
+    font-weight: bold;
+    color: #ceeeff;
+  }
+  /* Particle sparkle animation on match */
+  .sparkle {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    animation: sparkle 1.5s linear forwards;
+  }
+  @keyframes sparkle {
+    0% {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(3) rotate(360deg);
+    }
+  }
+
+  /* Final reveal styling */
+  #final-reveal {
+    display: none;
+    margin-top: 2rem;
+    text-align: center;
+    color: #15669b;
+    position: relative;
+    max-width: 750px;
+    user-select: text;
+  }
+  #final-reveal ul {
+    text-align: left;
+    font-size: 14px;
+    margin-top: 1rem;
+  }
+  #final-reveal svg {
+    margin: auto;
+    filter: drop-shadow(0 0 5px #00bfff);
+  }
+  /* Sparkle water drops for reveal */
+  .water-drop {
+    position: absolute;
+    background: radial-gradient(circle at center, #aaddff 50%, transparent 80%);
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    opacity: 0;
+    animation: sparkle-fade 4s linear infinite;
+    pointer-events: none;
+  }
+  @keyframes sparkle-fade {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Quantum Gate Memory</h1>
+<p>Match gates to learn about quantum operations!</p>
+<div id="game-board"></div>
+<div id="stats">Moves: 0 | Matches: 0</div>
+<div id="message"></div>
+
+<div id="final-reveal">
+  <h2>All Gates Matched!</h2>
+  <svg viewBox="0 0 700 150" width="700" height="150">
+    <g transform="translate(0,40)">
+      <rect width="0" height="0" rx="12" ry="12" fill="#224488" />
+      <text x="35" y="45" fill="white" font-size="40" font-family="monospace" text-anchor="middle">X</text>
+    </g>
+    <g transform="translate(80,40)">
+      <rect width="0" height="0" rx="12" ry="12" fill="#3366cc" />
+      <text x="35" y="45" fill="white" font-size="40" font-family="monospace" text-anchor="middle">Y</text>
+    </g>
+    <g transform="translate(160,40)">
+      <rect width="0" height="0" rx="12" ry="12" fill="#2d78a3" />
+      <text x="35" y="45" fill="white" font-size="40" font-family="monospace" text-anchor="middle">Z</text>
+    </g>
+    <g transform="translate(240,40)">
+      <rect width="0" height="0" rx="12" ry="12" fill="#1e90ff" />
+      <text x="35" y="45" fill="white" font-size="40" font-family="monospace" text-anchor="middle">H</text>
+    </g>
+    <g transform="translate(320,40)">
+      <rect width="0" height="0" rx="12" ry="12" fill="#4682b4" />
+      <text x="50" y="45" fill="white" font-size="40" font-family="monospace" text-anchor="middle">CNOT</text>
+    </g>
+    <g transform="translate(450,40)">
+      <rect width="0" height="0" rx="12" ry="12" fill="#5577ff" />
+      <text x="35" y="45" fill="white" font-size="40" font-family="monospace" text-anchor="middle">T</text>
+    </g>
+    <g transform="translate(500,40)">
+      <rect width="0" height="0" rx="12" ry="12" fill="#4466ee" />
+      <text x="35" y="45" fill="white" font-size="40" font-family="monospace" text-anchor="middle">S</text>
+    </g>
+    <g transform="translate(580,40)">
+      <rect width="0" height="0" rx="12" ry="12" fill="#2855bb" />
+      <text x="35" y="45" fill="white" font-size="40" font-family="monospace" text-anchor="middle">I</text>
+    </g>
+  </svg>
+  <ul>
+    <li><strong>X (Pauli-X):</strong> Bit-flip gate</li>
+    <li><strong>Y (Pauli-Y):</strong> Bit and phase flip</li>
+    <li><strong>Z (Pauli-Z):</strong> Phase flip gate</li>
+    <li><strong>H (Hadamard):</strong> Creates an equal superposition state</li>
+    <li><strong>CNOT(Controlled-NOT gate):</strong> Flips target if control is 1</li>
+    <li><strong>T gate:</strong> Pi/4 phase shift</li>
+    <li><strong>S gate:</strong> Pi/2 phase shift</li>
+    <li><strong>I (Identity):</strong> Leaves state unchanged</li>
+  </ul>
+</div>
+
+<script>
+  const cardsData = [
+    {symbol: 'X', name: 'Pauli-X', info: 'Bit-flip gate' },
+    {symbol: 'Y', name: 'Pauli-Y', info: 'Bit and phase flip' },
+    {symbol: 'Z', name: 'Pauli-Z', info: 'Phase flip gate' },
+    {symbol: 'H', name: 'Hadamard', info: 'Creates superposition' },
+    {symbol: 'C', name: 'CNOT', info: 'Controlled-NOT gate' },
+    {symbol: 'T', name: 'T gate', info: 'Pi/4 phase shift' },
+    {symbol: 'S', name: 'S gate', info: 'Pi/2 phase shift' },
+    {symbol: 'I', name: 'Identity', info: 'Leaves state unchanged' }
+  ];
+
+  const allCards = cardsData.concat(cardsData).sort(() => Math.random() - 0.5);
+
+  const board = document.getElementById('game-board');
+  const stats = document.getElementById('stats');
+  const message = document.getElementById('message');
+  const finalReveal = document.getElementById('final-reveal');
+
+  let flippedCards = [];
+  let matchedCount = 0;
+  let movesCount = 0;
+  let busy = false;
+
+  allCards.forEach((card, idx) => {
+    const cardEl = document.createElement('div');
+    cardEl.classList.add('card');
+    cardEl.dataset.symbol = card.symbol;
+
+    cardEl.innerHTML = `
+      <div class="card-inner">
+        <div class="card-front">?</div>
+        <div class="card-back" title="${card.info}">${card.symbol}</div>
+      </div>
+    `;
+    cardEl.addEventListener('click', () => cardClicked(cardEl));
+    board.appendChild(cardEl);
+  });
+
+  function cardClicked(cardEl) {
+    if(busy || cardEl.classList.contains('flipped')) return;
+
+    cardEl.classList.add('flipped');
+    flippedCards.push(cardEl);
+
+    if(flippedCards.length === 2) {
+      movesCount++;
+      stats.textContent = `Moves: ${movesCount} | Matches: ${matchedCount}`;
+
+      const [first, second] = flippedCards;
+      if(first.dataset.symbol === second.dataset.symbol) {
+        matchedCount++;
+        stats.textContent = `Moves: ${movesCount} | Matches: ${matchedCount}`;
+        sparkleEffect(first);
+        sparkleEffect(second);
+        if(matchedCount === cardsData.length) {
+          showFinalReveal();
+        }
+        flippedCards = [];
+      } else {
+        busy = true;
+        setTimeout(() => {
+          flippedCards.forEach(c => c.classList.remove('flipped'));
+          flippedCards = [];
+          busy = false;
+        }, 1000);
+      }
+    }
+  }
+
+  function sparkleEffect(cardEl) {
+    const sparkle = document.createElement('div');
+    sparkle.classList.add('sparkle');
+    cardEl.appendChild(sparkle);
+    setTimeout(() => sparkle.remove(), 1500);
+  }
+
+  function showFinalReveal() {
+    board.style.display = 'none';
+    stats.style.display = 'none';
+    message.style.display = 'none';
+    finalReveal.style.display = 'block';
+    addWaterDrops(finalReveal);
+  }
+
+  function addWaterDrops(container) {
+    for(let i=0; i<40; i++) {
+      const drop = document.createElement('div');
+      drop.classList.add('water-drop');
+      drop.style.left = Math.random() * (container.offsetWidth - 8) + 'px';
+      drop.style.top = Math.random() * (container.offsetHeight - 8) + 'px';
+      drop.style.animationDelay = (Math.random() * 4) + 's';
+      container.appendChild(drop);
+    }
+  }
+</script>
+
+</body>
+</html>

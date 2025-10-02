@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Qrivara - Publications</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="resources.html">Resources</a>
+      <a href="news.html">News</a>
+      <a href="about.html">About Us</a>
+      <a href="join.html">Join Us</a>
+    </nav>
+  </header>
+
+  
+
+<section class="container my-5">
+  <h2 class="section-title mb-4">Our Publications</h2>
+
+  <div style="display: flex; gap: 2rem; align-items: flex-start;">
+    <ul class="publication-list" style="flex: 1;">
+      <li>
+        
+       <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=sriyTOQAAAAJ&citation_for_view=sriyTOQAAAAJ:d1gkVwhDpl0C" target="_blank" rel="noopener noreferrer" class="publication-title">
+          Parametric Amplification in Kerr Nonlinear Resonators: A theoretical review of Josephson Parametric Amplifiers
+        </a>
+        <p class="publication-authors">Rajlaxmi Bhoite, Shraddhanjali Choudhury</p>
+        <p class="publication-info">arXiv preprint: 2507.22630 (2025)</p>
+      </li>
+      <li>
+        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=sriyTOQAAAAJ&citation_for_view=sriyTOQAAAAJ:u-x6o8ySG0sC" target="_blank" rel="noopener noreferrer" class="publication-title">
+          Towards Hybrid Qubits in Bilayer Graphene Quantum Dots
+        </a>
+        <p class="publication-authors">Rajlaxmi Bhoite</p>
+        <p class="publication-info">Master's Thesis (2024)</p>
+      </li>
+      <li>
+        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=sriyTOQAAAAJ&citation_for_view=sriyTOQAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener noreferrer" class="publication-title">
+          Benchmarking Quantum Algorithms on Xanadu, IBM, and Google Quantum Computers
+        </a>
+        <p class="publication-authors">Rajlaxmi Bhoite, Sreekuttan LS</p>
+        <p class="publication-info">2022 International Conference on Trends in Quantum Computing and Emerging … (2022)</p>
+      </li>
+   
+    </ul>
+    <div id="gear-container" style="flex: 0 0 400px; height: 350px;">
+      <!-- The rotating gears SVG will be appended here by D3.js -->
+       <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gear SVG with D3.js</title>
+<style>
+  /* Ensure SVG scales nicely */
+  svg {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+  }
+  body {
+    font-family: sans-serif;
+    background: #fff;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<h2></h2>
+<!-- Container for the SVG -->
+<div id="gear-container"></div>
+
+<!-- Load D3.js -->
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script>
+  // gear() function to create gear path from data
+  // This is a simplified version to mimic the gear shape behavior
+  function gear({teeth, radius, toothRadius = 0.01, holeRadius = 0.05}) {
+    const n = teeth;
+    const r2 = Math.abs(radius);
+    const r0 = r2 - toothRadius;
+    const r1 = r2 + toothRadius;
+    const da = Math.PI / n;
+
+    let path = "";
+    for(let i=0; i < 2 * n; i++) {
+      const r = (i & 1) === 0 ? r0 : r1;
+      const a = i * da;
+      path += (i === 0 ? "M" : "L") + (r * Math.cos(a)) + "," + (r * Math.sin(a));
+    }
+    path += "Z";
+
+    path += ` M${holeRadius},0 A${holeRadius},${holeRadius} 0 1,0 -${holeRadius},0 A${holeRadius},${holeRadius} 0 1,0 ${holeRadius},0 Z`;
+
+    return path;
+  }
+
+  const x = Math.sin(2 * Math.PI / 3);
+  const y = Math.cos(2 * Math.PI / 3);
+
+  const svg = d3.select("#gear-container").append("svg")
+      .attr("width", 640)
+      .attr("viewBox", [-0.53, -0.53, 1.06, 1.06])
+      .attr("stroke", "black")
+      .attr("stroke-width", 1 / 640);
+
+  const frame = svg.append("g");
+
+  const gearsData = [
+    {fill: "#c6dbef", teeth: 80, radius: -0.5, origin: [0, 0], annulus: true},
+    {fill: "#6baed6", teeth: 16, radius: +0.1, origin: [0, 0]},
+    {fill: "#9ecae1", teeth: 32, radius: -0.2, origin: [0, -0.3]},
+    {fill: "#9ecae1", teeth: 32, radius: -0.2, origin: [-0.3 * x, -0.3 * y]},
+    {fill: "#9ecae1", teeth: 32, radius: -0.2, origin: [0.3 * x, -0.3 * y]}
+  ];
+
+  const paths = frame.selectAll("path")
+    .data(gearsData)
+    .join("path")
+      .attr("fill", d => d.fill)
+      .attr("d", d => gear({...d, toothRadius: 0.008, holeRadius: 0.02}));
+
+  function update({angle, frameAngle}) {
+    paths.attr("transform", d => `translate(${d.origin}) rotate(${(angle / d.radius) % 360})`);
+    frame.attr("transform", `rotate(${frameAngle % 360})`);
+  }
+
+  // Animate gears
+  let angle = 0, frameAngle = 0;
+  d3.timer(() => {
+    update({angle, frameAngle});
+    angle += 2;
+    frameAngle += 0.5;
+  });
+</script>
+
+</body>
+</html>
+
+
+
+
+    </div>
+  </div>
+</section>
+
+
+  
+  <footer style="background-color: #070606; color: #eee; font-family: 'Times New Roman', serif; padding: 2rem 1rem;">
+  <div style="max-width: 1100px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
+
+  <!-- Newsletter Invitation -->
+    <div style="flex: 1 1 250px; margin: 1rem 0;">
+      <h3 style="color: #ceaf24; margin-bottom: 1rem;">Business Bulletin</h3>
+      <p>
+        Would you like to subscribe to our bulletin for the latest news and insights in quantum technology?  
+        We send bulletins every 3 months.  
+        <br /><br /> <a href="" style="color: #eee; text-decoration: none;">Please fill this form to stay connected.</a>
+      </p>
+    </div>
+
+    <!-- Quicklinks -->
+    <div style="flex: 1 1 250px; margin: 1rem 0;">
+      <h3 style="color: #ceaf24; margin-bottom: 1rem;">Quicklinks</h3>
+      <ul style="list-style-type: none; padding: 0; line-height: 1.8;">
+        <li><a href="" style="color: #eee; text-decoration: none;">News</a></li>
+           <li><a href="" style="color: #eee; text-decoration: none;">People</a></li>
+           <li><a href="" style="color: #eee; text-decoration: none;">Join Us</a></li>
+           <li><a href="" style="color: #eee; text-decoration: none;">EduPhy</a></li>
+           <li><a href="" style="color: #eee; text-decoration: none;">Research</a></li>
+        <li><a href="" style="color: #eee; text-decoration: none;">About Us</a></li>
+        <li><a href="" style="color: #eee; text-decoration: none;">Publications</a></li>   
+        <li><a href="" style="color: #eee; text-decoration: none;">Career Counseling</a></li>
+      </ul>
+    </div>
+
+    
+     <!-- Contact and Follow -->
+    <div style="flex: 1 1 250px; margin: 1rem 0;">
+      <h3 style="color: #ceaf24; margin-bottom: 1rem;">Contact Us</h3>
+      <p><a href="mailto:quantum112358@gmail.com" style="color: #eee; text-decoration: none;">quantum112358@gmail.com</a></p>
+      
+      <h3 style="color: #ceaf24; margin-top: 1.5rem; margin-bottom: 0.5rem;">Follow Us</h3>
+      <p>
+        <a href="https://www.linkedin.com/company/202qlab/" target="_blank" style="color: #eee; text-decoration: none; margin-right: 1.5rem;"> 
+          LinkedIn
+        </a>
+        <a href="https://www.youtube.com/@202q-lab" target="_blank" style="color: #eee; text-decoration: none;">
+          YouTube
+        </a>
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
