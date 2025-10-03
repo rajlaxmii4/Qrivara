@@ -409,3 +409,54 @@ footer, footer > div {
   text-align: left;
 }
 
+
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px 0 rgba(128, 0, 128, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 15px 5px rgba(128, 0, 128, 0.8);
+  }
+}
+
+@keyframes scaleBox {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+#quote-box {
+  width: 900px;
+  height: 100px;
+  border: 1px solid white;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+
+  animation: pulseGlow 4s ease-in-out infinite, scaleBox 8s ease-in-out infinite;
+}
+
+.quote-text {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  font-size: 18px;
+  line-height: 1.4;
+  padding: 0 10px;
+}
+
+.quote-text.active {
+  opacity: 1;
+  position: relative;
+}
