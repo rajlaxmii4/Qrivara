@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://qrivara.tech/</loc>
+  </url>
+  <url>
+    <loc>https://qrivara.tech/resources</loc>
+  </url>
+    <url>
+    <loc>https://qrivara.tech/join us</loc>
+  </url>
+    <url>
+    <loc>https://qrivara.tech/news</loc>
+  </url>
+    <url>
+    <loc>https://qrivara.tech/research</loc>
+  </url>
+  <!-- Add a <url> section for each page -->
+</urlset>
