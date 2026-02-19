@@ -253,8 +253,55 @@
     var gutterL = contentL;
     var gutterR = W - contentR;
 
+    var isMobile = W < 768;
+
+    // ── MOBILE: Subtle full-width PCB traces ──
+    if (isMobile) {
+      var mobileAlpha = 0.14;
+      var mCopper = 'rgba(184,115,51,' + mobileAlpha + ')';
+      var mTeal   = 'rgba(234,88,12,' + (mobileAlpha * 0.7) + ')';
+
+      // Horizontal traces across full width
+      var traceCount = Math.floor(H / 140);
+      for (var mt = 0; mt < traceCount; mt++) {
+        var ty = 80 + mt * 140 + (mt % 2 === 0 ? 20 : -10);
+        line(0, ty, W, ty, mCopper, 1);
+      }
+
+      // Scattered vias along edges
+      var viaSpacing = Math.max(90, H / 8);
+      for (var mv = viaSpacing; mv < H; mv += viaSpacing) {
+        via(12 + (mv % 3) * 8, mv, 3);
+        via(W - 12 - (mv % 2) * 8, mv + 30, 3);
+      }
+
+      // A few SMD components near edges
+      drawSMD(20, H * 0.25, true);
+      drawSMD(W - 20, H * 0.45, true);
+      drawSMD(25, H * 0.7, false);
+      drawSMD(W - 25, H * 0.85, false);
+
+      // Corner L-bend traces
+      // Top-left
+      line(0, 60, 40, 60, mTeal, 0.8);
+      line(40, 60, 40, 100, mTeal, 0.8);
+      via(40, 100, 2.5);
+      // Top-right
+      line(W, 70, W - 35, 70, mTeal, 0.8);
+      line(W - 35, 70, W - 35, 105, mTeal, 0.8);
+      via(W - 35, 105, 2.5);
+      // Bottom-left
+      line(0, H - 80, 30, H - 80, mTeal, 0.8);
+      line(30, H - 80, 30, H - 110, mTeal, 0.8);
+      via(30, H - 110, 2.5);
+      // Bottom-right
+      line(W, H - 90, W - 40, H - 90, mTeal, 0.8);
+      line(W - 40, H - 90, W - 40, H - 120, mTeal, 0.8);
+      via(W - 40, H - 120, 2.5);
+    }
+
     // ── LEFT GUTTER: Vertical bus + ICs ──
-    if (gutterL > 40) {
+    if (!isMobile && gutterL > 40) {
       var lx = gutterL * 0.5;  // center of left gutter
 
       // Main vertical bus
@@ -313,7 +360,7 @@
     }
 
     // ── RIGHT GUTTER: Vertical bus + ICs ──
-    if (gutterR > 40) {
+    if (!isMobile && gutterR > 40) {
       var rx = contentR + gutterR * 0.5;
 
       // Main vertical bus
@@ -386,7 +433,7 @@
 
     // ── Cross-connections between gutters (very top and very bottom only) ──
     // Top: connect left gutter to right gutter above content
-    if (gutterL > 40 && gutterR > 40) {
+    if (!isMobile && gutterL > 40 && gutterR > 40) {
       var crossY1 = 50;
       line(0, crossY1, W, crossY1, COPPER, 1);
       via(gutterL * 0.5, crossY1, 3.5);
@@ -412,12 +459,14 @@
 
     // ── Clear the hero content zone so wireframe sits cleanly ──
     // Fade out traces behind the hero area with a soft gradient mask
-    var heroGrad = ctx.createLinearGradient(contentL, 0, contentL, heroBottom + 40);
-    heroGrad.addColorStop(0, 'rgba(255,255,255,1)');
-    heroGrad.addColorStop(0.85, 'rgba(255,255,255,0.95)');
-    heroGrad.addColorStop(1, 'rgba(255,255,255,0)');
-    ctx.fillStyle = heroGrad;
-    ctx.fillRect(contentL - 20, 0, contentW + 40, heroBottom + 40);
+    if (!isMobile) {
+      var heroGrad = ctx.createLinearGradient(contentL, 0, contentL, heroBottom + 40);
+      heroGrad.addColorStop(0, 'rgba(255,255,255,1)');
+      heroGrad.addColorStop(0.85, 'rgba(255,255,255,0.95)');
+      heroGrad.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.fillStyle = heroGrad;
+      ctx.fillRect(contentL - 20, 0, contentW + 40, heroBottom + 40);
+    }
   }
 
   // ── Events ──────────────────────────────────────────────────────

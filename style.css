@@ -450,6 +450,15 @@ section {
   flex: 1;
 }
 
+.hero__tagline {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: var(--sp-3);
+  line-height: 1.7;
+  max-width: 480px;
+}
+
 .hero__image {
   flex: 0 0 auto;
   max-width: 380px;
@@ -825,6 +834,10 @@ section {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--sp-3);
+}
+
+.tilt-card-container--4col {
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .tilt-card {
@@ -1699,7 +1712,7 @@ section {
   line-height: 1.9;
   color: var(--text-secondary);
   font-style: italic;
-  min-height: 80px;
+  min-height: 120px;
   padding: 0 var(--sp-3);
   font-weight: 400;
   position: relative;
@@ -1743,7 +1756,7 @@ section {
 }
 
 .quantum-quote__cite::before {
-  content: '— ';
+  content: '~ ';
 }
 
 .quantum-quote__timer {
@@ -1862,6 +1875,10 @@ section {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .tilt-card-container--4col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .research-panels {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1953,6 +1970,10 @@ section {
     grid-template-columns: 1fr;
   }
 
+  .tilt-card-container--4col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .research-panels {
     grid-template-columns: 1fr;
   }
@@ -1961,22 +1982,31 @@ section {
     height: 160px;
   }
 
+  .quantum-quote {
+    padding: var(--sp-5) var(--sp-2);
+  }
+
   .quantum-quote__text {
-    font-size: 1.05rem;
+    font-size: 1rem;
+    line-height: 1.75;
+    min-height: 140px;
+    padding: 0 var(--sp-1);
   }
 
   .quantum-quote__bra {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     top: -4px;
   }
 
-  .quantum-quote__bra {
-    font-size: 3.5rem;
+  .tilt-card {
+    max-width: 480px;
+    min-height: 180px;
   }
 
-  .tilt-card {
-    max-width: 100%;
-    min-height: 180px;
+  .research-panel {
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .team-grid {
@@ -2017,6 +2047,35 @@ section {
   }
 
   .grid--auto-fit {
+    grid-template-columns: 1fr;
+  }
+
+  .quantum-quote__text {
+    font-size: 0.92rem;
+    min-height: 160px;
+  }
+
+  .quantum-quote__bra {
+    font-size: 2.2rem;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .game-card {
+    height: 100px;
+  }
+
+  .hero__image {
+    max-width: 220px;
+  }
+
+  section {
+    padding: var(--sp-5) var(--sp-2);
+  }
+
+  .tilt-card-container--4col {
     grid-template-columns: 1fr;
   }
 }

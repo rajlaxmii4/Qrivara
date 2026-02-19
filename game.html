@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Q — Quantum Gate Memory</title>
-  <meta name="description" content="Play the Quantum Gate Memory Game — match quantum gates and learn about quantum operations.">
+  <title>Q | Quantum Gate Memory</title>
+  <meta name="description" content="Play the Quantum Gate Memory Game: match quantum gates and learn about quantum operations.">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
@@ -34,7 +34,7 @@
   <!-- Mini Hero -->
   <section class="hero hero--dark" style="min-height:200px;padding:var(--sp-5) var(--sp-3);">
     <h1 style="font-size:2.2rem;">Quantum Gate Memory</h1>
-    <p class="subtitle">Match the quantum operators &mdash; |&psi;&rang; &otimes; |&phi;&rang;</p>
+    <p class="subtitle">Match the quantum operators: |&psi;&rang; &otimes; |&phi;&rang;</p>
   </section>
 
   <!-- Game -->
@@ -180,9 +180,20 @@
       shuffle(gatesCopy);
       activeGates = gatesCopy.slice(0, totalPairs);
 
-      // Set grid columns based on pair count
-      var cols = totalPairs <= 6 ? 4 : totalPairs <= 8 ? 4 : 5;
-      board.style.gridTemplateColumns = 'repeat(' + cols + ', 90px)';
+      // Set grid columns based on pair count and screen width
+      var screenW = window.innerWidth;
+      var cols, cardSize;
+      if (screenW <= 480) {
+        cols = 2;
+        cardSize = 80;
+      } else if (screenW <= 768) {
+        cols = 3;
+        cardSize = 80;
+      } else {
+        cols = totalPairs <= 6 ? 4 : totalPairs <= 8 ? 4 : 5;
+        cardSize = 90;
+      }
+      board.style.gridTemplateColumns = 'repeat(' + cols + ', ' + cardSize + 'px)';
 
       // Create card pairs and shuffle
       var deck = [];
