@@ -1,291 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Quantum Gate Matching Game</title>
-<style>
-  body {
-    background: #d494d6;
-    color: white;
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    overflow-x: hidden;
-  }
-  h1 {
-    margin-bottom: 0.5rem;
-  }
-  #game-board {
-    display: grid;
-    grid-template-columns: repeat(4, 90px);
-    grid-gap: 15px;
-    margin-top: 2rem;
-  }
-  .card {
-    background: #832f8e;
-    border-radius: 12px;
-    width: 90px;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    position: relative;
-    perspective: 1000px;
-    user-select: none;
-  }
-  .card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.5s;
-    transform-style: preserve-3d;
-    box-shadow: 0 0 8px #5b1172;
-  }
-  .card.flipped .card-inner {
-    transform: rotateY(180deg);
-  }
-  .card-front, .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 12px;
-    backface-visibility: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-  }
-  .card-front {
-    background: #8b1b9c;
-  }
-  .card-back {
-    background: #39023a;
-    color: #ceeeff;
-    transform: rotateY(180deg);
-    font-weight: bold;
-  }
-  #stats {
-    margin-top: 1rem;
-    font-size: 1.2rem;
-  }
-  #message {
-    margin-top: 1rem;
-    font-weight: bold;
-    color: #ceeeff;
-  }
-  /* Particle sparkle animation on match */
-  .sparkle {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    width: 20px;
-    height: 20px;
-    pointer-events: none;
-    animation: sparkle 1.5s linear forwards;
-  }
-  @keyframes sparkle {
-    0% {
-      opacity: 1;
-      transform: scale(1) rotate(0deg);
-    }
-    100% {
-      opacity: 0;
-      transform: scale(3) rotate(360deg);
-    }
-  }
-
-  /* Final reveal styling */
-  #final-reveal {
-    display: none;
-    margin-top: 2rem;
-    text-align: center;
-    color: #15669b;
-    position: relative;
-    max-width: 750px;
-    user-select: text;
-  }
-  #final-reveal ul {
-    text-align: left;
-    font-size: 14px;
-    margin-top: 1rem;
-  }
-  #final-reveal svg {
-    margin: auto;
-    filter: drop-shadow(0 0 5px #00bfff);
-  }
-  /* Sparkle water drops for reveal */
-  .water-drop {
-    position: absolute;
-    background: radial-gradient(circle at center, #aaddff 50%, transparent 80%);
-    border-radius: 50%;
-    width: 8px;
-    height: 8px;
-    opacity: 0;
-    animation: sparkle-fade 4s linear infinite;
-    pointer-events: none;
-  }
-  @keyframes sparkle-fade {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Q — Quantum Gate Memory</title>
+  <meta name="description" content="Play the Quantum Gate Memory Game — match quantum gates and learn about quantum operations.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="game-body">
 
-<h1>Quantum Gate Memory</h1>
-<p>Match gates to learn about quantum operations!</p>
-<div id="game-board"></div>
-<div id="stats">Moves: 0 | Matches: 0</div>
-<div id="message"></div>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-header__logo">
+        <span class="site-header__q">Q</span>
+      </a>
+      <nav class="site-nav" id="siteNav">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="resources.html">Resources</a>
+        <a href="news.html">News</a>
+        <a href="team.html">Team</a>
+        <a href="join.html">Join Us</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
 
-<div id="final-reveal">
-  <h2>All Gates Matched!</h2>
-  <svg viewBox="0 0 700 150" width="700" height="150">
-    <g transform="translate(0,40)">
-      <rect width="0" height="0" rx="12" ry="12" fill="#224488" />
-      <text x="35" y="45" fill="white" font-size="40" font-family="monospace" text-anchor="middle">X</text>
-    </g>
-    <g transform="translate(80,40)">
-      <rect width="0" height="0" rx="12" ry="12" fill="#3366cc" />
-      <text x="35" y="45" fill="white" font-size="40" font-family="monospace" text-anchor="middle">Y</text>
-    </g>
-    <g transform="translate(160,40)">
-      <rect width="0" height="0" rx="12" ry="12" fill="#2d78a3" />
-      <text x="35" y="45" fill="white" font-size="40" font-family="monospace" text-anchor="middle">Z</text>
-    </g>
-    <g transform="translate(240,40)">
-      <rect width="0" height="0" rx="12" ry="12" fill="#1e90ff" />
-      <text x="35" y="45" fill="white" font-size="40" font-family="monospace" text-anchor="middle">H</text>
-    </g>
-    <g transform="translate(320,40)">
-      <rect width="0" height="0" rx="12" ry="12" fill="#4682b4" />
-      <text x="50" y="45" fill="white" font-size="40" font-family="monospace" text-anchor="middle">CNOT</text>
-    </g>
-    <g transform="translate(450,40)">
-      <rect width="0" height="0" rx="12" ry="12" fill="#5577ff" />
-      <text x="35" y="45" fill="white" font-size="40" font-family="monospace" text-anchor="middle">T</text>
-    </g>
-    <g transform="translate(500,40)">
-      <rect width="0" height="0" rx="12" ry="12" fill="#4466ee" />
-      <text x="35" y="45" fill="white" font-size="40" font-family="monospace" text-anchor="middle">S</text>
-    </g>
-    <g transform="translate(580,40)">
-      <rect width="0" height="0" rx="12" ry="12" fill="#2855bb" />
-      <text x="35" y="45" fill="white" font-size="40" font-family="monospace" text-anchor="middle">I</text>
-    </g>
-  </svg>
-  <ul>
-    <li><strong>X (Pauli-X):</strong> Bit-flip gate</li>
-    <li><strong>Y (Pauli-Y):</strong> Bit and phase flip</li>
-    <li><strong>Z (Pauli-Z):</strong> Phase flip gate</li>
-    <li><strong>H (Hadamard):</strong> Creates an equal superposition state</li>
-    <li><strong>CNOT(Controlled-NOT gate):</strong> Flips target if control is 1</li>
-    <li><strong>T gate:</strong> Pi/4 phase shift</li>
-    <li><strong>S gate:</strong> Pi/2 phase shift</li>
-    <li><strong>I (Identity):</strong> Leaves state unchanged</li>
-  </ul>
-</div>
+  <!-- Mini Hero -->
+  <section class="hero hero--dark" style="min-height:200px;padding:var(--sp-5) var(--sp-3);">
+    <h1 style="font-size:2.2rem;">Quantum Gate Memory</h1>
+    <p class="subtitle">Match the quantum operators &mdash; |&psi;&rang; &otimes; |&phi;&rang;</p>
+  </section>
 
-<script>
-  const cardsData = [
-    {symbol: 'X', name: 'Pauli-X', info: 'Bit-flip gate' },
-    {symbol: 'Y', name: 'Pauli-Y', info: 'Bit and phase flip' },
-    {symbol: 'Z', name: 'Pauli-Z', info: 'Phase flip gate' },
-    {symbol: 'H', name: 'Hadamard', info: 'Creates superposition' },
-    {symbol: 'C', name: 'CNOT', info: 'Controlled-NOT gate' },
-    {symbol: 'T', name: 'T gate', info: 'Pi/4 phase shift' },
-    {symbol: 'S', name: 'S gate', info: 'Pi/2 phase shift' },
-    {symbol: 'I', name: 'Identity', info: 'Leaves state unchanged' }
-  ];
-
-  const allCards = cardsData.concat(cardsData).sort(() => Math.random() - 0.5);
-
-  const board = document.getElementById('game-board');
-  const stats = document.getElementById('stats');
-  const message = document.getElementById('message');
-  const finalReveal = document.getElementById('final-reveal');
-
-  let flippedCards = [];
-  let matchedCount = 0;
-  let movesCount = 0;
-  let busy = false;
-
-  allCards.forEach((card, idx) => {
-    const cardEl = document.createElement('div');
-    cardEl.classList.add('card');
-    cardEl.dataset.symbol = card.symbol;
-
-    cardEl.innerHTML = `
-      <div class="card-inner">
-        <div class="card-front">?</div>
-        <div class="card-back" title="${card.info}">${card.symbol}</div>
+  <!-- Game -->
+  <section class="text-center reveal">
+    <div class="game-container">
+      <div class="game-controls">
+        <div class="game-difficulty" id="difficulty-select">
+          <button class="btn btn--ghost game-diff-btn active" data-pairs="6">Easy (6)</button>
+          <button class="btn btn--ghost game-diff-btn" data-pairs="8">Medium (8)</button>
+          <button class="btn btn--ghost game-diff-btn" data-pairs="10">Hard (10)</button>
+        </div>
       </div>
-    `;
-    cardEl.addEventListener('click', () => cardClicked(cardEl));
-    board.appendChild(cardEl);
-  });
+      <div class="game-board" id="game-board"></div>
+      <div class="game-stats" id="stats">
+        <span id="stat-moves">Moves: 0</span>
+        <span class="game-stats__sep">&middot;</span>
+        <span id="stat-matches">Matches: 0/8</span>
+        <span class="game-stats__sep">&middot;</span>
+        <span id="stat-timer">Time: 0:00</span>
+      </div>
+      <div id="message" style="margin-top:12px;font-weight:600;color:var(--teal);min-height:24px;"></div>
+    </div>
+  </section>
 
-  function cardClicked(cardEl) {
-    if(busy || cardEl.classList.contains('flipped')) return;
+  <!-- Final Reveal -->
+  <div id="final-reveal" class="game-final" style="display:none;">
+    <div class="game-final__inner">
+      <h2 class="game-final__title">All Gates Matched!</h2>
+      <p class="game-final__score" id="final-score"></p>
+      <div class="game-final__grid" id="final-grid"></div>
+      <button class="btn btn--primary" id="play-again" style="margin-top:var(--sp-4);">Play Again</button>
+    </div>
+  </div>
 
-    cardEl.classList.add('flipped');
-    flippedCards.push(cardEl);
+  <!-- Footer -->
+  <footer class="site-footer">
 
-    if(flippedCards.length === 2) {
-      movesCount++;
-      stats.textContent = `Moves: ${movesCount} | Matches: ${matchedCount}`;
+    <div class="site-footer__inner">
+      <div>
+        <h3>Business Bulletin</h3>
+        <p>Subscribe for the latest news and insights in quantum technology.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf2DGh_kwiIJnqhE2Smi9CUsIFgHs0iYI_qRKCbTgtP7u5Yjw/viewform?usp=sharing" class="site-footer__cta">Subscribe &rarr;</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p><a href="mailto:qrivara.tech@gmail.com">qrivara.tech@gmail.com</a></p>
+        <div class="site-footer__social">
+          <a href="https://www.linkedin.com/company/qrivara/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <span class="site-footer__sep">&middot;</span>
+          <a href="https://youtube.com/@qrivara?si=Co2I4QyPCXbuv_1P" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">&copy; 2026 Qrivara. All rights reserved.</div>
+  </footer>
 
-      const [first, second] = flippedCards;
-      if(first.dataset.symbol === second.dataset.symbol) {
-        matchedCount++;
-        stats.textContent = `Moves: ${movesCount} | Matches: ${matchedCount}`;
-        sparkleEffect(first);
-        sparkleEffect(second);
-        if(matchedCount === cardsData.length) {
-          showFinalReveal();
-        }
-        flippedCards = [];
-      } else {
-        busy = true;
-        setTimeout(() => {
-          flippedCards.forEach(c => c.classList.remove('flipped'));
+  <!-- Scripts -->
+  <script>
+    // Hamburger toggle
+    document.getElementById('hamburger').addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.getElementById('siteNav').classList.toggle('open');
+    });
+
+    // Game logic
+    const allGates = [
+      {id: 'pauli-x',  symbol: '\u03C3\u2093',   name: 'Pauli-X',    info: 'Bit-flip gate \u2014 rotates qubit \u03C0 around X-axis'},
+      {id: 'pauli-y',  symbol: '\u03C3\u1D67',    name: 'Pauli-Y',    info: 'Bit + phase flip \u2014 rotates qubit \u03C0 around Y-axis'},
+      {id: 'pauli-z',  symbol: '\u1E90',           name: 'Pauli-Z',    info: 'Phase-flip gate \u2014 maps |\u03C8\u27E9 \u2192 \u2212|\u03C8\u27E9'},
+      {id: 'hadamard', symbol: '\u0124',           name: 'Hadamard',   info: 'Creates equal superposition: |0\u27E9 \u2192 (|0\u27E9+|1\u27E9)/\u221A2'},
+      {id: 'cnot',     symbol: '\u2295',           name: 'CNOT',       info: 'Controlled-NOT \u2014 entangles two qubits'},
+      {id: 't-gate',   symbol: 'e\u2071\u03C0\u2044\u2074', name: 'T Gate', info: '\u03C0/4 phase shift \u2014 enables universal computation'},
+      {id: 's-gate',   symbol: '\u221AZ',           name: 'S Gate',     info: '\u03C0/2 phase shift \u2014 square root of Z'},
+      {id: 'identity', symbol: '\uD835\uDD40',     name: 'Identity',   info: 'Leaves quantum state |\u03C8\u27E9 unchanged'},
+      {id: 'swap',     symbol: '\u21C4',           name: 'SWAP',       info: 'Exchanges the states of two qubits'},
+      {id: 'toffoli',  symbol: '\u22C0\u2295',     name: 'Toffoli',    info: 'Controlled-controlled-NOT \u2014 universal classical gate'}
+    ];
+
+    // Card front symbols (randomized per card)
+    const frontSymbols = ['\u03C8', '\u03C6', '\u27E8\u03C8|', '|\u03C6\u27E9', '\u2297', '\u210F', '\u2211', '\u222B', '\u221E', '\u2207'];
+
+    const board = document.getElementById('game-board');
+    const statMoves = document.getElementById('stat-moves');
+    const statMatches = document.getElementById('stat-matches');
+    const statTimer = document.getElementById('stat-timer');
+    const message = document.getElementById('message');
+    const finalReveal = document.getElementById('final-reveal');
+    const finalScore = document.getElementById('final-score');
+    const finalGrid = document.getElementById('final-grid');
+
+    let flippedCards = [];
+    let matchedCount = 0;
+    let movesCount = 0;
+    let busy = false;
+    let timerInterval = null;
+    let seconds = 0;
+    let totalPairs = 6;
+    let activeGates = [];
+
+    // Fisher-Yates shuffle
+    function shuffle(arr) {
+      for (var i = arr.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+      }
+      return arr;
+    }
+
+    // Difficulty buttons
+    document.getElementById('difficulty-select').addEventListener('click', function(e) {
+      var btn = e.target.closest('.game-diff-btn');
+      if (!btn) return;
+      document.querySelectorAll('.game-diff-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      totalPairs = parseInt(btn.dataset.pairs, 10);
+      startGame();
+    });
+
+    // Play again
+    document.getElementById('play-again').addEventListener('click', function() {
+      finalReveal.style.display = 'none';
+      startGame();
+    });
+
+    function startGame() {
+      // Reset state
+      clearInterval(timerInterval);
+      seconds = 0;
+      movesCount = 0;
+      matchedCount = 0;
+      flippedCards = [];
+      busy = false;
+      board.innerHTML = '';
+      board.style.display = '';
+      document.getElementById('stats').style.display = '';
+      message.style.display = '';
+      message.textContent = '';
+      finalReveal.style.display = 'none';
+      updateStats();
+
+      // Select gates for this round
+      var gatesCopy = allGates.slice();
+      shuffle(gatesCopy);
+      activeGates = gatesCopy.slice(0, totalPairs);
+
+      // Set grid columns based on pair count
+      var cols = totalPairs <= 6 ? 4 : totalPairs <= 8 ? 4 : 5;
+      board.style.gridTemplateColumns = 'repeat(' + cols + ', 90px)';
+
+      // Create card pairs and shuffle
+      var deck = [];
+      activeGates.forEach(function(gate) { deck.push(gate, gate); });
+      shuffle(deck);
+
+      // Render cards
+      var shuffledFronts = shuffle(frontSymbols.slice());
+      deck.forEach(function(card, idx) {
+        var cardEl = document.createElement('div');
+        cardEl.classList.add('game-card');
+        cardEl.dataset.id = card.id;
+        cardEl.setAttribute('role', 'button');
+        cardEl.setAttribute('tabindex', '0');
+        cardEl.setAttribute('aria-label', 'Card: ' + card.name);
+        var frontSym = shuffledFronts[idx % shuffledFronts.length];
+        cardEl.innerHTML =
+          '<div class="card-inner">' +
+            '<div class="card-front"><span class="card-front__symbol">' + frontSym + '</span></div>' +
+            '<div class="card-back" title="' + card.info + '">' +
+              '<span class="card-back__symbol">' + card.symbol + '</span>' +
+              '<span class="card-back__name">' + card.name + '</span>' +
+            '</div>' +
+          '</div>';
+        cardEl.addEventListener('click', function() { cardClicked(cardEl); });
+        cardEl.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); cardClicked(cardEl); } });
+        board.appendChild(cardEl);
+      });
+
+      // Start timer on first click
+      timerInterval = null;
+    }
+
+    function startTimer() {
+      if (timerInterval) return;
+      timerInterval = setInterval(function() {
+        seconds++;
+        var m = Math.floor(seconds / 60);
+        var s = seconds % 60;
+        statTimer.textContent = 'Time: ' + m + ':' + (s < 10 ? '0' : '') + s;
+      }, 1000);
+    }
+
+    function updateStats() {
+      statMoves.textContent = 'Moves: ' + movesCount;
+      statMatches.textContent = 'Matches: ' + matchedCount + '/' + totalPairs;
+      var m = Math.floor(seconds / 60);
+      var s = seconds % 60;
+      statTimer.textContent = 'Time: ' + m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function cardClicked(cardEl) {
+      if (busy || cardEl.classList.contains('flipped') || cardEl.classList.contains('matched')) return;
+      startTimer();
+      cardEl.classList.add('flipped');
+      flippedCards.push(cardEl);
+
+      if (flippedCards.length === 2) {
+        movesCount++;
+        var first = flippedCards[0], second = flippedCards[1];
+        if (first.dataset.id === second.dataset.id) {
+          matchedCount++;
+          first.classList.add('matched');
+          second.classList.add('matched');
+          updateStats();
+          // Show info briefly
+          var gate = activeGates.find(function(g) { return g.id === first.dataset.id; });
+          if (gate) message.textContent = gate.symbol + ' ' + gate.name + ' \u2014 ' + gate.info;
           flippedCards = [];
-          busy = false;
-        }, 1000);
+          if (matchedCount === totalPairs) {
+            clearInterval(timerInterval);
+            setTimeout(showFinalReveal, 800);
+          }
+        } else {
+          updateStats();
+          busy = true;
+          first.classList.add('shake');
+          second.classList.add('shake');
+          setTimeout(function() {
+            first.classList.remove('flipped', 'shake');
+            second.classList.remove('flipped', 'shake');
+            flippedCards = [];
+            busy = false;
+          }, 900);
+        }
       }
     }
-  }
 
-  function sparkleEffect(cardEl) {
-    const sparkle = document.createElement('div');
-    sparkle.classList.add('sparkle');
-    cardEl.appendChild(sparkle);
-    setTimeout(() => sparkle.remove(), 1500);
-  }
+    function showFinalReveal() {
+      board.style.display = 'none';
+      document.getElementById('stats').style.display = 'none';
+      message.style.display = 'none';
 
-  function showFinalReveal() {
-    board.style.display = 'none';
-    stats.style.display = 'none';
-    message.style.display = 'none';
-    finalReveal.style.display = 'block';
-    addWaterDrops(finalReveal);
-  }
+      var m = Math.floor(seconds / 60);
+      var s = seconds % 60;
+      var timeStr = m + ':' + (s < 10 ? '0' : '') + s;
+      var stars = movesCount <= totalPairs * 1.5 ? '\u2605\u2605\u2605' : movesCount <= totalPairs * 2.5 ? '\u2605\u2605\u2606' : '\u2605\u2606\u2606';
+      finalScore.innerHTML = stars + '<br>Completed in <strong>' + movesCount + '</strong> moves &middot; <strong>' + timeStr + '</strong>';
 
-  function addWaterDrops(container) {
-    for(let i=0; i<40; i++) {
-      const drop = document.createElement('div');
-      drop.classList.add('water-drop');
-      drop.style.left = Math.random() * (container.offsetWidth - 8) + 'px';
-      drop.style.top = Math.random() * (container.offsetHeight - 8) + 'px';
-      drop.style.animationDelay = (Math.random() * 4) + 's';
-      container.appendChild(drop);
+      // Build final grid
+      finalGrid.innerHTML = '';
+      activeGates.forEach(function(gate) {
+        var item = document.createElement('div');
+        item.className = 'game-final__item';
+        item.innerHTML =
+          '<span class="game-final__symbol">' + gate.symbol + '</span>' +
+          '<strong>' + gate.name + '</strong>' +
+          '<span class="game-final__info">' + gate.info + '</span>';
+        finalGrid.appendChild(item);
+      });
+
+      finalReveal.style.display = 'block';
     }
-  }
-</script>
 
+    // Initial game
+    startGame();
+  </script>
+
+<script src="simplex-noise.js"></script>
+<script src="quantum-bg.js"></script>
+<script>
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal, .stagger-children').forEach(function(el) { observer.observe(el); });
+  var header = document.querySelector('.site-header');
+  window.addEventListener('scroll', function() { header.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+})();
+</script>
 </body>
 </html>
