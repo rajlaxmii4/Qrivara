@@ -3,98 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Qrivara - News</title>
+  <title>Q — News</title>
+  <meta name="description" content="Latest news, announcements, events, and publications from Qrivara's quantum research team.">
+  <meta property="og:title" content="News — Qrivara">
+  <meta property="og:description" content="Stay up to date with Qrivara's latest quantum research news and announcements.">
+  <meta property="og:image" content="https://www.qrivara.tech/images/logo.png">
+  <meta property="og:url" content="https://www.qrivara.tech/news.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
- <header>
-  <nav style="display: flex; justify-content: center; gap: 8px; font-size: 15px; font-family: 'Times New Roman', Times, serif;">
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="resources.html">Resources</a>
-    <a href="news.html">News</a>
-    <a href="join.html">Join Us</a>
-  </nav>
-</header>
 
+  <!-- Header -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-header__logo">
+        <span class="site-header__q">Q</span>
+      </a>
+      <nav class="site-nav" id="siteNav">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="resources.html">Resources</a>
+        <a href="news.html" class="active">News</a>
+        <a href="team.html">Team</a>
+        <a href="join.html">Join Us</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
 
-  <section>
-   <a style font-size: 7 rem>Here we will post updates with announcements, events/talks, and new publications.</a> 
-    <p><a style font-size: 3 rem>Until then do you wanna try our </a> </p>
-  <a href="game.html" style="color: rgb(163, 168, 34); font-size: 1.0rem; text-decoration: none;">
-  Quantum Memory Game ? </a>
+  <!-- Hero -->
+  <section class="hero hero--dark">
+    <h1>News &amp; Updates</h1>
+    <p class="subtitle">Announcements, events, and publications</p>
   </section>
 
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <title>World Tour Globe D3 Canvas</title>
+  <!-- Timeline -->
+  <section class="reveal">
+    <h2 class="section-title">Upcoming</h2>
+    <p class="section-subtitle">Announcements, events, and publications from the team</p>
+    <div class="timeline-stub">
+      <div class="timeline-stub__item">
+        <span class="timeline-stub__dot"></span>
+        <p class="timeline-stub__date">June 2026</p>
+        <p><strong>Summer research program</strong> — Applications open for undergraduate and Master's students.</p>
+      </div>
+      <div class="timeline-stub__item">
+        <span class="timeline-stub__dot"></span>
+        <p class="timeline-stub__date">July 2026</p>
+        <p><strong>First publication announcement</strong> — Parametric amplification review paper.</p>
+      </div>
+      <div class="timeline-stub__item">
+        <span class="timeline-stub__dot"></span>
+        <p class="timeline-stub__date">TBA</p>
+        <p><strong>Community talks</strong> — Guest lectures and journal club sessions.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:var(--sp-4);">
+      <a href="game.html" class="btn btn--ghost">Play Quantum Memory Game</a>
+    </div>
+  </section>
+
+  <!-- Globe -->
+  <section class="text-center reveal">
+    <h2 class="section-title">Around the World</h2>
+    <div id="tour-label" style="font-size:1.1rem;color:var(--teal);font-weight:600;margin-bottom:16px;">Loading...</div>
+    <canvas id="globe" style="background:transparent;display:block;margin:0 auto;max-width:380px;width:80vw;opacity:0.75;" width="700" height="700"></canvas>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+
+    <div class="site-footer__inner">
+      <div>
+        <h3>Business Bulletin</h3>
+        <p>Subscribe for the latest news and insights in quantum technology.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf2DGh_kwiIJnqhE2Smi9CUsIFgHs0iYI_qRKCbTgtP7u5Yjw/viewform?usp=sharing" class="site-footer__cta">Subscribe &rarr;</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p><a href="mailto:qrivara.tech@gmail.com">qrivara.tech@gmail.com</a></p>
+        <div class="site-footer__social">
+          <a href="https://www.linkedin.com/company/qrivara/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <span class="site-footer__sep">&middot;</span>
+          <a href="https://youtube.com/@qrivara?si=Co2I4QyPCXbuv_1P" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">&copy; 2026 Qrivara. All rights reserved.</div>
+  </footer>
+
+  <!-- Scripts -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://unpkg.com/topojson-client@3"></script>
   <script>
-    // Versor library for smooth globe rotation
-    // Source: https://github.com/d3/d3-geo-polygon/blob/main/src/versor.js
+    // Hamburger toggle
+    document.getElementById('hamburger').addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.getElementById('siteNav').classList.toggle('open');
+    });
+
+    // Versor for smooth globe rotation
     var Versor = {
-      rotate: function([l, p, g]) {
-        l *= Math.PI / 180, p *= Math.PI / 180, g *= Math.PI / 180;
-        var c1 = Math.cos(l), s1 = Math.sin(l),
-            c2 = Math.cos(p), s2 = Math.sin(p),
-            c3 = Math.cos(g), s3 = Math.sin(g);
-        return [
-          c1 * c3 - s1 * s2 * s3,
-          s1 * c3 + c1 * s2 * s3,
-          c2 * s3
-        ];
-      },
       interpolateAngles: function(a, b) {
-        return t => {
-          return [(1 - t) * a[0] + t * b[0],
-                  (1 - t) * a[1] + t * b[1],
-                  (1 - t) * a[2] + t * b[2]];
-        };
+        return t => [(1-t)*a[0]+t*b[0], (1-t)*a[1]+t*b[1], (1-t)*a[2]+t*b[2]];
       }
     };
-  </script>
-  <style>
-    body {
-      background: #fff;
-      color: #171616;
-      text-align: center;
-      font-family: 'Times New Roman', serif;
-    }
-    h2 {
-      color: #ca34a7;
-      margin-bottom: 1rem;
-    }
-    canvas {
-      background: #fff;
-      border-radius: 1rem;
-      display: block;
-      margin: 40px auto;
-      max-width: 400px;
-      width: 90vw;
-    }
-    #tour-label {
-      font-size: 1.2rem;
-      margin: 1rem;
-      color: #681471;
-      font-weight: 600;
-    }
-  </style>
-</head>
-<body>
-  <h2></h2>
-  <div id="tour-label">Loading...</div>
-  <canvas id="globe"></canvas>
-  <script>
-    const width = 700, height = 700;
-    const tilt = 20;
-    const tourSpeed = 1500; // ms per country
 
-    // Fetch world topojson
+    // Globe
+    const width = 700, height = 700, tilt = 20, tourSpeed = 1500;
+
     fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json")
-      .then(response => response.json())
+      .then(r => r.json())
       .then(world => {
         const countries = topojson.feature(world, world.objects.countries).features;
         const land = topojson.feature(world, world.objects.land);
@@ -108,9 +133,8 @@
           .fitExtent([[10, 10], [width - 10, height - 10]], {type: "Sphere"});
         const path = d3.geoPath(projection, context);
 
-        let p1 = [0, 0], p2 = [0, 0], r1 = [0, 0, 0], r2 = [0, 0, 0];
+        let p1 = [0,0], p2 = [0,0], r1 = [0,0,0], r2 = [0,0,0], i = 0;
 
-        let i = 0;
         function advanceTour() {
           if (i >= countries.length) i = 0;
           const country = countries[i];
@@ -122,23 +146,15 @@
 
           const steps = 30;
           let step = 0;
-
           function animateStep() {
             const t = step / steps;
             projection.rotate(iv(t));
-            renderCountry(country, {
-              type: "LineString",
-              coordinates: [p1, ip(t)]
-            });
+            renderCountry(country, { type: "LineString", coordinates: [p1, ip(t)] });
             step++;
-            if (step <= steps) {
-              requestAnimationFrame(animateStep);
-            } else {
-              document.getElementById("tour-label").textContent = " " + (country.properties.name || "Unknown");
-              setTimeout(() => {
-                i++;
-                advanceTour();
-              }, tourSpeed);
+            if (step <= steps) requestAnimationFrame(animateStep);
+            else {
+              document.getElementById("tour-label").textContent = country.properties.name || "Unknown";
+              setTimeout(() => { i++; advanceTour(); }, tourSpeed);
             }
           }
           animateStep();
@@ -146,73 +162,35 @@
 
         function renderCountry(country, arc) {
           context.clearRect(0, 0, width, height);
-
+          // Ocean
+          context.beginPath(); path({type:"Sphere"}); context.fillStyle = "#fff"; context.fill();
+          // Land
           context.beginPath(); path(land); context.fillStyle = "#90EE90"; context.fill();
+          // Highlighted country
           context.beginPath(); path(country); context.fillStyle = "#ff9900"; context.fill();
-          context.beginPath(); path(borders); context.strokeStyle = "#222"; context.lineWidth = 0.6; context.stroke();
-          context.beginPath(); path({type: "Sphere"}); context.strokeStyle = "#000"; context.lineWidth = 1.5; context.stroke();
-
-          // Arc showing transition (optional, comment out if undesired)
-          if (arc) {
-            context.beginPath(); path(arc); context.strokeStyle = "#121212"; context.lineWidth = 2.5; context.stroke();
-          }
+          // Borders
+          context.beginPath(); path(borders); context.strokeStyle = "#222"; context.lineWidth = 0.5; context.stroke();
+          // Sphere outline
+          context.beginPath(); path({type:"Sphere"}); context.strokeStyle = "#000"; context.lineWidth = 1.5; context.stroke();
+          // Arc
+          if (arc) { context.beginPath(); path(arc); context.strokeStyle = "#121212"; context.lineWidth = 2; context.stroke(); }
         }
 
         advanceTour();
       });
   </script>
-</body>
-</html>
 
-
-
-  <footer style="background-color: #d1f4f3; color: #eee; font-family: 'Times New Roman', serif; padding: 2rem 1rem;">
-  <div style="max-width: 1100px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
-
-  <!-- Newsletter Invitation -->
-    <div style="flex: 1 1 250px; margin: 1rem 0;">
-      <h3 style="color: #ed5711; margin-bottom: 1rem; font-weight: 100;">Business Bulletin</h3>
-      <p style="color: #000;">Would you like to subscribe to our bulletin for the latest news and insights in quantum technology?  
-        We send bulletins every 4 months. </p>  
- <a href="https://docs.google.com/forms/d/e/1FAIpQLSf2DGh_kwiIJnqhE2Smi9CUsIFgHs0iYI_qRKCbTgtP7u5Yjw/viewform?usp=sharing&ouid=114500707033035112901" style="color: #000; text-decoration: none;">
-  Please fill this <span style="color: #47caf2;">form</span> to stay connected.
-</a>
-
-    </div>
-
-    <!-- Quicklinks -->
-    <div style="flex: 1 1 250px; margin: 1rem 0;">
-      <h3 style="color: #ed5711; margin-bottom: 1rem; font-weight: 100;">Quicklinks</h3>
-      <ul style="list-style-type: none; padding: 0; line-height: 1.8;">
-        <li><a href="news.html" style="color: #000; text-decoration: none;">News</a></li>
-           <li><a href="join.html" style="color: #000; text-decoration: none;">Join Us</a></li>
-           <li><a href="resources.html" style="color: #000; text-decoration: none;">Resources</a></li>
-           <li><a href="research.html" style="color: #000; text-decoration: none;">Research</a></li>
-        <li><a href="index.html" style="color: #000; text-decoration: none;">Home</a></li>
-  
-      </ul>
-    </div>
-
-    
-     <!-- Contact and Follow -->
-    <div style="flex: 1 1 250px; margin: 1rem 0;">
-      <h3 style="color: #ed5711; margin-bottom: 1rem; font-weight: 100;">Contact Us</h3>
-      <p><a href="mailto:quantum112358@gmail.com" style="color: #000; text-decoration: none;">qrivara.tech@gmail.com</a></p>
-      
-      <h3 style="color: #ed5711; margin-top: 1.5rem; margin-bottom: 0.5rem; font-weight: 100;">Follow Us</h3>
-      <p>
-        <a href="https://www.linkedin.com/company/qrivara/ " target="_blank" style="color: #000; text-decoration: none; margin-right: 1.5rem;"> 
-          LinkedIn
-        </a>
-        <a href="https://youtube.com/@qrivara?si=Co2I4QyPCXbuv_1P" target="_blank" style="color: #000; text-decoration: none;">
-          YouTube
-        </a>
-      </p>
-    </div>
-
-  </div>
-</footer>
-
- 
+<script src="simplex-noise.js"></script>
+<script src="quantum-bg.js"></script>
+<script>
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal, .stagger-children').forEach(function(el) { observer.observe(el); });
+  var header = document.querySelector('.site-header');
+  window.addEventListener('scroll', function() { header.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+})();
+</script>
 </body>
 </html>
