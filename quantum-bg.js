@@ -255,49 +255,55 @@
 
     var isMobile = W < 768;
 
-    // ── MOBILE: Subtle full-width PCB traces ──
+    // ── MOBILE: ICs and components along borders ──
     if (isMobile) {
-      var mobileAlpha = 0.14;
-      var mCopper = 'rgba(184,115,51,' + mobileAlpha + ')';
-      var mTeal   = 'rgba(234,88,12,' + (mobileAlpha * 0.7) + ')';
+      var mTeal = 'rgba(234,88,12,0.10)';
 
-      // Horizontal traces across full width
-      var traceCount = Math.floor(H / 140);
-      for (var mt = 0; mt < traceCount; mt++) {
-        var ty = 80 + mt * 140 + (mt % 2 === 0 ? 20 : -10);
-        line(0, ty, W, ty, mCopper, 1);
-      }
+      // Left border: vertical bus + ICs
+      var lEdge = 18;
+      line(lEdge, 0, lEdge, H, COPPER, 1.2);
+      drawIC(lEdge, H * 0.18, 34, 24, 3, 'DAC');
+      drawIC(lEdge, H * 0.48, 34, 24, 3, 'CLK');
+      drawIC(lEdge, H * 0.78, 34, 24, 3, 'MEM');
+      drawSMD(lEdge, H * 0.33, true);
+      drawSMD(lEdge, H * 0.63, true);
+      drawCap(lEdge, H * 0.18 + 20);
+      drawCap(lEdge, H * 0.48 + 20);
+      via(lEdge, H * 0.1, 3);
+      via(lEdge, H * 0.38, 3);
+      via(lEdge, H * 0.58, 3);
+      via(lEdge, H * 0.88, 3);
 
-      // Scattered vias along edges
-      var viaSpacing = Math.max(90, H / 8);
-      for (var mv = viaSpacing; mv < H; mv += viaSpacing) {
-        via(12 + (mv % 3) * 8, mv, 3);
-        via(W - 12 - (mv % 2) * 8, mv + 30, 3);
-      }
+      // Right border: vertical bus + ICs
+      var rEdge = W - 18;
+      line(rEdge, 0, rEdge, H, COPPER, 1.2);
+      drawIC(rEdge, H * 0.25, 34, 24, 3, 'ADC');
+      drawIC(rEdge, H * 0.55, 34, 24, 3, 'MUX');
+      drawIC(rEdge, H * 0.85, 34, 24, 3, 'QPU');
+      drawSMD(rEdge, H * 0.4, true);
+      drawSMD(rEdge, H * 0.7, true);
+      drawCap(rEdge, H * 0.25 + 20);
+      drawCap(rEdge, H * 0.55 + 20);
+      via(rEdge, H * 0.15, 3);
+      via(rEdge, H * 0.45, 3);
+      via(rEdge, H * 0.65, 3);
+      via(rEdge, H * 0.92, 3);
 
-      // A few SMD components near edges
-      drawSMD(20, H * 0.25, true);
-      drawSMD(W - 20, H * 0.45, true);
-      drawSMD(25, H * 0.7, false);
-      drawSMD(W - 25, H * 0.85, false);
-
-      // Corner L-bend traces
-      // Top-left
-      line(0, 60, 40, 60, mTeal, 0.8);
-      line(40, 60, 40, 100, mTeal, 0.8);
-      via(40, 100, 2.5);
-      // Top-right
-      line(W, 70, W - 35, 70, mTeal, 0.8);
-      line(W - 35, 70, W - 35, 105, mTeal, 0.8);
-      via(W - 35, 105, 2.5);
-      // Bottom-left
-      line(0, H - 80, 30, H - 80, mTeal, 0.8);
-      line(30, H - 80, 30, H - 110, mTeal, 0.8);
-      via(30, H - 110, 2.5);
-      // Bottom-right
-      line(W, H - 90, W - 40, H - 90, mTeal, 0.8);
-      line(W - 40, H - 90, W - 40, H - 120, mTeal, 0.8);
-      via(W - 40, H - 120, 2.5);
+      // Short L-bend traces from ICs toward content (not full-width)
+      // Left side
+      line(lEdge + 17, H * 0.18, lEdge + 35, H * 0.18, mTeal, 0.8);
+      line(lEdge + 35, H * 0.18, lEdge + 35, H * 0.18 + 20, mTeal, 0.8);
+      via(lEdge + 35, H * 0.18 + 20, 2.5);
+      line(lEdge + 17, H * 0.48, lEdge + 30, H * 0.48, mTeal, 0.8);
+      line(lEdge + 30, H * 0.48, lEdge + 30, H * 0.48 - 15, mTeal, 0.8);
+      via(lEdge + 30, H * 0.48 - 15, 2.5);
+      // Right side
+      line(rEdge - 17, H * 0.25, rEdge - 35, H * 0.25, mTeal, 0.8);
+      line(rEdge - 35, H * 0.25, rEdge - 35, H * 0.25 + 20, mTeal, 0.8);
+      via(rEdge - 35, H * 0.25 + 20, 2.5);
+      line(rEdge - 17, H * 0.55, rEdge - 30, H * 0.55, mTeal, 0.8);
+      line(rEdge - 30, H * 0.55, rEdge - 30, H * 0.55 - 15, mTeal, 0.8);
+      via(rEdge - 30, H * 0.55 - 15, 2.5);
     }
 
     // ── LEFT GUTTER: Vertical bus + ICs ──
