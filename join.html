@@ -3,136 +3,213 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Qrivara - Join Us</title>
-    <link rel="stylesheet" href="style.css">
+  <title>Q — Join Us</title>
+  <meta name="description" content="Join Qrivara's research team — open positions in quantum circuit design, simulation, error correction, and web development.">
+  <meta property="og:title" content="Join Us — Qrivara">
+  <meta property="og:description" content="Join Qrivara's quantum research team. Open positions for students and researchers.">
+  <meta property="og:image" content="https://www.qrivara.tech/images/logo.png">
+  <meta property="og:url" content="https://www.qrivara.tech/join.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <header>
-  <nav style="display: flex; justify-content: center; gap: 8px; font-size: 15px; font-family: 'Times New Roman', Times, serif;">
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="resources.html">Resources</a>
-    <a href="news.html">News</a>
-    <a href="join.html">Join Us</a>
-  </nav>
-</header>
-<style>
-  h2{ text-align: center;
- font-family: 'Times New Roman', Times, serif;
- font-size: large;}
-</style>
 
+  <!-- Header -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-header__logo">
+        <span class="site-header__q">Q</span>
+      </a>
+      <nav class="site-nav" id="siteNav">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="resources.html">Resources</a>
+        <a href="news.html">News</a>
+        <a href="team.html">Team</a>
+        <a href="join.html" class="active">Join Us</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
 
-<section id="join-us" class="container my-5" style="font-family: 'Times New Roman', Times, serif; color: black; margin-bottom: 15px; margin-top: 15px; font-weight: 400;">
-  <h2 class="section-title text-center mb-4">Join Qrivara</h2>
+  <!-- Hero -->
+  <section class="hero hero--dark">
+    <h1>Join Qrivara</h1>
+    <p class="subtitle">Be part of the quantum future</p>
+  </section>
 
-  
-<p class="text-center mb-5" style="color: #000;">
-  We are inviting passionate undergraduate, Master’s, and PhD students in Physics or Electrical Engineering to join our community. Our aim is to improvise learning and development in quantum technology and make it accessible to everyone. Please send us your CV and a short statement describing what research team you want to join and why (Simulation/Circuit Design/Error Correction/Web development). First round of applications to join Qrivara ended on 31st December 2025. 
-</p>
-<p style="color: #000;"><strong>Application Period : 1 June 2026 - 31st July 2026</strong></p>
+  <!-- Intro -->
+  <section class="reveal">
+    <div class="research-content text-center">
+      <p>We are inviting passionate <strong>undergraduate, Master's, and PhD students</strong> in Physics or Electrical Engineering to join our community. Our aim is to improve learning and development in <strong>quantum technology</strong> and make it accessible to everyone.</p>
 
-  
-
-    <div class="row g-4">
-    <!-- Quantum Circuit Design Intern -->
-    <div class="col-md-4">
-      <div class="vacancy-card h-100">
-        <h5 class="vacancy-title">Quantum Circuit Design</h5>
-        <p class="vacancy-desc">
-          Assist in designing superconducting and hybrid quantum circuits, simulate circuit layouts, optimize design and collaborate with simulation team.
-        </p>
-        <p class="vacancy-salary"><strong></strong> </p>
-        <a href="mailto:qrivara.tech@gmail.com" class="btn btn-apply">Apply Now</a>
+      <div class="highlight-box" style="margin-top:32px;text-align:center;">
+        <strong>Application Period: 1 June 2026 — 31 July 2026</strong>
       </div>
     </div>
+  </section>
 
-    <!-- Quantum Simulation Intern -->
-    <div class="col-md-4">
-      <div class="vacancy-card h-100">
-        <h5 class="vacancy-title">Quantum Simulation</h5>
-        <p class="vacancy-desc">
-          Work on numerical simulations of quantum circuits, develop algorithms for modeling qubits,  and support our circuit design team.
-        </p>
-        <p class="vacancy-salary"><strong></strong></p>
-        <a href="mailto:qrivara.tech@gmail.com" class="btn btn-apply">Apply Now</a>
+  <!-- How to Apply -->
+  <section class="reveal">
+    <h2 class="section-title">How to Apply</h2>
+    <div class="steps-row stagger-children">
+      <div class="step-item">
+        <div class="step-number">1</div>
+        <h4>Choose a Team</h4>
+        <p>Pick from Simulation, Circuit Design, Error Correction, or Web Development.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-number">2</div>
+        <h4>Prepare Your Application</h4>
+        <p>Write a short statement describing your interest and relevant experience.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-number">3</div>
+        <h4>Send Us Your CV</h4>
+        <p>Email your CV and statement to <a href="mailto:qrivara.tech@gmail.com">qrivara.tech@gmail.com</a>.</p>
       </div>
     </div>
+  </section>
 
-    <!-- Quantum Error Correction Intern -->
-    <div class="col-md-4">
-      <div class="vacancy-card h-100">
-        <h5 class="vacancy-title">Quantum Error Correction</h5>
-        <p class="vacancy-desc">
+  <!-- Vacancy Cards -->
+  <section class="reveal">
+    <h2 class="section-title">Open Positions</h2>
+    <div class="grid grid--2 stagger-children">
+      <div class="vacancy-card vacancy-card--numbered">
+        <span class="vacancy-card__number">01</span>
+        <h3 class="vacancy-card__title">Quantum Circuit Design</h3>
+        <p class="vacancy-card__desc">
+          Assist in designing superconducting and hybrid quantum circuits, simulate circuit layouts, optimize design, and collaborate with the simulation team.
+        </p>
+        <a href="mailto:qrivara.tech@gmail.com" class="btn btn--primary">Apply Now</a>
+      </div>
+
+      <div class="vacancy-card vacancy-card--numbered">
+        <span class="vacancy-card__number">02</span>
+        <h3 class="vacancy-card__title">Quantum Simulation</h3>
+        <p class="vacancy-card__desc">
+          Work on numerical simulations of quantum circuits, develop algorithms for modeling qubits, and support our circuit design team.
+        </p>
+        <a href="mailto:qrivara.tech@gmail.com" class="btn btn--primary">Apply Now</a>
+      </div>
+
+      <div class="vacancy-card vacancy-card--numbered">
+        <span class="vacancy-card__number">03</span>
+        <h3 class="vacancy-card__title">Quantum Error Correction</h3>
+        <p class="vacancy-card__desc">
           Develop and test quantum error correction protocols, simulate error mitigation strategies, and contribute to fault-tolerant quantum computing projects.
         </p>
-        <p class="vacancy-salary"><strong></strong> </p>
-        <a href="mailto:qrivara.tech@gmail.com" class="btn btn-apply">Apply Now</a>
+        <a href="mailto:qrivara.tech@gmail.com" class="btn btn--primary">Apply Now</a>
       </div>
-    </div>
-  </div>
 
-   <div class="row g-4">
-    <!-- Quantum Circuit Design Intern -->
-    <div class="col-md-4">
-      <div class="vacancy-card h-100">
-        <h5 class="vacancy-title">Web Development</h5>
-        <p class="vacancy-desc">
-          Update and build new components for our Qrivara web page.
+      <div class="vacancy-card vacancy-card--numbered">
+        <span class="vacancy-card__number">04</span>
+        <h3 class="vacancy-card__title">Web Development</h3>
+        <p class="vacancy-card__desc">
+          Update and build new components for the Qrivara website, create interactive visualizations, and improve user experience.
         </p>
-        <p class="vacancy-salary"><strong></strong> </p>
-        <a href="mailto:qrivara.tech@gmail.com" class="btn btn-apply">Apply Now</a>
+        <a href="mailto:qrivara.tech@gmail.com" class="btn btn--primary">Apply Now</a>
       </div>
     </div>
-</section>
+  </section>
 
-  
-
-  <footer style="background-color: #d1f4f3; color: #eee; font-family: 'Times New Roman', serif; padding: 2rem 1rem;">
-  <div style="max-width: 1100px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
-
-  <!-- Newsletter Invitation -->
-    <div style="flex: 1 1 250px; margin: 1rem 0;">
-      <h3 style="color: #ed5711; margin-bottom: 1rem; font-weight: 100;">Business Bulletin</h3>
-      <p style="color: #000;">Would you like to subscribe to our bulletin for the latest news and insights in quantum technology?  
-        We send bulletins every 4 months. </p>  
- <a href="https://docs.google.com/forms/d/e/1FAIpQLSf2DGh_kwiIJnqhE2Smi9CUsIFgHs0iYI_qRKCbTgtP7u5Yjw/viewform?usp=sharing&ouid=114500707033035112901" style="color: #000; text-decoration: none;">
-  Please fill this <span style="color: #47caf2;">form</span> to stay connected.
-</a>
-
+  <!-- CTA Banner -->
+  <section class="reveal">
+    <div class="cta-banner">
+      <h3>Ready to join the quantum future?</h3>
+      <p>Send your CV and research interest to our team.</p>
+      <a href="mailto:qrivara.tech@gmail.com" class="btn btn--primary">Email Us</a>
     </div>
+  </section>
 
-  <!-- Quicklinks -->
-    <div style="flex: 1 1 250px; margin: 1rem 0;">
-      <h3 style="color: #ed5711; margin-bottom: 1rem; font-weight: 100;">Quicklinks</h3>
-      <ul style="list-style-type: none; padding: 0; line-height: 1.8;">
-        <li><a href="news.html" style="color: #000; text-decoration: none;">News</a></li>
-           <li><a href="join.html" style="color: #000; text-decoration: none;">Join Us</a></li>
-           <li><a href="resources.html" style="color: #000; text-decoration: none;">Resources</a></li>
-           <li><a href="research.html" style="color: #000; text-decoration: none;">Research</a></li>
-        <li><a href="index.html" style="color: #000; text-decoration: none;">Home</a></li>
-  
-      </ul>
+  <!-- Footer -->
+  <footer class="site-footer">
+
+    <div class="site-footer__inner">
+      <div>
+        <h3>Business Bulletin</h3>
+        <p>Subscribe for the latest news and insights in quantum technology.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf2DGh_kwiIJnqhE2Smi9CUsIFgHs0iYI_qRKCbTgtP7u5Yjw/viewform?usp=sharing" class="site-footer__cta">Subscribe &rarr;</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p><a href="mailto:qrivara.tech@gmail.com">qrivara.tech@gmail.com</a></p>
+        <div class="site-footer__social">
+          <a href="https://www.linkedin.com/company/qrivara/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <span class="site-footer__sep">&middot;</span>
+          <a href="https://youtube.com/@qrivara?si=Co2I4QyPCXbuv_1P" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+      </div>
     </div>
-    
-     <!-- Contact and Follow -->
-    <div style="flex: 1 1 250px; margin: 1rem 0;">
-      <h3 style="color: #ed5711; margin-bottom: 1rem; font-weight: 100;">Contact Us</h3>
-      <p><a href="mailto:quantum112358@gmail.com" style="color: #000; text-decoration: none;">qrivara.tech@gmail.com</a></p>
-      
-      <h3 style="color: #ed5711; margin-top: 1.5rem; margin-bottom: 0.5rem; font-weight: 100;">Follow Us</h3>
-      <p>
-         <a href="https://www.linkedin.com/company/qrivara/ " target="_blank" style="color: #000; text-decoration: none; margin-right: 1.5rem;"> 
-          LinkedIn
-        </a>
-        <a href="https://youtube.com/@qrivara?si=Co2I4QyPCXbuv_1P" target="_blank" style="color: #000; text-decoration: none;">
-          YouTube
-        </a>
-      </p>
-    </div>
+    <div class="site-footer__bottom">&copy; 2026 Qrivara. All rights reserved.</div>
+  </footer>
 
-  </div>
-</footer>
+  <!-- Scripts -->
+  <script>
+    document.getElementById('hamburger').addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.getElementById('siteNav').classList.toggle('open');
+    });
+  </script>
 
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "JobPosting",
+      "title": "Quantum Circuit Design Intern",
+      "description": "Assist in designing superconducting and hybrid quantum circuits, simulate circuit layouts, optimize design, and collaborate with the simulation team.",
+      "hiringOrganization": { "@type": "Organization", "name": "Qrivara", "sameAs": "https://www.qrivara.tech" },
+      "jobLocationType": "TELECOMMUTE",
+      "employmentType": "INTERN"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "JobPosting",
+      "title": "Quantum Simulation Intern",
+      "description": "Work on numerical simulations of quantum circuits, develop algorithms for modeling qubits, and support our circuit design team.",
+      "hiringOrganization": { "@type": "Organization", "name": "Qrivara", "sameAs": "https://www.qrivara.tech" },
+      "jobLocationType": "TELECOMMUTE",
+      "employmentType": "INTERN"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "JobPosting",
+      "title": "Quantum Error Correction Intern",
+      "description": "Develop and test quantum error correction protocols, simulate error mitigation strategies, and contribute to fault-tolerant quantum computing projects.",
+      "hiringOrganization": { "@type": "Organization", "name": "Qrivara", "sameAs": "https://www.qrivara.tech" },
+      "jobLocationType": "TELECOMMUTE",
+      "employmentType": "INTERN"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "JobPosting",
+      "title": "Web Development Intern",
+      "description": "Update and build new components for the Qrivara website, create interactive visualizations, and improve user experience.",
+      "hiringOrganization": { "@type": "Organization", "name": "Qrivara", "sameAs": "https://www.qrivara.tech" },
+      "jobLocationType": "TELECOMMUTE",
+      "employmentType": "INTERN"
+    }
+  ]
+  </script>
+
+<script src="simplex-noise.js"></script>
+<script src="quantum-bg.js"></script>
+<script>
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal, .stagger-children').forEach(function(el) { observer.observe(el); });
+  var header = document.querySelector('.site-header');
+  window.addEventListener('scroll', function() { header.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+})();
+</script>
 </body>
 </html>
