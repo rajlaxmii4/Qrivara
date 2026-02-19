@@ -1967,13 +1967,13 @@ section {
   }
 
   body {
-    font-size: 15px;
-    line-height: 1.65;
+    font-size: 14.5px;
+    line-height: 1.55;
   }
 
   .section-title {
-    font-size: 1.6rem;
-    margin-bottom: var(--sp-3);
+    font-size: 1.5rem;
+    margin-bottom: var(--sp-2);
   }
 
   .tilt-card-container {
@@ -1988,17 +1988,17 @@ section {
 
   .tilt-card {
     max-width: 420px;
-    min-height: 140px;
-    padding: var(--sp-4) var(--sp-3);
+    min-height: 120px;
+    padding: var(--sp-3) var(--sp-3);
     border-radius: 16px;
   }
 
   .tilt-card h3 {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .tilt-card p {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
   }
 
   .research-panels {
@@ -2014,22 +2014,26 @@ section {
   }
 
   .research-panel__viz {
-    height: 140px;
+    height: 130px;
+  }
+
+  .research-panel__body {
+    padding: var(--sp-3);
   }
 
   .quantum-quote {
-    padding: var(--sp-4) var(--sp-2);
+    padding: var(--sp-3) var(--sp-4);
   }
 
   .quantum-quote__text {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    min-height: 130px;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    min-height: 120px;
     padding: 0 var(--sp-1);
   }
 
   .quantum-quote__bra {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     top: -4px;
   }
 
@@ -2038,11 +2042,11 @@ section {
   }
 
   .course-card__title {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
   .course-card__preview {
-    height: 150px;
+    height: 140px;
   }
 
   .team-grid {
@@ -2081,34 +2085,39 @@ section {
   }
 
   section {
-    padding: var(--sp-5) var(--sp-4);
+    padding: var(--sp-4) var(--sp-4);
   }
 
   .section-subtitle {
     margin-top: var(--sp-1);
-    margin-bottom: var(--sp-3);
-    font-size: 0.88rem;
-    line-height: 1.6;
+    margin-bottom: var(--sp-2);
+    font-size: 0.85rem;
+    line-height: 1.5;
     max-width: 90%;
   }
 
   .category-label {
     font-size: 0.7rem;
-    margin-bottom: var(--sp-2);
+    margin-bottom: var(--sp-1);
   }
 
   .publication-title {
-    font-size: 0.92rem;
-    line-height: 1.5;
+    font-size: 0.88rem;
+    line-height: 1.45;
   }
 
   .publication-authors {
-    font-size: 0.82rem;
-    line-height: 1.5;
+    font-size: 0.8rem;
+    line-height: 1.45;
   }
 
   .publication-info {
-    font-size: 0.78rem;
+    font-size: 0.75rem;
+  }
+
+  .publication-list li {
+    margin-bottom: var(--sp-2);
+    padding-bottom: var(--sp-2);
   }
 
   .course-card__actions {
@@ -2126,6 +2135,17 @@ section {
 
   .site-footer__inner {
     grid-template-columns: 1fr;
+    padding: var(--sp-4) var(--sp-4);
+    gap: var(--sp-4);
+  }
+
+  .site-footer h3 {
+    font-size: 0.95rem;
+  }
+
+  .site-footer p,
+  .site-footer li {
+    font-size: 0.82rem;
   }
 
   .game-board {
@@ -2138,20 +2158,62 @@ section {
     height: 100px;
   }
 
-  .about-text p {
-    font-size: 0.9rem;
-    line-height: 1.65;
+  .about-layout {
+    padding: var(--sp-4) var(--sp-4) var(--sp-6);
+    gap: var(--sp-4);
+  }
+
+  .about-text .animated-text {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: var(--sp-2);
+  }
+
+  .hero {
+    padding: var(--sp-4) var(--sp-4);
   }
 
   .hero__tagline {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .hero .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .founder-spotlight {
+    padding: var(--sp-3);
+    gap: var(--sp-4);
+  }
+
+  .founder-spotlight__avatar {
+    width: 100px;
+    height: 100px;
   }
 
   .founder-spotlight__name {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
   }
 
   .founder-spotlight__bio {
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  .timeline-stub {
+    padding-left: 24px;
+  }
+
+  .timeline-stub__item {
+    margin-bottom: var(--sp-3);
+  }
+
+  .timeline-stub__date {
+    font-size: 0.72rem;
+  }
+
+  .timeline-stub__item p {
     font-size: 0.85rem;
   }
 }
@@ -2159,38 +2221,42 @@ section {
 /* Small mobile */
 @media (max-width: 480px) {
   body {
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 13.5px;
+    line-height: 1.5;
   }
 
   .section-title {
-    font-size: 1.4rem;
-    margin-bottom: var(--sp-2);
+    font-size: 1.3rem;
+    margin-bottom: var(--sp-1);
   }
 
   .section-subtitle {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    margin-top: var(--sp-1);
+    margin-bottom: var(--sp-2);
+    max-width: 88%;
   }
 
   .hero h1 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .hero--home h1 {
-    font-size: 1.9rem;
+    font-size: 1.8rem;
   }
 
   .hero .subtitle {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   .hero__tagline {
-    font-size: 0.82rem;
-    margin-top: var(--sp-2);
+    font-size: 0.78rem;
+    margin-top: var(--sp-1);
+    line-height: 1.45;
   }
 
   .hero__image {
-    max-width: 200px;
+    max-width: 180px;
   }
 
   .grid--auto-fit {
@@ -2198,30 +2264,35 @@ section {
   }
 
   .tilt-card {
-    min-height: 110px;
-    padding: var(--sp-3) var(--sp-2);
+    min-height: 90px;
+    padding: var(--sp-2) var(--sp-2);
     border-radius: 14px;
   }
 
   .tilt-card h3 {
-    font-size: 0.92rem;
+    font-size: 0.85rem;
   }
 
   .tilt-card p {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
 
   .tilt-card-container--4col {
     grid-template-columns: 1fr;
   }
 
+  .quantum-quote {
+    padding: var(--sp-3) var(--sp-4);
+  }
+
   .quantum-quote__text {
-    font-size: 0.88rem;
-    min-height: 150px;
+    font-size: 0.82rem;
+    min-height: 130px;
+    line-height: 1.55;
   }
 
   .quantum-quote__bra {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .team-grid {
@@ -2274,40 +2345,33 @@ section {
   }
 
   section {
-    padding: var(--sp-4) var(--sp-4);
-  }
-
-  .section-subtitle {
-    margin-top: var(--sp-1);
-    margin-bottom: var(--sp-2);
-    font-size: 0.82rem;
-    line-height: 1.55;
-    max-width: 90%;
+    padding: var(--sp-3) var(--sp-4);
   }
 
   .publication-title {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
+    line-height: 1.4;
   }
 
   .publication-authors {
-    font-size: 0.78rem;
+    font-size: 0.75rem;
   }
 
   .publication-info {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
   }
 
   .publication-list li {
-    margin-bottom: var(--sp-2);
-    padding-bottom: var(--sp-2);
+    margin-bottom: var(--sp-1);
+    padding-bottom: var(--sp-1);
   }
 
   .course-card__preview {
-    height: 130px;
+    height: 120px;
   }
 
   .course-card__title {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     line-height: 1.4;
   }
 
@@ -2316,39 +2380,77 @@ section {
   }
 
   .course-card__actions .btn {
-    font-size: 0.68rem;
+    font-size: 0.66rem;
     padding: 3px 8px;
   }
 
-  .about-text p {
-    font-size: 0.85rem;
-    line-height: 1.6;
+  .about-layout {
+    padding: var(--sp-3) var(--sp-4) var(--sp-4);
+    gap: var(--sp-3);
+  }
+
+  .about-text .animated-text {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    margin-bottom: var(--sp-1);
   }
 
   .research-panel__viz {
-    height: 120px;
+    height: 100px;
+  }
+
+  .research-panel__body {
+    padding: var(--sp-2);
   }
 
   .founder-spotlight {
-    padding: var(--sp-3);
+    padding: var(--sp-2);
+    gap: var(--sp-3);
   }
 
   .founder-spotlight__avatar {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
   }
 
   .founder-spotlight__name {
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
 
   .founder-spotlight__bio {
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .site-footer__inner {
+    padding: var(--sp-3) var(--sp-4);
+    gap: var(--sp-3);
+  }
+
+  .site-footer h3 {
+    font-size: 0.88rem;
+  }
+
+  .site-footer p,
+  .site-footer li {
+    font-size: 0.78rem;
+  }
+
+  .timeline-stub {
+    padding-left: 20px;
+  }
+
+  .timeline-stub__item p {
     font-size: 0.8rem;
   }
 
+  .timeline-stub__date {
+    font-size: 0.68rem;
+  }
+
   .btn {
-    font-size: 0.78rem;
-    padding: 7px 14px;
+    font-size: 0.75rem;
+    padding: 6px 12px;
   }
 }
 
