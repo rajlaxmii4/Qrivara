@@ -1,19 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://qrivara.tech/</loc>
+    <loc>https://www.qrivara.tech/</loc>
+    <lastmod>2026-02-18</lastmod>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://qrivara.tech/resources</loc>
+    <loc>https://www.qrivara.tech/research.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <priority>0.8</priority>
   </url>
-    <url>
-    <loc>https://qrivara.tech/join us</loc>
+  <url>
+    <loc>https://www.qrivara.tech/resources.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <priority>0.8</priority>
   </url>
-    <url>
-    <loc>https://qrivara.tech/news</loc>
+  <url>
+    <loc>https://www.qrivara.tech/news.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <priority>0.7</priority>
   </url>
-    <url>
-    <loc>https://qrivara.tech/research</loc>
+  <url>
+    <loc>https://www.qrivara.tech/join.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <priority>0.8</priority>
   </url>
-  <!-- Add a <url> section for each page -->
+  <url>
+    <loc>https://www.qrivara.tech/game.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <priority>0.4</priority>
+  </url>
 </urlset>
