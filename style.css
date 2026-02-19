@@ -1966,55 +1966,92 @@ section {
     grid-template-columns: 1fr;
   }
 
+  body {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: var(--sp-3);
+  }
+
   .tilt-card-container {
     grid-template-columns: 1fr;
+    gap: var(--sp-3);
   }
 
   .tilt-card-container--4col {
     grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-3);
+  }
+
+  .tilt-card {
+    max-width: 420px;
+    min-height: 140px;
+    padding: var(--sp-4) var(--sp-3);
+    border-radius: 16px;
+  }
+
+  .tilt-card h3 {
+    font-size: 1rem;
+  }
+
+  .tilt-card p {
+    font-size: 0.85rem;
   }
 
   .research-panels {
     grid-template-columns: 1fr;
+    gap: var(--sp-3);
+  }
+
+  .research-panel {
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 16px;
   }
 
   .research-panel__viz {
-    height: 160px;
+    height: 140px;
   }
 
   .quantum-quote {
-    padding: var(--sp-5) var(--sp-2);
+    padding: var(--sp-4) var(--sp-2);
   }
 
   .quantum-quote__text {
-    font-size: 1rem;
-    line-height: 1.75;
-    min-height: 140px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    min-height: 130px;
     padding: 0 var(--sp-1);
   }
 
   .quantum-quote__bra {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     top: -4px;
   }
 
-  .tilt-card {
-    max-width: 480px;
-    min-height: 180px;
+  .course-card {
+    border-radius: 16px;
   }
 
-  .research-panel {
-    max-width: 560px;
-    margin-left: auto;
-    margin-right: auto;
+  .course-card__title {
+    font-size: 0.95rem;
+  }
+
+  .course-card__preview {
+    height: 150px;
   }
 
   .team-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-3);
   }
 
   section {
-    padding: var(--sp-6) var(--sp-2);
+    padding: var(--sp-5) var(--sp-2);
   }
 
   .site-footer__inner {
@@ -2028,55 +2065,143 @@ section {
 
   .game-card {
     width: 80px;
-    height: 110px;
+    height: 100px;
+  }
+
+  .about-text p {
+    font-size: 0.9rem;
+  }
+
+  .hero__tagline {
+    font-size: 0.9rem;
+  }
+
+  .founder-spotlight__name {
+    font-size: 1.15rem;
+  }
+
+  .founder-spotlight__bio {
+    font-size: 0.85rem;
   }
 }
 
 /* Small mobile */
 @media (max-width: 480px) {
+  body {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+    margin-bottom: var(--sp-2);
+  }
+
+  .section-subtitle {
+    font-size: 0.85rem;
+  }
+
   .hero h1 {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
 
   .hero--home h1 {
-    font-size: 2.2rem;
+    font-size: 1.9rem;
   }
 
   .hero .subtitle {
-    font-size: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .hero__tagline {
+    font-size: 0.82rem;
+    margin-top: var(--sp-2);
+  }
+
+  .hero__image {
+    max-width: 200px;
   }
 
   .grid--auto-fit {
     grid-template-columns: 1fr;
   }
 
-  .quantum-quote__text {
+  .tilt-card {
+    min-height: 110px;
+    padding: var(--sp-3) var(--sp-2);
+    border-radius: 14px;
+  }
+
+  .tilt-card h3 {
     font-size: 0.92rem;
-    min-height: 160px;
   }
 
-  .quantum-quote__bra {
-    font-size: 2.2rem;
-  }
-
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .game-card {
-    height: 100px;
-  }
-
-  .hero__image {
-    max-width: 220px;
-  }
-
-  section {
-    padding: var(--sp-5) var(--sp-2);
+  .tilt-card p {
+    font-size: 0.8rem;
   }
 
   .tilt-card-container--4col {
     grid-template-columns: 1fr;
+  }
+
+  .quantum-quote__text {
+    font-size: 0.88rem;
+    min-height: 150px;
+  }
+
+  .quantum-quote__bra {
+    font-size: 2rem;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-2);
+  }
+
+  .game-card {
+    height: 90px;
+  }
+
+  section {
+    padding: var(--sp-4) var(--sp-2);
+  }
+
+  .course-card__preview {
+    height: 130px;
+  }
+
+  .course-card__title {
+    font-size: 0.88rem;
+  }
+
+  .about-text p {
+    font-size: 0.85rem;
+  }
+
+  .research-panel__viz {
+    height: 120px;
+  }
+
+  .founder-spotlight {
+    padding: var(--sp-3);
+  }
+
+  .founder-spotlight__avatar {
+    width: 90px;
+    height: 90px;
+  }
+
+  .founder-spotlight__name {
+    font-size: 1.05rem;
+  }
+
+  .founder-spotlight__bio {
+    font-size: 0.8rem;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+    padding: 8px 16px;
   }
 }
 
