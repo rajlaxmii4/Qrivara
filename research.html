@@ -3,294 +3,229 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Qrivara - Research</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Q — Research</title>
+  <meta name="description" content="Explore Qrivara's research in superconducting quantum circuits, hybrid quantum systems, and quantum error correction algorithms.">
+  <meta property="og:title" content="Research — Qrivara">
+  <meta property="og:description" content="Superconducting quantum circuits, hybrid quantum systems, and quantum error correction research at Qrivara.">
+  <meta property="og:image" content="https://www.qrivara.tech/images/logo.png">
+  <meta property="og:url" content="https://www.qrivara.tech/research.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-   <header>
-  <nav style="display: flex; justify-content: center; gap: 8px; font-size: 15px; font-family: 'Times New Roman', Times, serif;">
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="resources.html">Resources</a>
-    <a href="news.html">News</a>
-    <a href="join.html">Join Us</a>
-  </nav>
-</header>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-header__logo">
+        <span class="site-header__q">Q</span>
+      </a>
+      <nav class="site-nav" id="siteNav">
+        <a href="index.html">Home</a>
+        <a href="research.html" class="active">Research</a>
+        <a href="resources.html">Resources</a>
+        <a href="news.html">News</a>
+        <a href="team.html">Team</a>
+        <a href="join.html">Join Us</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
 
-  <div class="hero" style="background:url('') center/cover no-repeat;">
+  <!-- Hero -->
+  <section class="hero hero--dark">
     <h1>Research</h1>
-  </div>
- <h2>Our Research Areas</h2>
-
-
-  <section style="text-align:left;">
-      <p style="font-size:2.5rem; line-height:1.7;"></p>
-    <p>Our goal is to build a community of researchers who are passionate about working in quantum science and technolgies. The team works on different research projects, one of them includes simulation and design of superconducting quantum circuits - delicate little devices that operate at temperatures so cold, even penguins would complain. These circuits form the cornerstone of quantum technologies, from qubits to parametric amplifiers.
-But we don’t stop there. We also explore hybrid quantum systems, like bilayer graphene quantum dots coupled to superconductors and optomechanical systems coupled to microwave resonators to answer some fundamental physics questions and test long lived quantum memories. Imagine tiny mirrors and oscillators whispering secrets to photons and electrons, all while obeying the strangest rules of quantum mechanics. 
-And because even quantum systems make mistakes (a cosmic reminder that nobody’s perfect), we dive into quantum error correction algorithms. Think of it as teaching qubits how to “undo” their clumsiness a bit like giving them an infinite supply of Ctrl+Z. Without this, quantum computers would be about as reliable as a Wi-Fi signal in a bunker. 
-</p>
+    <p class="subtitle">Advancing circuit quantum electrodynamics</p>
   </section>
 
-
-
-
- <div class="container my-5">
-    <div class="row g-4">
-      
-     <div class="col-md-6 col-lg-4">
-  <div class="card h-100">
-    <img class="card-img-top" src="images/1.png" alt="Superconducting Quantum Systems">
-    <div class="card-body text-center">
-      <h5 class="card-title">Superconducting Quantum Circuits</h5>
-      <a href="#" class="btn btn-outline-primary">Learn More</a>
+  <!-- Research Description -->
+  <section class="reveal">
+    <h2 class="section-title">Our Research Areas</h2>
+    <div class="research-content">
+      <p>Our goal is to build a community of researchers who are passionate about working in <strong>quantum science and technologies</strong>. The team works on different research projects, one of them includes simulation and design of <strong>superconducting quantum circuits</strong> — delicate little devices that operate at temperatures so cold, even penguins would complain. These circuits form the cornerstone of quantum technologies, from qubits to parametric amplifiers.</p>
+      <p style="margin-top:16px;">We also explore <strong>hybrid quantum systems</strong>, like bilayer graphene quantum dots coupled to superconductors and optomechanical systems coupled to microwave resonators to answer some fundamental physics questions and test <strong>long-lived quantum memories</strong>.</p>
+      <p style="margin-top:16px;">And because even quantum systems make mistakes, we dive into <strong>quantum error correction algorithms</strong>. Think of it as teaching qubits how to "undo" their clumsiness — a bit like giving them an infinite supply of Ctrl+Z.</p>
     </div>
-  </div>
-</div>
-<div class="col-md-6 col-lg-4">
-  <div class="card h-100">
-    <img class="card-img-top" src="images/fridge.png" alt="Hybrid Quantum Systems">
-    <div class="card-body text-center">
-      <h5 class="card-title">Hybrid Quantum Systems</h5>
-      <a href="#" class="btn btn-outline-primary">Learn More</a>
+  </section>
+
+  <!-- Streaming Area Chart -->
+  <section>
+    <div class="viz-container" id="streaming-area-chart"></div>
+  </section>
+
+  <!-- Publications -->
+  <section class="reveal">
+    <h2 class="section-title">Our Publications</h2>
+    <p class="section-subtitle">Peer-reviewed research and preprints from the Qrivara team</p>
+    <div>
+      <ul class="publication-list">
+        <li>
+          <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=sriyTOQAAAAJ&citation_for_view=sriyTOQAAAAJ:d1gkVwhDpl0C" target="_blank" rel="noopener noreferrer" class="publication-title">
+            Parametric Amplification in Kerr Nonlinear Resonators: A theoretical review of Josephson Parametric Amplifiers
+          </a>
+          <p class="publication-authors">Rajlaxmi Bhoite, Shraddhanjali Choudhury</p>
+          <p class="publication-info">arXiv preprint: 2507.22630 (2025)</p>
+        </li>
+        <li>
+          <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=sriyTOQAAAAJ&citation_for_view=sriyTOQAAAAJ:u-x6o8ySG0sC" target="_blank" rel="noopener noreferrer" class="publication-title">
+            Towards Hybrid Qubits in Bilayer Graphene Quantum Dots
+          </a>
+          <p class="publication-authors">Rajlaxmi Bhoite</p>
+          <p class="publication-info">Master's Thesis (2024)</p>
+        </li>
+        <li>
+          <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=sriyTOQAAAAJ&citation_for_view=sriyTOQAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener noreferrer" class="publication-title">
+            Benchmarking Quantum Algorithms on Xanadu, IBM, and Google Quantum Computers
+          </a>
+          <p class="publication-authors">Rajlaxmi Bhoite, Sreekuttan LS</p>
+          <p class="publication-info">2022 International Conference on Trends in Quantum Computing and Emerging Business Technologies (2022)</p>
+        </li>
+      </ul>
     </div>
-  </div>
-</div>
-<div class="col-md-6 col-lg-4">
-  <div class="card h-100">
-    <img class="card-img-top" src="images/3.png" alt="Quantum Error Correction Algorithms">
-    <div class="card-body text-center">
-      <h5 class="card-title">Quantum Error Correction Algorithms</h5>
-      <a href="#" class="btn btn-outline-primary">Learn More</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+
+    <div class="site-footer__inner">
+      <div>
+        <h3>Business Bulletin</h3>
+        <p>Subscribe for the latest news and insights in quantum technology.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf2DGh_kwiIJnqhE2Smi9CUsIFgHs0iYI_qRKCbTgtP7u5Yjw/viewform?usp=sharing" class="site-footer__cta">Subscribe &rarr;</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p><a href="mailto:qrivara.tech@gmail.com">qrivara.tech@gmail.com</a></p>
+        <div class="site-footer__social">
+          <a href="https://www.linkedin.com/company/qrivara/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <span class="site-footer__sep">&middot;</span>
+          <a href="https://youtube.com/@qrivara?si=Co2I4QyPCXbuv_1P" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+    <div class="site-footer__bottom">&copy; 2026 Qrivara. All rights reserved.</div>
+  </footer>
 
+  <!-- Scripts -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script>
+    // Hamburger toggle
+    document.getElementById('hamburger').addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.getElementById('siteNav').classList.toggle('open');
+    });
 
-<div id="unique-streaming-area-chart"></div>
+    // Streaming area chart — soft warm palette, continuous flow
+    (function() {
+      const width = 1528, height = 260, n = 24, m = 400, k = 6;
 
-<script src="https://d3js.org/d3.v7.min.js"></script>
-<script>
-(async function() {
-  const width = 1528;
-  const height = 300;
-  const n = 15;  // fewer layers for smoother fewer waves
-  const m = 250; // more samples per layer for smooth curves
-  const k = 7;   // fewer bumps for wider curves
-  const offset = d3.stackOffsetWiggle;
-
-  // Modified bumps function for wider smooth waves
-  function bumps(n, k) {
-    let a = new Array(n).fill(0);
-    for (let i = 0; i < k; ++i) {
-      const x = 1.5 / (0.1 + Math.random());
-      const y = 2 * Math.random() - 1;
-      const z = 8 / (0.1 + Math.random());
-      for (let j = 0; j < n; j++) {
-        const w = (j / n - y) * z;
-        a[j] += x * Math.exp(-w * w);
+      function bumps(n, k) {
+        let a = new Array(n).fill(0);
+        for (let i = 0; i < k; ++i) {
+          const x = 1.2 / (0.1 + Math.random());
+          const y = 2 * Math.random() - 1;
+          const z = 10 / (0.1 + Math.random());
+          for (let j = 0; j < n; j++) {
+            const w = (j / n - y) * z;
+            a[j] += x * Math.exp(-w * w);
+          }
+        }
+        return a;
       }
-    }
-    return a;
-  }
 
-  const x = d3.scaleLinear([0, m - 1], [0, width]);
-  const y = d3.scaleLinear([0, 1], [height, 0]);
-  const z = d3.interpolateViridis;
+      const xScale = d3.scaleLinear([0, m - 1], [0, width]);
+      const yScale = d3.scaleLinear([0, 1], [height, 0]);
 
-  const area = d3.area()
-    .x((d, i) => x(i))
-    .y0(d => y(d[0]))
-    .y1(d => y(d[1]))
-    .curve(d3.curveCatmullRom);  // smooth curves
+      // Soft, muted warm tones that blend with a light background
+      const palette = [
+        'rgba(251,191,146,0.55)', 'rgba(234,162,100,0.45)', 'rgba(212,165,69,0.40)',
+        'rgba(249,115,22,0.30)',  'rgba(194,65,12,0.25)',   'rgba(184,115,51,0.35)',
+        'rgba(222,184,65,0.38)',  'rgba(196,154,60,0.32)',  'rgba(251,146,60,0.42)',
+        'rgba(253,186,116,0.48)','rgba(234,88,12,0.22)',   'rgba(212,148,90,0.36)',
+        'rgba(245,230,211,0.50)','rgba(234,162,100,0.38)', 'rgba(184,115,51,0.28)',
+        'rgba(249,115,22,0.24)',  'rgba(222,184,65,0.42)',  'rgba(253,211,170,0.45)',
+        'rgba(196,154,60,0.30)',  'rgba(251,146,60,0.35)',  'rgba(234,88,12,0.18)',
+        'rgba(212,165,69,0.38)',  'rgba(251,191,146,0.50)', 'rgba(245,230,211,0.42)'
+      ];
 
-  const stack = d3.stack()
-    .keys(d3.range(n))
-    .offset(offset)
-    .order(d3.stackOrderNone);
+      const area = d3.area()
+        .x((d, i) => xScale(i))
+        .y0(d => yScale(d[0]))
+        .y1(d => yScale(d[1]))
+        .curve(d3.curveBasis);
 
-  function randomize() {
-    const layers = stack(d3.transpose(Array.from({length: n}, () => bumps(m, k))));
-    y.domain([
-      d3.min(layers, l => d3.min(l, d => d[0])),
-      d3.max(layers, l => d3.max(l, d => d[1]))
-    ]);
-    return layers;
-  }
+      const stack = d3.stack()
+        .keys(d3.range(n))
+        .offset(d3.stackOffsetWiggle)
+        .order(d3.stackOrderInsideOut);
 
-  const svg = d3.create("svg")
-    .attr("viewBox", [0, 0, width, height])
-    .attr("width", width)
-    .attr("height", height)
-    .style("max-width", "100%")
-    .style("height", "auto");
+      function randomize() {
+        const layers = stack(d3.transpose(Array.from({length: n}, () => bumps(m, k))));
+        yScale.domain([
+          d3.min(layers, l => d3.min(l, d => d[0])),
+          d3.max(layers, l => d3.max(l, d => d[1]))
+        ]);
+        return layers;
+      }
 
+      const svg = d3.create("svg")
+        .attr("viewBox", [0, 0, width, height])
+        .style("max-width", "100%")
+        .style("height", "auto");
 
+      // Fade-out masks on left and right edges
+      const defs = svg.append("defs");
+      const fadeL = defs.append("linearGradient").attr("id", "fadeL");
+      fadeL.append("stop").attr("offset", "0%").attr("stop-color", "#fff").attr("stop-opacity", 1);
+      fadeL.append("stop").attr("offset", "100%").attr("stop-color", "#fff").attr("stop-opacity", 0);
+      const fadeR = defs.append("linearGradient").attr("id", "fadeR");
+      fadeR.append("stop").attr("offset", "0%").attr("stop-color", "#fff").attr("stop-opacity", 0);
+      fadeR.append("stop").attr("offset", "100%").attr("stop-color", "#fff").attr("stop-opacity", 1);
 
-  const path = svg.selectAll("path")
-    .data(randomize())
-    .join("path")
-    .attr("fill", (d, i) => z(i / n))
-    .attr("stroke", "#000000")
-    .attr("stroke-opacity", 0.1)
-    .attr("stroke-width", 1)
-    .attr("d", area);
+      const path = svg.selectAll("path")
+        .data(randomize())
+        .join("path")
+        .attr("fill", (d, i) => palette[i % palette.length])
+        .attr("stroke", "none")
+        .attr("d", area);
 
-  document.getElementById("unique-streaming-area-chart").appendChild(svg.node());
+      // Soft edge fades
+      svg.append("rect").attr("x", 0).attr("y", 0).attr("width", 120).attr("height", height).attr("fill", "url(#fadeL)");
+      svg.append("rect").attr("x", width - 120).attr("y", 0).attr("width", 120).attr("height", height).attr("fill", "url(#fadeR)");
 
-  async function animate() {
-    while (true) {
-      path.data(randomize())
-        .transition()
-        .duration(2000)  // slower animation
-        .attr("d", area)
-        .attr("fill", (d, i) => z(i / n));
+      document.getElementById("streaming-area-chart").appendChild(svg.node());
 
-      await new Promise(resolve => setTimeout(resolve, 2800));
-    }
-  }
+      async function animate() {
+        while (true) {
+          path.data(randomize())
+            .transition()
+            .duration(3800)
+            .ease(d3.easeSinInOut)
+            .attr("d", area);
+          await new Promise(resolve => setTimeout(resolve, 4000));
+        }
+      }
+      animate();
+    })();
 
-  animate();
+  </script>
 
+<script src="simplex-noise.js"></script>
+<script src="quantum-bg.js"></script>
+<script>
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal, .stagger-children').forEach(function(el) { observer.observe(el); });
+  var header = document.querySelector('.site-header');
+  window.addEventListener('scroll', function() { header.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
 })();
 </script>
-
-  
-
-
-
-<section class="container my-5">
-  <h2 class="section-title mb-4">Our Publications</h2>
-
-  <div style="display: flex; gap: 2rem; align-items: flex-start;">
-    <ul class="publication-list" style="flex: 1;">
-      <li>
-        
-       <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=sriyTOQAAAAJ&citation_for_view=sriyTOQAAAAJ:d1gkVwhDpl0C" target="_blank" rel="noopener noreferrer" class="publication-title">
-          Parametric Amplification in Kerr Nonlinear Resonators: A theoretical review of Josephson Parametric Amplifiers
-        </a>
-        <p class="publication-authors">Rajlaxmi Bhoite, Shraddhanjali Choudhury</p>
-        <p class="publication-info">arXiv preprint: 2507.22630 (2025)</p>
-      </li>
-      <li>
-        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=sriyTOQAAAAJ&citation_for_view=sriyTOQAAAAJ:u-x6o8ySG0sC" target="_blank" rel="noopener noreferrer" class="publication-title">
-          Towards Hybrid Qubits in Bilayer Graphene Quantum Dots
-        </a>
-        <p class="publication-authors">Rajlaxmi Bhoite</p>
-        <p class="publication-info">Master's Thesis (2024)</p>
-      </li>
-      <li>
-        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=sriyTOQAAAAJ&citation_for_view=sriyTOQAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener noreferrer" class="publication-title">
-          Benchmarking Quantum Algorithms on Xanadu, IBM, and Google Quantum Computers
-        </a>
-        <p class="publication-authors">Rajlaxmi Bhoite, Sreekuttan LS</p>
-        <p class="publication-info">2022 International Conference on Trends in Quantum Computing and Emerging … (2022)</p>
-      </li>
-   
-    </ul>
-    <div id="gear-container" style="flex: 0 0 400px; height: 350px;">
-      <!-- The rotating gears SVG will be appended here by D3.js -->
-       <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Gear SVG with D3.js</title>
-<style>
-  /* Ensure SVG scales nicely */
-  svg {
-    max-width: 80%;
-    height: auto;
-    display: block;
-    margin: 20px auto;
-  }
-  body {
-    font-family: sans-serif;
-    background: #fff;
-    text-align: center;
-  }
-</style>
-</head>
-<body>
-
-<h2></h2>
-<!-- Container for the SVG -->
-<div id="gear-container"></div>
-
-<!-- Load D3.js -->
-<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-<script>
-  // gear() function to create gear path from data
-  // This is a simplified version to mimic the gear shape behavior
-  function gear({teeth, radius, toothRadius = 0.01, holeRadius = 0.05}) {
-    const n = teeth;
-    const r2 = Math.abs(radius);
-    const r0 = r2 - toothRadius;
-    const r1 = r2 + toothRadius;
-    const da = Math.PI / n;
-
-    let path = "";
-    for(let i=0; i < 2 * n; i++) {
-      const r = (i & 1) === 0 ? r0 : r1;
-      const a = i * da;
-      path += (i === 0 ? "M" : "L") + (r * Math.cos(a)) + "," + (r * Math.sin(a));
-    }
-    path += "Z";
-
-    path += ` M${holeRadius},0 A${holeRadius},${holeRadius} 0 1,0 -${holeRadius},0 A${holeRadius},${holeRadius} 0 1,0 ${holeRadius},0 Z`;
-
-    return path;
-  }
-
-  const x = Math.sin(2 * Math.PI / 3);
-  const y = Math.cos(2 * Math.PI / 3);
-
-  const svg = d3.select("#gear-container").append("svg")
-      .attr("width", 640)
-      .attr("viewBox", [-0.53, -0.53, 1.06, 1.06])
-      .attr("stroke", "black")
-      .attr("stroke-width", 1 / 640);
-
-  const frame = svg.append("g");
-
-  const gearsData = [
-    {fill: "#c6dbef", teeth: 80, radius: -0.5, origin: [0, 0], annulus: true},
-    {fill: "#6baed6", teeth: 16, radius: +0.1, origin: [0, 0]},
-    {fill: "#9ecae1", teeth: 32, radius: -0.2, origin: [0, -0.3]},
-    {fill: "#9ecae1", teeth: 32, radius: -0.2, origin: [-0.3 * x, -0.3 * y]},
-    {fill: "#9ecae1", teeth: 32, radius: -0.2, origin: [0.3 * x, -0.3 * y]}
-  ];
-
-  const paths = frame.selectAll("path")
-    .data(gearsData)
-    .join("path")
-      .attr("fill", d => d.fill)
-      .attr("d", d => gear({...d, toothRadius: 0.008, holeRadius: 0.02}));
-
-  function update({angle, frameAngle}) {
-    paths.attr("transform", d => `translate(${d.origin}) rotate(${(angle / d.radius) % 360})`);
-    frame.attr("transform", `rotate(${frameAngle % 360})`);
-  }
-
-  // Animate gears
-  let angle = 0, frameAngle = 0;
-  d3.timer(() => {
-    update({angle, frameAngle});
-    angle += 2;
-    frameAngle += 0.5;
-  });
-</script>
-
 </body>
 </html>
-
-
-
-
-    </div>
-  </div>
-</section>
-</body>
-</html>
-
