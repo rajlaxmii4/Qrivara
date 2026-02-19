@@ -259,51 +259,45 @@
     if (isMobile) {
       var mTeal = 'rgba(234,88,12,0.10)';
 
-      // Left border: vertical bus + ICs
-      var lEdge = 18;
-      line(lEdge, 0, lEdge, H, COPPER, 1.2);
-      drawIC(lEdge, H * 0.18, 34, 24, 3, 'DAC');
-      drawIC(lEdge, H * 0.48, 34, 24, 3, 'CLK');
-      drawIC(lEdge, H * 0.78, 34, 24, 3, 'MEM');
+      // Left border: vertical bus + smaller ICs flush to edge
+      var lEdge = 10;
+      line(lEdge, 0, lEdge, H, COPPER, 1);
+      drawIC(lEdge, H * 0.18, 28, 20, 2, 'DAC');
+      drawIC(lEdge, H * 0.48, 28, 20, 2, 'CLK');
+      drawIC(lEdge, H * 0.78, 28, 20, 2, 'MEM');
       drawSMD(lEdge, H * 0.33, true);
       drawSMD(lEdge, H * 0.63, true);
-      drawCap(lEdge, H * 0.18 + 20);
-      drawCap(lEdge, H * 0.48 + 20);
-      via(lEdge, H * 0.1, 3);
-      via(lEdge, H * 0.38, 3);
-      via(lEdge, H * 0.58, 3);
-      via(lEdge, H * 0.88, 3);
+      via(lEdge, H * 0.1, 2.5);
+      via(lEdge, H * 0.38, 2.5);
+      via(lEdge, H * 0.58, 2.5);
+      via(lEdge, H * 0.88, 2.5);
 
-      // Right border: vertical bus + ICs
-      var rEdge = W - 18;
-      line(rEdge, 0, rEdge, H, COPPER, 1.2);
-      drawIC(rEdge, H * 0.25, 34, 24, 3, 'ADC');
-      drawIC(rEdge, H * 0.55, 34, 24, 3, 'MUX');
-      drawIC(rEdge, H * 0.85, 34, 24, 3, 'QPU');
+      // Right border: vertical bus + smaller ICs flush to edge
+      var rEdge = W - 10;
+      line(rEdge, 0, rEdge, H, COPPER, 1);
+      drawIC(rEdge, H * 0.25, 28, 20, 2, 'ADC');
+      drawIC(rEdge, H * 0.55, 28, 20, 2, 'MUX');
+      drawIC(rEdge, H * 0.85, 28, 20, 2, 'QPU');
       drawSMD(rEdge, H * 0.4, true);
       drawSMD(rEdge, H * 0.7, true);
-      drawCap(rEdge, H * 0.25 + 20);
-      drawCap(rEdge, H * 0.55 + 20);
-      via(rEdge, H * 0.15, 3);
-      via(rEdge, H * 0.45, 3);
-      via(rEdge, H * 0.65, 3);
-      via(rEdge, H * 0.92, 3);
+      via(rEdge, H * 0.15, 2.5);
+      via(rEdge, H * 0.45, 2.5);
+      via(rEdge, H * 0.65, 2.5);
+      via(rEdge, H * 0.92, 2.5);
 
-      // Short L-bend traces from ICs toward content (not full-width)
-      // Left side
-      line(lEdge + 17, H * 0.18, lEdge + 35, H * 0.18, mTeal, 0.8);
-      line(lEdge + 35, H * 0.18, lEdge + 35, H * 0.18 + 20, mTeal, 0.8);
-      via(lEdge + 35, H * 0.18 + 20, 2.5);
-      line(lEdge + 17, H * 0.48, lEdge + 30, H * 0.48, mTeal, 0.8);
-      line(lEdge + 30, H * 0.48, lEdge + 30, H * 0.48 - 15, mTeal, 0.8);
-      via(lEdge + 30, H * 0.48 - 15, 2.5);
-      // Right side
-      line(rEdge - 17, H * 0.25, rEdge - 35, H * 0.25, mTeal, 0.8);
-      line(rEdge - 35, H * 0.25, rEdge - 35, H * 0.25 + 20, mTeal, 0.8);
-      via(rEdge - 35, H * 0.25 + 20, 2.5);
-      line(rEdge - 17, H * 0.55, rEdge - 30, H * 0.55, mTeal, 0.8);
-      line(rEdge - 30, H * 0.55, rEdge - 30, H * 0.55 - 15, mTeal, 0.8);
-      via(rEdge - 30, H * 0.55 - 15, 2.5);
+      // Tiny L-bend traces from ICs (stay within border zone)
+      line(lEdge + 14, H * 0.18, lEdge + 24, H * 0.18, mTeal, 0.7);
+      line(lEdge + 24, H * 0.18, lEdge + 24, H * 0.18 + 14, mTeal, 0.7);
+      via(lEdge + 24, H * 0.18 + 14, 2);
+      line(lEdge + 14, H * 0.48, lEdge + 22, H * 0.48, mTeal, 0.7);
+      line(lEdge + 22, H * 0.48, lEdge + 22, H * 0.48 - 12, mTeal, 0.7);
+      via(lEdge + 22, H * 0.48 - 12, 2);
+      line(rEdge - 14, H * 0.25, rEdge - 24, H * 0.25, mTeal, 0.7);
+      line(rEdge - 24, H * 0.25, rEdge - 24, H * 0.25 + 14, mTeal, 0.7);
+      via(rEdge - 24, H * 0.25 + 14, 2);
+      line(rEdge - 14, H * 0.55, rEdge - 22, H * 0.55, mTeal, 0.7);
+      line(rEdge - 22, H * 0.55, rEdge - 22, H * 0.55 - 12, mTeal, 0.7);
+      via(rEdge - 22, H * 0.55 - 12, 2);
     }
 
     // ── LEFT GUTTER: Vertical bus + ICs ──

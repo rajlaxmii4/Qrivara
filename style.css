@@ -2081,14 +2081,15 @@ section {
   }
 
   section {
-    padding: var(--sp-5) var(--sp-2);
+    padding: var(--sp-5) var(--sp-4);
   }
 
   .section-subtitle {
-    margin-top: 0;
+    margin-top: var(--sp-1);
     margin-bottom: var(--sp-3);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     line-height: 1.6;
+    max-width: 90%;
   }
 
   .category-label {
@@ -2229,11 +2230,13 @@ section {
   }
 
   .team-card {
-    padding: var(--sp-2) var(--sp-2);
+    padding: var(--sp-2) var(--sp-3);
     border-radius: 14px;
     flex-direction: row;
     text-align: left;
     gap: var(--sp-2);
+    margin-left: var(--sp-2);
+    margin-right: var(--sp-2);
   }
 
   .team-card__avatar {
@@ -2271,14 +2274,15 @@ section {
   }
 
   section {
-    padding: var(--sp-4) var(--sp-2);
+    padding: var(--sp-4) var(--sp-4);
   }
 
   .section-subtitle {
-    margin-top: 0;
+    margin-top: var(--sp-1);
     margin-bottom: var(--sp-2);
     font-size: 0.82rem;
     line-height: 1.55;
+    max-width: 90%;
   }
 
   .publication-title {
@@ -2397,7 +2401,7 @@ button:focus-visible,
 .founder-spotlight__bio { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; }
 
 /* --- Section Subtitle --- */
-.section-subtitle { text-align: center; color: var(--text-secondary); max-width: 600px; margin: calc(-1 * var(--sp-4)) auto var(--sp-5); font-size: 1rem; }
+.section-subtitle { text-align: center; color: var(--text-secondary); max-width: 600px; margin: var(--sp-1) auto var(--sp-4); font-size: 1rem; }
 
 /* --- Category Label --- */
 .category-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal); margin-bottom: var(--sp-2); padding: 4px 14px; border-left: 3px solid var(--teal); display: inline-block; }
