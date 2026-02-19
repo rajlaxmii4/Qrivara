@@ -3,501 +3,397 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Qrivara - Resources</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Q — Resources</title>
+  <meta name="description" content="Physics and quantum engineering course resources, career guidance, and opportunities curated by Qrivara.">
+  <meta property="og:title" content="Resources — Qrivara">
+  <meta property="og:description" content="Advanced physics and quantum engineering courses, career guidance, and research opportunities.">
+  <meta property="og:image" content="https://www.qrivara.tech/images/logo.png">
+  <meta property="og:url" content="https://www.qrivara.tech/resources.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-  <nav style="display: flex; justify-content: center; gap: 8px; font-size: 15px; font-family: 'Times New Roman', Times, serif;">
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="resources.html">Resources</a>
-    <a href="news.html">News</a>
-    <a href="join.html">Join Us</a>
-  </nav>
-</header>
 
-  <div class="hero" style="background:url('') center/cover no-repeat;">
+  <!-- Header -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-header__logo">
+        <span class="site-header__q">Q</span>
+      </a>
+      <nav class="site-nav" id="siteNav">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="resources.html" class="active">Resources</a>
+        <a href="news.html">News</a>
+        <a href="team.html">Team</a>
+        <a href="join.html">Join Us</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero hero--dark">
     <h1>Resources</h1>
-  </div>
-
-
-  <section>
-  <h2>List of opportunities</h2>
-  <p>
-    Download the latest information for various opportunities across : India, Europe, Asia, Australia, US, Canada. The following four lists will be live on 1st June 2026.
-  </p>
-  <ul style="list-style-type: none; padding-left: 0;">
-    <li>
-      <a href="files/summer_internships.xlsx" download style="color: #859418; text-decoration: none;">
-        Summer Internships
-      </a>
-    </li>
-    <li>
-      <a href="files/winter_school.xlsx" download style="color: #859418; text-decoration: none;">
-        Winter Schools
-      </a>
-    </li>
-    <li>
-      <a href="files/masters_thesis.xlsx" download style="color: #859418; text-decoration: none;">
-        Master's Thesis opportunities
-      </a>
-    </li>
-    <li>
-      <a href="files/fellowship_applications.xlsx" download style="color: #859418; text-decoration: none;">
-        Fellowships
-      </a>
-    </li>
-  </ul>
-</section>
-
-
-<section>   <p style="color: #000;">
-  At Qrivara, we provide career guidance for students navigating academic and research pathways in science and technology. More than half of all applications are filtered out before the interview stage based solely on the résumé and cover letter. Our focus is to help students realize their true potential and interests with clarity and confidence before applying for master's/PhD applications. Beyond selection outcomes, we care deeply about nurturing curiosity and a sense of responsibility - supporting long-term growth. <strong>Apply here:</strong>
-  <a href="https://forms.gle/m6SChw9KmVC3ptkJA" target="_blank" rel="noopener noreferrer">
-    Career Guidance
-  </a>.
-</p>
-  
-  <p>Below we have an extensive list of advanced physics and quantum engineering courses. We have provided introductory YT videos, lecture notes and solutions for problems from standardized textbooks for each course.</p>
+    <p class="subtitle">Courses, opportunities, and career guidance</p>
   </section>
 
- <div class="container my-5">
-    <div class="row g-4">
-      
-       <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <iframe class="card-img-top" src="https://www.youtube.com/embed/mj0XInqZMHY?si=rOEunsELmqh0WojB" allowfullscreen></iframe>
-          <div class="card-body text-center">
-            <h5 class="card-title">Microwave Engineering (David Pozar)</h5>
-             <p>Live: </p>
-             <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
-          </div>
-        </div>
+  <!-- Opportunities -->
+  <section class="reveal">
+    <h2 class="section-title">Opportunities</h2>
+    <p class="section-subtitle">Curated lists available from June 2026 — India, Europe, Asia, Australia, US &amp; Canada</p>
+    <div class="tilt-card-container stagger-children" style="grid-template-columns:repeat(4,1fr);">
+      <a href="#" class="tilt-card" onclick="return false;" style="padding:var(--sp-4) var(--sp-3);">
+        <div style="font-size:2rem;margin-bottom:var(--sp-1);">&#9728;</div>
+        <h3 style="font-size:1.1rem;">Summer Internships</h3>
+        <p style="font-size:0.85rem;">Coming June 2026</p>
+      </a>
+      <a href="#" class="tilt-card" onclick="return false;" style="padding:var(--sp-4) var(--sp-3);">
+        <div style="font-size:2rem;margin-bottom:var(--sp-1);">&#10052;</div>
+        <h3 style="font-size:1.1rem;">Winter Schools</h3>
+        <p style="font-size:0.85rem;">Coming June 2026</p>
+      </a>
+      <a href="#" class="tilt-card" onclick="return false;" style="padding:var(--sp-4) var(--sp-3);">
+        <div style="font-size:2rem;margin-bottom:var(--sp-1);">&#127891;</div>
+        <h3 style="font-size:1.1rem;">Thesis Opportunities</h3>
+        <p style="font-size:0.85rem;">Coming June 2026</p>
+      </a>
+      <a href="#" class="tilt-card" onclick="return false;" style="padding:var(--sp-4) var(--sp-3);">
+        <div style="font-size:2rem;margin-bottom:var(--sp-1);">&#127942;</div>
+        <h3 style="font-size:1.1rem;">Fellowships</h3>
+        <p style="font-size:0.85rem;">Coming June 2026</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Career Guidance -->
+  <section class="reveal">
+    <div class="research-content">
+      <p>At Qrivara, we provide <strong>career guidance</strong> for students navigating academic and research pathways in science and technology. More than half of all applications are filtered out before the interview stage based solely on the resume and cover letter. Our focus is to help students realize their <strong>true potential and interests</strong> with clarity and confidence before applying for master's/PhD applications.</p>
+      <div class="highlight-box" style="margin-top:24px;">
+        <strong>Apply for career guidance:</strong>
+        <a href="https://forms.gle/m6SChw9KmVC3ptkJA" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="margin-left:12px;">Career Guidance Form</a>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <iframe class="card-img-top" src="" allowfullscreen></iframe>
-          <div class="card-body text-center">
-            <h5 class="card-title">Classical Mechanics (Goldstein)</h5>
-             <p>Live: </p>
-            <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
-          </div>
+    </div>
+  </section>
+
+  <!-- Course Cards -->
+  <section class="reveal">
+    <h2 class="section-title">Courses</h2>
+    <p class="section-subtitle">Advanced physics and quantum engineering courses with videos, lecture notes, and solutions</p>
+
+    <!-- Foundation Courses -->
+    <span class="category-label">Foundation Courses</span>
+    <div class="grid grid--auto-fit" style="margin-bottom:var(--sp-6);">
+      <div class="course-card">
+        <div class="course-card__preview">
+          <iframe src="https://www.youtube.com/embed/mj0XInqZMHY?si=rOEunsELmqh0WojB" allowfullscreen loading="lazy" title="Microwave Engineering introduction video"></iframe>
         </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <iframe class="card-img-top" src="" allowfullscreen></iframe>
-          <div class="card-body text-center">
-            <h5 class="card-title">Electrodynamics (Jackson)</h5>
-             <p>Live: </p>
-             <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <iframe class="card-img-top" src="" allowfullscreen></iframe>
-          <div class="card-body text-center">
-            <h5 class="card-title">Quantum Mechanics (Sakurai)</h5>
-             <p>Live: </p>
-           <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <iframe class="card-img-top" src="" allowfullscreen></iframe>
-          <div class="card-body text-center">
-            <h5 class="card-title">Mathematical Methods</h5>
-             <p>Live: </p>
-             <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <iframe class="card-img-top" src="" allowfullscreen></iframe>
-          <div class="card-body text-center">
-            <h5 class="card-title">Electronics</h5>
-             <p>Live: </p>
-             <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <iframe class="card-img-top" src="" allowfullscreen></iframe>
-          <div class="card-body text-center">
-            <h5 class="card-title">Statistical Mechanics</h5>
-             <p>Live: </p>
-            <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <iframe class="card-img-top" src="" allowfullscreen></iframe>
-          <div class="card-body text-center">
-            <h5 class="card-title">Optics (Eugene)</h5>
-             <p>Live: </p>
-             <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <iframe class="card-img-top" src="" allowfullscreen></iframe>
-          <div class="card-body text-center">
-            <h5 class="card-title">Solid State Physics (SSP)</h5>
-             <p>Live: </p>
-          <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <iframe class="card-img-top" src="" allowfullscreen></iframe>
-          <div class="card-body text-center">
-            <h5 class="card-title">Advanced Statistics</h5>
-             <p>Live: </p>
-         <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <iframe class="card-img-top" src="" allowfullscreen></iframe>
-          <div class="card-body text-center">
-            <h5 class="card-title">Atomic & Molecular Physics (AMO)</h5>
-             <p>Live: </p>
-            <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <iframe class="card-img-top" src="" allowfullscreen></iframe>
-          <div class="card-body text-center">
-            <h5 class="card-title">Experimental Methods</h5>
-             <p>Live: </p>
-            <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <iframe class="card-img-top" src="" allowfullscreen></iframe>
-          <div class="card-body text-center">
-            <h5 class="card-title">Computational Methods</h5>
-             <p>Live: </p>
-            <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <iframe class="card-img-top" src="" allowfullscreen></iframe>
-          <div class="card-body text-center">
-            <h5 class="card-title">Quantum Field Theory (QFT)</h5>
-             <p>Live: </p>
-            <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <iframe class="card-img-top" src="" allowfullscreen></iframe>
-          <div class="card-body text-center">
-            <h5 class="card-title">Nonlinear Dynamics (NLD)</h5>
-             <p>Live: </p>
-            <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <iframe class="card-img-top" src="" allowfullscreen></iframe>
-          <div class="card-body text-center">
-            <h5 class="card-title">Nuclear & Particle Physics (NPP)</h5>
-             <p>Live: </p>
-             <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <iframe class="card-img-top" src="" allowfullscreen></iframe>
-          <div class="card-body text-center">
-            <h5 class="card-title">Advanced Condensed Matter Physics</h5>
-             <p>Live: </p>
-             <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <iframe class="card-img-top" src="" allowfullscreen></iframe>
-          <div class="card-body text-center">
-            <h5 class="card-title">Photonics</h5>
-             <p>Live: </p>
-             <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
-          </div>
-        </div>
-      </div>
-    
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <iframe class="card-img-top" src="" allowfullscreen></iframe>
-          <div class="card-body text-center">
-            <h5 class="card-title">Quantum Computation</h5>
-             <p>Live: </p>
-            <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
+        <div class="course-card__body">
+          <h3 class="course-card__title">Microwave Engineering (David Pozar)</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
           </div>
         </div>
       </div>
 
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Classical Mechanics (Goldstein)</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
+          </div>
+        </div>
+      </div>
 
-    <div class="col-md-6 col-lg-4">
-      <div class="card h-100">
-        <iframe class="card-img-top" src="" allowfullscreen></iframe>
-        <div class="card-body text-center">
-          <h5 class="card-title">Superconducting Quantum Circuits</h5>
-          <p>Live: </p>
-           <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Electrodynamics (Jackson)</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Mathematical Methods</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Electronics</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Statistical Mechanics</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Optics (Eugene Hecht)</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Solid State Physics</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="col-md-6 col-lg-4">
-      <div class="card h-100">
-        <iframe class="card-img-top" src="" allowfullscreen></iframe>
-        <div class="card-body text-center">
-          <h5 class="card-title">Nonlinear Optics</a></h5>
-          <p>Live: </p>
-           <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
+    <!-- Quantum & Advanced Courses -->
+    <span class="category-label">Quantum &amp; Advanced</span>
+    <div class="grid grid--auto-fit" style="margin-bottom:var(--sp-6);">
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Quantum Mechanics (Sakurai)</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-md-6 col-lg-4">
-      <div class="card h-100">
-        <iframe class="card-img-top" src="" allowfullscreen></iframe>
-        <div class="card-body text-center">
-          <h5 class="card-title">Analog Integrated Circuits</a></h5>
-          <p>Live: </p>
-          <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Quantum Field Theory</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
+          </div>
         </div>
       </div>
-    </div>
 
-
-    <div class="col-md-6 col-lg-4">
-      <div class="card h-100">
-        <iframe class="card-img-top" src="" allowfullscreen></iframe>
-        <div class="card-body text-center">
-          <h5 class="card-title">Quantum Information Theory</a></h5>
-          <p>Live: </p>
-          <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Quantum Computation</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
+          </div>
         </div>
       </div>
-    </div>
 
-
-    <div class="col-md-6 col-lg-4">
-      <div class="card h-100">
-        <iframe class="card-img-top" src="" allowfullscreen></iframe>
-        <div class="card-body text-center">
-          <h5 class="card-title">Quantum Optics</a></h5>
-          <p>Live: </p>
-          <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Quantum Information Theory</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
+          </div>
         </div>
       </div>
-    </div>
 
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Quantum Optics</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
+          </div>
+        </div>
+      </div>
 
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100">
-          <iframe class="card-img-top" src="" allowfullscreen></iframe>
-          <div class="card-body text-center">
-            <h5 class="card-title">Quantum Electronics</h5>
-             <p>Live: </p>
-           <a href="#" class="btn btn-outline-primary">Solution Manual</a>
-            <a href="#" class="btn btn-outline-primary">Lecture Notes</a>
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Quantum Electronics</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Superconducting Quantum Circuits</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Advanced Condensed Matter Physics</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
+    <!-- Specialized Topics -->
+    <span class="category-label">Specialized Topics</span>
+    <div class="grid grid--auto-fit">
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Nonlinear Dynamics</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
+          </div>
+        </div>
+      </div>
 
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Nonlinear Optics</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
+          </div>
+        </div>
+      </div>
 
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Photonics</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Analog Integrated Circuits</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Nuclear &amp; Particle Physics</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Atomic &amp; Molecular Physics</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Advanced Statistics</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Experimental Methods</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card__body">
+          <h3 class="course-card__title">Computational Methods</h3>
+          <div class="course-card__actions">
+            <span class="btn btn--disabled">Solution Manual — Coming Soon</span>
+            <span class="btn btn--disabled">Lecture Notes — Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+
+    <div class="site-footer__inner">
+      <div>
+        <h3>Business Bulletin</h3>
+        <p>Subscribe for the latest news and insights in quantum technology.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf2DGh_kwiIJnqhE2Smi9CUsIFgHs0iYI_qRKCbTgtP7u5Yjw/viewform?usp=sharing" class="site-footer__cta">Subscribe &rarr;</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p><a href="mailto:qrivara.tech@gmail.com">qrivara.tech@gmail.com</a></p>
+        <div class="site-footer__social">
+          <a href="https://www.linkedin.com/company/qrivara/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <span class="site-footer__sep">&middot;</span>
+          <a href="https://youtube.com/@qrivara?si=Co2I4QyPCXbuv_1P" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">&copy; 2026 Qrivara. All rights reserved.</div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    document.getElementById('hamburger').addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.getElementById('siteNav').classList.toggle('open');
+    });
+  </script>
+
+<script src="simplex-noise.js"></script>
+<script src="quantum-bg.js"></script>
+<script>
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal, .stagger-children').forEach(function(el) { observer.observe(el); });
+  var header = document.querySelector('.site-header');
+  window.addEventListener('scroll', function() { header.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+})();
+</script>
 </body>
 </html>
-
-
-<footer style="background: white; padding: 20px 0; overflow: hidden;">
-  <svg id="quantum-wire-footer" width="100%" height="150" viewBox="0 0 1600 150" style="display: block; margin: auto;"></svg>
-
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script>
-    (function(){
-      const svg = d3.select('#quantum-wire-footer');
-      const width = 1600;
-      const height = 150;
-
-      // Define some wire paths as arrays of points for quantum circuits
-      const wires = [
-        [{x: 20, y: 140}, {x: 100, y: 100}, {x: 250, y: 120}, {x: 400, y: 80}, {x: 500, y: 100}, {x: 600, y: 50}],
-        [{x: 450, y: 130}, {x: 580, y: 90}, {x: 700, y: 110}, {x: 860, y: 80}, {x: 900, y: 75}],
-        [{x: 850, y: 100}, {x: 1000, y: 110}, {x: 1150, y: 40}, {x: 1400, y: 100}],
-        [{x: 1300, y: 140}, {x: 1350, y: 90}, {x: 1500, y: 110}, {x: 1580, y: 70}],
-      ];
-
-      // Draw a thin line path for each wire
-      wires.forEach((points, i) => {
-        const pathData = d3.line()
-          .x(d => d.x)
-          .y(d => d.y)
-          .curve(d3.curveStepAfter)(points);
-
-        svg.append('path')
-          .attr('d', pathData)
-          .attr('fill', 'none')
-          .attr('stroke', 'black')
-          .attr('stroke-width', 2)
-          .attr('id', 'wire-path-' + i);
-      });
-
-      // Create animated nodes on the wires
-      wires.forEach((points, i) => {
-        // Add circles on each node in the wire
-        points.forEach((point, idx) => {
-          const circle = svg.append('circle')
-            .attr('cx', point.x)
-            .attr('cy', point.y)
-            .attr('r', 6)
-            .attr('fill', 'black')
-            .attr('stroke', 'white')
-            .attr('stroke-width', 2);
-
-          // Animate circles with pulsating effect
-          function animateCircle() {
-            circle.transition()
-              .duration(2000)
-              .attr('r', 10)
-              .attr('fill-opacity', 0.35)
-              .transition()
-              .duration(2000)
-              .attr('r', 6)
-              .attr('fill-opacity', 1)
-              .on('end', animateCircle);
-          }
-          // Stagger animation delays slightly for different nodes
-          setTimeout(animateCircle, 300 * (idx + 1));
-        });
-      });
-
-    })();
-  </script>
-</footer>
-
-<footer style="background: white; padding: 20px 0; overflow: hidden;">
-  <svg id="quantum-wire-footer" width="100%" height="180" viewBox="0 0 1600 180" style="display: block; margin: auto;"></svg>
-
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script>
-    (function(){
-      const svg = d3.select('#quantum-wire-footer');
-      const width = 1600;
-      const height = 280;
-
-      // Define more diverse wire paths
-      const wires = [
-        [{x: 10, y: 170}, {x: 90, y: 130}, {x: 230, y: 150}, {x: 350, y: 100}, {x: 480, y: 140}, {x: 600, y: 90}],
-        [{x: 50, y: 120}, {x: 180, y: 80}, {x: 350, y: 110}, {x: 470, y: 60}, {x: 590, y: 110}, {x: 700, y: 45}],
-        [{x: 430, y: 160}, {x: 500, y: 90}, {x: 670, y: 120}, {x: 800, y: 70}, {x: 900, y: 130}],
-        
-        [{x: 850, y: 150}, {x: 970, y: 100}, {x: 1150, y: 125}, {x: 1350, y: 70}, {x: 1500, y: 120}],
-        [{x: 1200, y: 170}, {x: 1270, y: 110}, {x: 1370, y: 140}, {x: 1480, y: 80}, {x: 1580, y: 130}],
-        [{x: 1400, y: 160}, {x: 1450, y: 115}, {x: 1520, y: 100}, {x: 1580, y: 90}],
-        
-         [{x: 70, y: 210}, {x: 200, y: 160}, {x: 130, y: 550}, {x: 450, y: 200}, {x: 580, y: 180}, {x: 400, y: 120}],
-        [{x: 100, y: 150}, {x: 190, y: 20}, {x: 250, y: 410}, {x: 570, y: 160}, {x: 540, y: 100}, {x: 800, y: 85}],
-        [{x: 600, y: 260}, {x: 700, y: 40}, {x: 470, y: 320}, {x: 700, y: 170}, {x: 950, y: 330}],
-      ];
-
-      // Colors for wires and pulses
-      const colors = ['#4e79a7', '#f28e2b', '#e15759', '#76b7b2', '#59a14f', '#edc949'];
-
-      // Draw wires with stepped lines and colors
-      wires.forEach((points, i) => {
-        const pathData = d3.line()
-          .x(d => d.x)
-          .y(d => d.y)
-          .curve(d3.curveStepAfter)(points);
-
-        svg.append('path')
-          .attr('d', pathData)
-          .attr('fill', 'none')
-          .attr('stroke', colors[i % colors.length])
-          .attr('stroke-width', 2);
-      });
-
-      // Add colored pulsating nodes on wires
-      wires.forEach((points, i) => {
-        points.forEach((point, idx) => {
-          const circle = svg.append('circle')
-            .attr('cx', point.x)
-            .attr('cy', point.y)
-            .attr('r', 6)
-            .attr('fill', colors[i % colors.length])
-            .attr('stroke', 'white')
-            .attr('stroke-width', 2)
-            .attr('fill-opacity', 1);
-
-          // Pulsate animation with staggered delay
-          function animateCircle() {
-            circle.transition()
-              .duration(1800)
-              .attr('r', 10)
-              .attr('fill-opacity', 0.3)
-              .transition()
-              .duration(1800)
-              .attr('r', 6)
-              .attr('fill-opacity', 1)
-              .on('end', animateCircle);
-          }
-
-          setTimeout(animateCircle, 300 * (idx + 1) + i * 200);
-        });
-      });
-    })();
-  </script>
-</footer>
-
