@@ -1,608 +1,1130 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Qrivara - About Us</title>
+  <title>Q — Qrivara</title>
+  <meta name="description" content="Qrivara is a research organization advancing circuit quantum electrodynamics — designing superconducting quantum circuits, hybrid quantum systems, and quantum error correction algorithms.">
+  <meta property="og:title" content="Qrivara — Circuit Quantum Electrodynamics Research">
+  <meta property="og:description" content="Advancing circuit QED research — superconducting quantum circuits, hybrid quantum systems, and quantum error correction.">
+  <meta property="og:image" content="https://www.qrivara.tech/images/logo.png">
+  <meta property="og:url" content="https://www.qrivara.tech/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-   <header>
-  <nav style="display: flex; justify-content: center; gap: 8px; font-size: 15px;">
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="resources.html">Resources</a>
-    <a href="news.html">News</a>
-    <a href="join.html">Join Us</a>
-  </nav>
-</header>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-header__logo">
+        <span class="site-header__q">Q</span>
+      </a>
+      <nav class="site-nav" id="siteNav">
+        <a href="index.html" class="active">Home</a>
+        <a href="research.html">Research</a>
+        <a href="resources.html">Resources</a>
+        <a href="news.html">News</a>
+        <a href="team.html">Team</a>
+        <a href="join.html">Join Us</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
 
-<head>
-  <title>Qrivara</title>
-  <style>
+  <!-- Hero -->
+  <section class="hero hero--dark hero--home hero--split">
+    <div class="hero__text">
+      <h1 id="logo"></h1>
+      <p class="subtitle subtitle--animated" id="heroSubtitle"></p>
+    </div>
+    <div class="hero__connector">
+      <svg class="hero__trace hero__trace--left" viewBox="0 0 80 200" preserveAspectRatio="none" fill="none">
+        <path d="M0,100 Q20,100 40,60 T80,50" stroke="url(#traceGradL)" stroke-width="1.5" fill="none"/>
+        <path d="M0,110 Q25,110 45,140 T80,150" stroke="url(#traceGradL)" stroke-width="1" fill="none" stroke-dasharray="4,4"/>
+        <circle r="3" fill="#ea580c" opacity="0">
+          <animateMotion dur="3s" repeatCount="indefinite" path="M0,100 Q20,100 40,60 T80,50"/>
+          <animate attributeName="opacity" values="0;0.8;0.8;0" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <circle r="2" fill="#b87333" opacity="0">
+          <animateMotion dur="4s" repeatCount="indefinite" begin="1.5s" path="M0,110 Q25,110 45,140 T80,150"/>
+          <animate attributeName="opacity" values="0;0.6;0.6;0" dur="4s" repeatCount="indefinite" begin="1.5s"/>
+        </circle>
+        <defs>
+          <linearGradient id="traceGradL" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#b87333" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#b87333" stop-opacity="0.5"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="hero__bloch">
+        <canvas id="blochSphere" width="280" height="280"></canvas>
+      </div>
+      <svg class="hero__trace hero__trace--right" viewBox="0 0 80 200" preserveAspectRatio="none" fill="none">
+        <path d="M0,50 Q20,50 40,90 T80,100" stroke="url(#traceGradR)" stroke-width="1.5" fill="none"/>
+        <path d="M0,150 Q25,150 45,120 T80,110" stroke="url(#traceGradR)" stroke-width="1" fill="none" stroke-dasharray="4,4"/>
+        <circle r="3" fill="#ea580c" opacity="0">
+          <animateMotion dur="3.5s" repeatCount="indefinite" begin="0.5s" path="M0,50 Q20,50 40,90 T80,100"/>
+          <animate attributeName="opacity" values="0;0.8;0.8;0" dur="3.5s" repeatCount="indefinite" begin="0.5s"/>
+        </circle>
+        <circle r="2" fill="#b87333" opacity="0">
+          <animateMotion dur="4.5s" repeatCount="indefinite" begin="2s" path="M0,150 Q25,150 45,120 T80,110"/>
+          <animate attributeName="opacity" values="0;0.6;0.6;0" dur="4.5s" repeatCount="indefinite" begin="2s"/>
+        </circle>
+        <defs>
+          <linearGradient id="traceGradR" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#b87333" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#b87333" stop-opacity="0.15"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <div class="hero__image hero__image--wireframe">
+      <svg viewBox="0 0 360 540" width="360" height="540" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Dilution refrigerator schematic">
+        <defs>
+          <linearGradient id="copperGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#b87333" stop-opacity="0.2"/>
+            <stop offset="50%" stop-color="#d4945a" stop-opacity="0.08"/>
+            <stop offset="100%" stop-color="#b87333" stop-opacity="0.2"/>
+          </linearGradient>
+          <linearGradient id="shieldGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#b87333" stop-opacity="0.12"/>
+            <stop offset="100%" stop-color="#b87333" stop-opacity="0.03"/>
+          </linearGradient>
+          <linearGradient id="coldGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#ea580c" stop-opacity="0.06"/>
+            <stop offset="100%" stop-color="#ea580c" stop-opacity="0.02"/>
+          </linearGradient>
+        </defs>
 
-  #logo {
-    margin-top: 80px; /* or any value that moves it down */
-  }
-    header {
-      background: #fff;  /* or your preferred header background */
-      text-align: center;
-      padding: 24px 0;
-    }
-    header img.logo {
-      max-width: 350px; /* Adjust for large logo */
-      width: 90vw;
-      height: auto;
-      display: inline-block;
-    }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background-color: #FFFFFF; /* Matching background tone */
-      color: rgb(19, 18, 18);
-      font-family: 'Times New Roman', Times, serif, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      text-align: center;
-      overflow-x: hidden;
-    }
-    h1 {
-      font-size: 7rem;
-      margin: 30px 0 20px 0;
-      letter-spacing: 1px;
-      font-weight: 300;
-      color: black;
-    }
-    img.integrated-image {
-      max-width: 450px;
-      width: 90vw;
-      height: auto;
-      display: block;
-    }
-      body {
-      margin: 0;
-      min-height: 100vh;
-      background: #FFFFFF;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 80px;
-      padding: 40px;
-    }
-   .tilt-card-container {
-    display: flex;
-    gap: 50px;
-    justify-content: center;
-    align-items: center;
-  }
-  .tilt-card {
-    width: 400px;
-    height: 400px;
-    background: rgb(189, 240, 240);
-    border-radius: 32px;
-    border: 1.5px solid rgb(189, 240, 240);
-    cursor: pointer;
-    transition: background .2s, transform .22s cubic-bezier(.18,.83,.39,1.08);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .tilt-card:hover {
-    background: rgb(32, 33, 34);
-    color: #FFFFFF;
-  }
+        <!-- ═══ STAGE 0: Top flange (room temperature, 300K) ═══ -->
+        <!-- Thick top flange with bolt pattern -->
+        <ellipse cx="180" cy="32" rx="120" ry="20" fill="url(#copperGrad)" stroke="#b87333" stroke-width="1.8"/>
+        <ellipse cx="180" cy="28" rx="120" ry="20" stroke="#b87333" stroke-width="1.2" stroke-dasharray="0" fill="none"/>
+        <!-- Flange thickness -->
+        <line x1="60" y1="28" x2="60" y2="32" stroke="#b87333" stroke-width="1.2"/>
+        <line x1="300" y1="28" x2="300" y2="32" stroke="#b87333" stroke-width="1.2"/>
+        <!-- Bolt holes on top flange -->
+        <circle cx="90" cy="30" r="2.5" stroke="#b87333" stroke-width="0.8" fill="none"/>
+        <circle cx="120" cy="24" r="2.5" stroke="#b87333" stroke-width="0.8" fill="none"/>
+        <circle cx="150" cy="21" r="2.5" stroke="#b87333" stroke-width="0.8" fill="none"/>
+        <circle cx="210" cy="21" r="2.5" stroke="#b87333" stroke-width="0.8" fill="none"/>
+        <circle cx="240" cy="24" r="2.5" stroke="#b87333" stroke-width="0.8" fill="none"/>
+        <circle cx="270" cy="30" r="2.5" stroke="#b87333" stroke-width="0.8" fill="none"/>
+        <!-- Feedthrough connectors on top -->
+        <rect x="100" y="12" width="8" height="16" rx="1" stroke="#94a3b8" stroke-width="0.8" fill="none"/>
+        <rect x="130" y="8" width="8" height="14" rx="1" stroke="#94a3b8" stroke-width="0.8" fill="none"/>
+        <rect x="222" y="8" width="8" height="14" rx="1" stroke="#94a3b8" stroke-width="0.8" fill="none"/>
+        <rect x="252" y="12" width="8" height="16" rx="1" stroke="#94a3b8" stroke-width="0.8" fill="none"/>
+        <!-- SMA connectors (small rectangles on top) -->
+        <rect x="160" y="6" width="6" height="10" rx="1" stroke="#ea580c" stroke-width="0.7" fill="rgba(234,88,12,0.08)"/>
+        <rect x="175" y="4" width="6" height="10" rx="1" stroke="#ea580c" stroke-width="0.7" fill="rgba(234,88,12,0.08)"/>
+        <rect x="190" y="6" width="6" height="10" rx="1" stroke="#ea580c" stroke-width="0.7" fill="rgba(234,88,12,0.08)"/>
 
-  .letter {
-    opacity: 0;
-    display: inline-block;
-    animation: fadeInUp 1s forwards;
-  }
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(24px);}
-    to { opacity: 1; transform: translateY(0);}
-  }
-  
-  </style>
-</head>
+        <!-- ═══ Support rods (4 main rods through all stages) ═══ -->
+        <line x1="80" y1="32" x2="80" y2="92" stroke="#b87333" stroke-width="1.8"/>
+        <line x1="280" y1="32" x2="280" y2="92" stroke="#b87333" stroke-width="1.8"/>
+        <line x1="110" y1="32" x2="110" y2="92" stroke="#b87333" stroke-width="1"/>
+        <line x1="250" y1="32" x2="250" y2="92" stroke="#b87333" stroke-width="1"/>
 
+        <!-- ═══ Outer vacuum can (dashed outline) ═══ -->
+        <path d="M55,32 L55,100" stroke="#94a3b8" stroke-width="0.6" stroke-dasharray="6 3"/>
+        <path d="M305,32 L305,100" stroke="#94a3b8" stroke-width="0.6" stroke-dasharray="6 3"/>
 
-<h1 id="logo"></h1>
-<script>
-  const text = "Qrivara";
-  const logo = document.getElementById('logo');
+        <!-- ═══ Signal lines from feedthroughs down ═══ -->
+        <!-- DC lines (thin, straight) -->
+        <path d="M104,28 L104,92" stroke="#94a3b8" stroke-width="0.5"/>
+        <path d="M256,28 L256,92" stroke="#94a3b8" stroke-width="0.5"/>
+        <!-- Coax lines (slightly curved, teal) -->
+        <path d="M134,22 Q132,57 136,92" stroke="rgba(234,88,12,0.45)" stroke-width="0.7" fill="none"/>
+        <path d="M226,22 Q228,57 224,92" stroke="rgba(234,88,12,0.45)" stroke-width="0.7" fill="none"/>
+        <path d="M163,16 Q161,54 165,92" stroke="rgba(234,88,12,0.4)" stroke-width="0.7" fill="none"/>
+        <path d="M178,14 Q180,54 176,92" stroke="rgba(234,88,12,0.4)" stroke-width="0.7" fill="none"/>
+        <path d="M193,16 Q195,54 191,92" stroke="rgba(199,125,255,0.35)" stroke-width="0.7" fill="none"/>
 
-  // Wrap each letter in a span, add class, and set animation delay for staggered reveal
-  text.split('').forEach((char, i) => {
-    const span = document.createElement('span');
-    span.textContent = char;
-    span.classList.add('letter','colorful-gradient');
-    span.style.animationDelay = `${i * 0.25}s`; // stagger animations 0.25s apart
-    logo.appendChild(span);
-  });
-</script>
+        <!-- ═══ STAGE 1: 50K plate ═══ -->
+        <ellipse cx="180" cy="96" rx="108" ry="18" fill="url(#copperGrad)" stroke="#b87333" stroke-width="1.4"/>
+        <ellipse cx="180" cy="92" rx="108" ry="18" stroke="#b87333" stroke-width="1" fill="none"/>
+        <line x1="72" y1="92" x2="72" y2="96" stroke="#b87333" stroke-width="1"/>
+        <line x1="288" y1="92" x2="288" y2="96" stroke="#b87333" stroke-width="1"/>
+        <!-- 50K radiation shield (outer cylinder) -->
+        <line x1="68" y1="96" x2="68" y2="168" stroke="#b87333" stroke-width="0.8" opacity="0.5"/>
+        <line x1="292" y1="96" x2="292" y2="168" stroke="#b87333" stroke-width="0.8" opacity="0.5"/>
+        <path d="M68,168 Q180,190 292,168" stroke="#b87333" stroke-width="0.6" fill="none" opacity="0.3"/>
 
+        <!-- Rods 50K → 4K -->
+        <line x1="88" y1="96" x2="90" y2="174" stroke="#b87333" stroke-width="1.5"/>
+        <line x1="272" y1="96" x2="270" y2="174" stroke="#b87333" stroke-width="1.5"/>
+        <line x1="115" y1="96" x2="116" y2="174" stroke="#b87333" stroke-width="0.8"/>
+        <line x1="245" y1="96" x2="244" y2="174" stroke="#b87333" stroke-width="0.8"/>
 
+        <!-- Cables with attenuators at 50K -->
+        <path d="M136,96 Q133,135 138,174" stroke="rgba(234,88,12,0.4)" stroke-width="0.7" fill="none"/>
+        <!-- Attenuator block -->
+        <rect x="131" y="120" width="8" height="6" rx="1" stroke="rgba(234,88,12,0.5)" stroke-width="0.7" fill="rgba(234,88,12,0.08)"/>
+        <path d="M224,96 Q227,135 222,174" stroke="rgba(234,88,12,0.4)" stroke-width="0.7" fill="none"/>
+        <rect x="222" y="120" width="8" height="6" rx="1" stroke="rgba(234,88,12,0.5)" stroke-width="0.7" fill="rgba(234,88,12,0.08)"/>
+        <path d="M165,96 Q163,135 167,174" stroke="rgba(234,88,12,0.35)" stroke-width="0.7" fill="none"/>
+        <path d="M176,96 Q178,135 174,174" stroke="rgba(234,88,12,0.35)" stroke-width="0.7" fill="none"/>
+        <path d="M191,96 Q193,135 189,174" stroke="rgba(199,125,255,0.3)" stroke-width="0.7" fill="none"/>
+        <!-- DC lines -->
+        <path d="M104,96 L105,174" stroke="#94a3b8" stroke-width="0.5"/>
+        <path d="M256,96 L255,174" stroke="#94a3b8" stroke-width="0.5"/>
 
-  <img src="images/white.png" alt="Dilution Refrigerator Quantum Computer" class="integrated-image" />
+        <!-- ═══ STAGE 2: 4K plate ═══ -->
+        <ellipse cx="180" cy="178" rx="95" ry="16" fill="url(#copperGrad)" stroke="#b87333" stroke-width="1.4"/>
+        <ellipse cx="180" cy="174" rx="95" ry="16" stroke="#b87333" stroke-width="1" fill="none"/>
+        <line x1="85" y1="174" x2="85" y2="178" stroke="#b87333" stroke-width="1"/>
+        <line x1="275" y1="174" x2="275" y2="178" stroke="#b87333" stroke-width="1"/>
+        <!-- 4K shield -->
+        <line x1="82" y1="178" x2="84" y2="262" stroke="#b87333" stroke-width="0.7" opacity="0.4"/>
+        <line x1="278" y1="178" x2="276" y2="262" stroke="#b87333" stroke-width="0.7" opacity="0.4"/>
+        <path d="M84,262 Q180,280 276,262" stroke="#b87333" stroke-width="0.5" fill="none" opacity="0.25"/>
+        <!-- HEMT amplifier box at 4K -->
+        <rect x="230" y="190" width="18" height="12" rx="2" stroke="#d4a545" stroke-width="0.8" fill="rgba(212,165,69,0.08)"/>
+        <text x="239" y="199" fill="#d4a545" font-size="6" font-weight="600" font-family="'JetBrains Mono', monospace" text-anchor="middle">HEMT</text>
 
-  <div class="tilt-card-container">
-  <div class="tilt-card">
-    <h3>Circuit</h3>
-    <p></p>
-    <img src="" alt="" />
+        <!-- Rods 4K → Still -->
+        <line x1="98" y1="178" x2="100" y2="270" stroke="#b87333" stroke-width="1.2"/>
+        <line x1="262" y1="178" x2="260" y2="270" stroke="#b87333" stroke-width="1.2"/>
+        <line x1="120" y1="178" x2="121" y2="270" stroke="#b87333" stroke-width="0.7"/>
+        <line x1="240" y1="178" x2="239" y2="270" stroke="#b87333" stroke-width="0.7"/>
+
+        <!-- Cables with attenuators at 4K -->
+        <path d="M138,178 Q136,224 140,270" stroke="rgba(234,88,12,0.35)" stroke-width="0.7" fill="none"/>
+        <rect x="134" y="215" width="8" height="6" rx="1" stroke="rgba(234,88,12,0.45)" stroke-width="0.7" fill="rgba(234,88,12,0.08)"/>
+        <path d="M222,178 Q224,224 220,270" stroke="rgba(234,88,12,0.35)" stroke-width="0.7" fill="none"/>
+        <rect x="220" y="215" width="8" height="6" rx="1" stroke="rgba(234,88,12,0.45)" stroke-width="0.7" fill="rgba(234,88,12,0.08)"/>
+        <path d="M167,178 Q165,224 169,270" stroke="rgba(234,88,12,0.3)" stroke-width="0.6" fill="none"/>
+        <path d="M174,178 Q176,224 172,270" stroke="rgba(234,88,12,0.3)" stroke-width="0.6" fill="none"/>
+        <path d="M189,178 Q191,224 187,270" stroke="rgba(199,125,255,0.25)" stroke-width="0.6" fill="none"/>
+        <!-- DC lines continue -->
+        <path d="M105,178 L106,270" stroke="#94a3b8" stroke-width="0.4"/>
+        <path d="M255,178 L254,270" stroke="#94a3b8" stroke-width="0.4"/>
+
+        <!-- ═══ STAGE 3: Still plate (800mK) ═══ -->
+        <ellipse cx="180" cy="274" rx="80" ry="14" fill="url(#copperGrad)" stroke="#b87333" stroke-width="1.2"/>
+        <ellipse cx="180" cy="270" rx="80" ry="14" stroke="#b87333" stroke-width="0.9" fill="none"/>
+        <line x1="100" y1="270" x2="100" y2="274" stroke="#b87333" stroke-width="0.9"/>
+        <line x1="260" y1="270" x2="260" y2="274" stroke="#b87333" stroke-width="0.9"/>
+        <!-- Still heater (small coil symbol) -->
+        <path d="M215,274 Q218,278 221,274 Q224,270 227,274 Q230,278 233,274" stroke="#d4a545" stroke-width="0.7" fill="none"/>
+
+        <!-- Inner shield from still -->
+        <line x1="96" y1="274" x2="100" y2="352" stroke="#b87333" stroke-width="0.6" opacity="0.3"/>
+        <line x1="264" y1="274" x2="260" y2="352" stroke="#b87333" stroke-width="0.6" opacity="0.3"/>
+
+        <!-- Rods Still → Cold plate -->
+        <line x1="108" y1="274" x2="112" y2="360" stroke="#b87333" stroke-width="1"/>
+        <line x1="252" y1="274" x2="248" y2="360" stroke="#b87333" stroke-width="1"/>
+
+        <!-- Heat exchangers (sintered silver — zigzag symbols) -->
+        <path d="M155,290 L155,300 L160,295 L160,305 L165,300 L165,310 L170,305 L170,315" stroke="#d4945a" stroke-width="0.6" fill="none" opacity="0.6"/>
+        <path d="M195,290 L195,300 L200,295 L200,305 L205,300 L205,310 L210,305 L210,315" stroke="#d4945a" stroke-width="0.6" fill="none" opacity="0.6"/>
+
+        <!-- Cables — 20dB attenuator at still -->
+        <path d="M140,274 Q139,317 143,360" stroke="rgba(234,88,12,0.3)" stroke-width="0.6" fill="none"/>
+        <rect x="137" y="310" width="8" height="6" rx="1" stroke="rgba(234,88,12,0.4)" stroke-width="0.6" fill="rgba(234,88,12,0.06)"/>
+        <path d="M220,274 Q221,317 217,360" stroke="rgba(234,88,12,0.3)" stroke-width="0.6" fill="none"/>
+        <rect x="216" y="310" width="8" height="6" rx="1" stroke="rgba(234,88,12,0.4)" stroke-width="0.6" fill="rgba(234,88,12,0.06)"/>
+        <path d="M169,274 Q168,317 170,360" stroke="rgba(234,88,12,0.25)" stroke-width="0.5" fill="none"/>
+        <path d="M172,274 Q173,317 171,360" stroke="rgba(234,88,12,0.25)" stroke-width="0.5" fill="none"/>
+        <path d="M187,274 Q188,317 186,360" stroke="rgba(199,125,255,0.2)" stroke-width="0.5" fill="none"/>
+
+        <!-- ═══ STAGE 4: Cold plate (100mK) ═══ -->
+        <ellipse cx="180" cy="364" rx="65" ry="12" fill="url(#copperGrad)" stroke="#b87333" stroke-width="1.1"/>
+        <ellipse cx="180" cy="360" rx="65" ry="12" stroke="#b87333" stroke-width="0.8" fill="none"/>
+        <line x1="115" y1="360" x2="115" y2="364" stroke="#b87333" stroke-width="0.8"/>
+        <line x1="245" y1="360" x2="245" y2="364" stroke="#b87333" stroke-width="0.8"/>
+
+        <!-- Rods Cold plate → Mixing chamber -->
+        <line x1="122" y1="364" x2="126" y2="428" stroke="#b87333" stroke-width="0.9"/>
+        <line x1="238" y1="364" x2="234" y2="428" stroke="#b87333" stroke-width="0.9"/>
+
+        <!-- Final cables to MXC -->
+        <path d="M143,364 Q142,396 146,428" stroke="rgba(234,88,12,0.3)" stroke-width="0.5" fill="none"/>
+        <path d="M217,364 Q218,396 214,428" stroke="rgba(234,88,12,0.3)" stroke-width="0.5" fill="none"/>
+        <path d="M170,364 Q169,396 171,428" stroke="rgba(234,88,12,0.25)" stroke-width="0.5" fill="none"/>
+        <path d="M171,364 Q172,396 170,428" stroke="rgba(234,88,12,0.25)" stroke-width="0.5" fill="none"/>
+        <path d="M186,364 Q187,396 185,428" stroke="rgba(199,125,255,0.2)" stroke-width="0.5" fill="none"/>
+        <!-- IR filter -->
+        <rect x="141" y="390" width="7" height="5" rx="1" stroke="rgba(234,88,12,0.35)" stroke-width="0.5" fill="rgba(234,88,12,0.05)"/>
+        <rect x="212" y="390" width="7" height="5" rx="1" stroke="rgba(234,88,12,0.35)" stroke-width="0.5" fill="rgba(234,88,12,0.05)"/>
+
+        <!-- ═══ STAGE 5: Mixing chamber (15mK) ═══ -->
+        <ellipse cx="180" cy="432" rx="50" ry="10" fill="url(#coldGrad)" stroke="#ea580c" stroke-width="1.2"/>
+        <ellipse cx="180" cy="428" rx="50" ry="10" stroke="#ea580c" stroke-width="0.9" fill="none"/>
+        <line x1="130" y1="428" x2="130" y2="432" stroke="#ea580c" stroke-width="0.9"/>
+        <line x1="230" y1="428" x2="230" y2="432" stroke="#ea580c" stroke-width="0.9"/>
+
+        <!-- Mixing chamber body (cylindrical) -->
+        <line x1="140" y1="432" x2="140" y2="455" stroke="#ea580c" stroke-width="0.8"/>
+        <line x1="220" y1="432" x2="220" y2="455" stroke="#ea580c" stroke-width="0.8"/>
+        <ellipse cx="180" cy="455" rx="40" ry="7" stroke="#ea580c" stroke-width="0.8" fill="rgba(234,88,12,0.03)"/>
+
+        <!-- ═══ Quantum processor package ═══ -->
+        <line x1="155" y1="455" x2="155" y2="470" stroke="#ea580c" stroke-width="0.6"/>
+        <line x1="205" y1="455" x2="205" y2="470" stroke="#ea580c" stroke-width="0.6"/>
+        <!-- Processor housing -->
+        <rect x="148" y="470" width="64" height="36" rx="4" stroke="#ea580c" stroke-width="1.2" fill="rgba(234,88,12,0.04)"/>
+        <!-- Inner chip die -->
+        <rect x="160" y="478" width="40" height="20" rx="2" stroke="rgba(234,88,12,0.6)" stroke-width="0.8" fill="rgba(234,88,12,0.06)"/>
+        <!-- Qubit lattice (5x3 grid) -->
+        <circle cx="168" cy="484" r="1.8" fill="rgba(234,88,12,0.6)"/>
+        <circle cx="176" cy="484" r="1.8" fill="rgba(199,125,255,0.6)"/>
+        <circle cx="184" cy="484" r="1.8" fill="rgba(234,88,12,0.6)"/>
+        <circle cx="192" cy="484" r="1.8" fill="rgba(199,125,255,0.6)"/>
+        <circle cx="172" cy="490" r="1.8" fill="rgba(199,125,255,0.6)"/>
+        <circle cx="180" cy="490" r="1.8" fill="rgba(234,88,12,0.6)"/>
+        <circle cx="188" cy="490" r="1.8" fill="rgba(199,125,255,0.6)"/>
+        <!-- Coupling resonators (horizontal lines between qubits) -->
+        <line x1="170" y1="484" x2="174" y2="484" stroke="rgba(234,88,12,0.4)" stroke-width="0.5"/>
+        <line x1="178" y1="484" x2="182" y2="484" stroke="rgba(234,88,12,0.4)" stroke-width="0.5"/>
+        <line x1="186" y1="484" x2="190" y2="484" stroke="rgba(234,88,12,0.4)" stroke-width="0.5"/>
+        <line x1="174" y1="490" x2="178" y2="490" stroke="rgba(234,88,12,0.4)" stroke-width="0.5"/>
+        <line x1="182" y1="490" x2="186" y2="490" stroke="rgba(234,88,12,0.4)" stroke-width="0.5"/>
+        <!-- Vertical couplings -->
+        <line x1="172" y1="486" x2="172" y2="488" stroke="rgba(199,125,255,0.3)" stroke-width="0.5"/>
+        <line x1="180" y1="486" x2="180" y2="488" stroke="rgba(199,125,255,0.3)" stroke-width="0.5"/>
+        <line x1="188" y1="486" x2="188" y2="488" stroke="rgba(199,125,255,0.3)" stroke-width="0.5"/>
+        <!-- Wire bonds (short lines from chip edge to package) -->
+        <line x1="160" y1="480" x2="153" y2="478" stroke="#d4a545" stroke-width="0.4"/>
+        <line x1="160" y1="485" x2="153" y2="484" stroke="#d4a545" stroke-width="0.4"/>
+        <line x1="160" y1="490" x2="153" y2="490" stroke="#d4a545" stroke-width="0.4"/>
+        <line x1="160" y1="495" x2="153" y2="496" stroke="#d4a545" stroke-width="0.4"/>
+        <line x1="200" y1="480" x2="207" y2="478" stroke="#d4a545" stroke-width="0.4"/>
+        <line x1="200" y1="485" x2="207" y2="484" stroke="#d4a545" stroke-width="0.4"/>
+        <line x1="200" y1="490" x2="207" y2="490" stroke="#d4a545" stroke-width="0.4"/>
+        <line x1="200" y1="495" x2="207" y2="496" stroke="#d4a545" stroke-width="0.4"/>
+
+        <!-- ═══ Temperature labels (right side) ═══ -->
+        <line x1="302" y1="30" x2="312" y2="30" stroke="#64748b" stroke-width="0.7"/>
+        <text x="316" y="34" fill="#334155" font-size="10" font-weight="600" font-family="'JetBrains Mono', monospace">300 K</text>
+        <line x1="290" y1="94" x2="312" y2="94" stroke="#64748b" stroke-width="0.7"/>
+        <text x="316" y="98" fill="#334155" font-size="10" font-weight="600" font-family="'JetBrains Mono', monospace">50 K</text>
+        <line x1="277" y1="176" x2="312" y2="176" stroke="#64748b" stroke-width="0.7"/>
+        <text x="316" y="180" fill="#334155" font-size="10" font-weight="600" font-family="'JetBrains Mono', monospace">4 K</text>
+        <line x1="262" y1="272" x2="312" y2="272" stroke="#64748b" stroke-width="0.7"/>
+        <text x="316" y="276" fill="#334155" font-size="10" font-weight="600" font-family="'JetBrains Mono', monospace">Still</text>
+        <line x1="247" y1="362" x2="312" y2="362" stroke="#64748b" stroke-width="0.7"/>
+        <text x="316" y="366" fill="#334155" font-size="10" font-weight="600" font-family="'JetBrains Mono', monospace">100 mK</text>
+        <line x1="232" y1="430" x2="252" y2="430" stroke="rgba(234,88,12,0.6)" stroke-width="0.7"/>
+        <text x="256" y="434" fill="#ea580c" font-size="10" font-weight="700" font-family="'JetBrains Mono', monospace">15 mK</text>
+        <text x="256" y="492" fill="#ea580c" font-size="10" font-weight="700" font-family="'JetBrains Mono', monospace">QPU</text>
+
+        <!-- ═══ Left side labels ═══ -->
+        <text x="42" y="140" fill="#64748b" font-size="8" font-weight="500" font-family="'JetBrains Mono', monospace" transform="rotate(-90,42,140)">radiation shield</text>
+
+        <!-- Subtle ambient glow around processor -->
+        <ellipse cx="180" cy="488" rx="38" ry="24" fill="rgba(234,88,12,0.03)"/>
+
+        <!-- ═══ Animated elements ═══ -->
+        <!-- Signal pulses traveling down coax lines -->
+        <circle r="2.5" fill="#ea580c" opacity="0.7">
+          <animateMotion dur="4s" repeatCount="indefinite" path="M134,22 Q132,57 136,92 Q133,135 138,174 Q136,224 140,270 Q139,317 143,360 Q142,396 146,428"/>
+          <animate attributeName="opacity" values="0;0.8;0.8;0" dur="4s" repeatCount="indefinite"/>
+        </circle>
+        <circle r="2" fill="#ea580c" opacity="0.6">
+          <animateMotion dur="5s" repeatCount="indefinite" begin="1.5s" path="M226,22 Q228,57 224,92 Q227,135 222,174 Q224,224 220,270 Q221,317 217,360 Q218,396 214,428"/>
+          <animate attributeName="opacity" values="0;0.7;0.7;0" dur="5s" repeatCount="indefinite" begin="1.5s"/>
+        </circle>
+        <circle r="2" fill="#c77dff" opacity="0.5">
+          <animateMotion dur="6s" repeatCount="indefinite" begin="0.8s" path="M193,16 Q195,54 191,92 Q193,135 189,174 Q191,224 187,270 Q188,317 186,360 Q187,396 185,428"/>
+          <animate attributeName="opacity" values="0;0.6;0.6;0" dur="6s" repeatCount="indefinite" begin="0.8s"/>
+        </circle>
+
+        <!-- Qubit lattice pulsing glow -->
+        <ellipse cx="180" cy="488" rx="28" ry="14" fill="none" stroke="#ea580c" stroke-width="0.8" opacity="0">
+          <animate attributeName="rx" values="20;30;20" dur="3s" repeatCount="indefinite"/>
+          <animate attributeName="ry" values="10;16;10" dur="3s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0;0.25;0" dur="3s" repeatCount="indefinite"/>
+        </ellipse>
+        <ellipse cx="180" cy="488" rx="18" ry="10" fill="none" stroke="#c77dff" stroke-width="0.6" opacity="0">
+          <animate attributeName="rx" values="14;22;14" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
+          <animate attributeName="ry" values="8;13;8" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
+          <animate attributeName="opacity" values="0;0.2;0" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
+        </ellipse>
+
+        <!-- Individual qubit blinking -->
+        <circle cx="180" cy="490" r="1.8" fill="#ea580c" opacity="0.6">
+          <animate attributeName="r" values="1.8;3;1.8" dur="2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+        </circle>
+      </svg>
+    </div>
+  </section>
+
+  <!-- About -->
+  <div class="about-layout about-layout--reversed reveal">
+    <div class="about-graph" id="graph"></div>
+    <div class="about-text">
+      <p class="animated-text">
+        At Qrivara, we believe true talent is defined by <span class="highlight">passion</span>, <span class="highlight">creativity</span>, and the drive to do something extraordinary — not just by background, experience, or grades. Our mission is to innovate quantum circuit designs and demonstrate how quantum computers can solve everyday problems. We wish to deliver the developed solutions to leading quantum tech firms.
+      </p>
+      <p class="animated-text">
+        We empower the ambitious, <span class="highlight">curious</span>, and highly motivated — those overlooked or rejected due to conventional norms. Whether you lack formal experience or were dismissed due to lack of vacancies, we see your potential and ideas. Qrivara nurtures <span class="highlight">visionaries</span> who challenge norms, experiment fearlessly, and shape the future of quantum technology.
+      </p>
+      <p class="animated-text">
+        If you have talent, drive, and determination to create something unique, Qrivara is the place for you. We celebrate the brilliant <span class="highlight">"errors"</span> often ignored, turning glitches into <span class="highlight">breakthroughs</span>. Join us and become part of a team where your potential is recognized and empowered. Check out the <a href="join.html" class="highlight-link">Join Us</a> page to become a part of our team.
+      </p>
+    </div>
   </div>
-  <div class="tilt-card">
-    <h3>Quantum</h3>
-    <p></p>
-    <img src="" alt="" />
-  </div>
-  <div class="tilt-card">
-    <h3>Electrodynamics</h3>
-    <p></p>
-    <img src="" alt="" />
-  </div>
-</div>
 
+  <!-- Research Area Panels -->
+  <section class="reveal">
+    <h2 class="section-title">Our Research Areas</h2>
+    <div class="research-panels stagger-children">
+      <a href="research.html" class="research-panel">
+        <div class="research-panel__viz">
+          <svg viewBox="0 0 200 160" fill="none">
+            <line x1="20" y1="50" x2="180" y2="50" stroke="#b87333" stroke-width="1.5" opacity="0.5"/>
+            <line x1="20" y1="80" x2="180" y2="80" stroke="#b87333" stroke-width="1.5" opacity="0.5"/>
+            <line x1="20" y1="110" x2="180" y2="110" stroke="#b87333" stroke-width="1.5" opacity="0.5"/>
+            <text x="12" y="54" fill="#8a8a8a" font-size="10" font-family="monospace" text-anchor="end">|0&#x27E9;</text>
+            <text x="12" y="84" fill="#8a8a8a" font-size="10" font-family="monospace" text-anchor="end">|1&#x27E9;</text>
+            <text x="12" y="114" fill="#8a8a8a" font-size="10" font-family="monospace" text-anchor="end">|2&#x27E9;</text>
+            <rect x="40" y="36" width="28" height="28" rx="4" stroke="#ea580c" stroke-width="1.5" fill="rgba(234,88,12,0.08)"/>
+            <text x="54" y="55" fill="#1a1a1a" font-size="13" font-weight="bold" font-family="monospace" text-anchor="middle">H</text>
+            <circle cx="90" cy="50" r="5" fill="#a855f7"/>
+            <line x1="90" y1="50" x2="90" y2="80" stroke="#a855f7" stroke-width="2"/>
+            <circle cx="90" cy="80" r="10" fill="none" stroke="#a855f7" stroke-width="1.5"/>
+            <line x1="80" y1="80" x2="100" y2="80" stroke="#a855f7" stroke-width="1.5"/>
+            <line x1="90" y1="70" x2="90" y2="90" stroke="#a855f7" stroke-width="1.5"/>
+            <rect x="116" y="66" width="28" height="28" rx="4" stroke="#ea580c" stroke-width="1.5" fill="rgba(234,88,12,0.08)"/>
+            <text x="130" y="85" fill="#1a1a1a" font-size="13" font-weight="bold" font-family="monospace" text-anchor="middle">T</text>
+            <rect x="150" y="96" width="28" height="28" rx="4" stroke="#c49a3c" stroke-width="1.5" fill="rgba(196,154,60,0.1)"/>
+            <path d="M157,114 A8,8 0 0,1 171,114" fill="none" stroke="#c49a3c" stroke-width="1.5"/>
+            <line x1="164" y1="114" x2="169" y2="104" stroke="#c49a3c" stroke-width="1.5"/>
+            <circle r="3" fill="#ea580c" opacity="0.7">
+              <animateMotion dur="3s" repeatCount="indefinite" path="M20,50 L180,50"/>
+              <animate attributeName="opacity" values="0;0.8;0.8;0" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <circle r="2.5" fill="#a855f7" opacity="0.6">
+              <animateMotion dur="4s" repeatCount="indefinite" begin="1s" path="M20,80 L180,80"/>
+              <animate attributeName="opacity" values="0;0.7;0.7;0" dur="4s" repeatCount="indefinite" begin="1s"/>
+            </circle>
+          </svg>
+        </div>
+        <div class="research-panel__body">
+          <h3>Superconducting Circuits</h3>
+          <p>Design and simulation of transmon qubits, CPW resonators, and Josephson parametric amplifiers</p>
+          <span class="research-panel__link">Explore &#8594;</span>
+        </div>
+      </a>
+      <a href="research.html" class="research-panel">
+        <div class="research-panel__viz">
+          <svg viewBox="0 0 200 160" fill="none">
+            <line x1="50" y1="130" x2="150" y2="130" stroke="#b87333" stroke-width="2" opacity="0.6"/>
+            <line x1="50" y1="90" x2="150" y2="90" stroke="#b87333" stroke-width="2" opacity="0.6"/>
+            <line x1="50" y1="50" x2="150" y2="50" stroke="#b87333" stroke-width="2" opacity="0.6"/>
+            <text x="160" y="134" fill="#8a8a8a" font-size="10" font-family="monospace">|g&#x27E9;</text>
+            <text x="160" y="94" fill="#8a8a8a" font-size="10" font-family="monospace">|e&#x27E9;</text>
+            <text x="160" y="54" fill="#8a8a8a" font-size="10" font-family="monospace">|f&#x27E9;</text>
+            <line x1="80" y1="125" x2="80" y2="95" stroke="#ea580c" stroke-width="1.5"/>
+            <polygon points="80,95 76,101 84,101" fill="#ea580c"/>
+            <line x1="120" y1="85" x2="120" y2="55" stroke="#a855f7" stroke-width="1.5"/>
+            <polygon points="120,55 116,61 124,61" fill="#a855f7"/>
+            <path d="M60,110 Q65,105 70,110 Q75,115 80,110 Q85,105 90,110" stroke="#ea580c" stroke-width="1.2" fill="none" opacity="0.5"/>
+            <path d="M110,70 Q115,65 120,70 Q125,75 130,70 Q135,65 140,70" stroke="#a855f7" stroke-width="1.2" fill="none" opacity="0.5"/>
+            <circle cx="100" cy="130" r="4" fill="#ea580c">
+              <animate attributeName="cy" values="130;90;130" dur="2.5s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1"/>
+              <animate attributeName="r" values="4;5;4" dur="2.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="100" cy="90" r="3" fill="#a855f7" opacity="0">
+              <animate attributeName="cy" values="90;50;90" dur="3s" repeatCount="indefinite" begin="0.8s" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1"/>
+              <animate attributeName="opacity" values="0;0.6;0" dur="3s" repeatCount="indefinite" begin="0.8s"/>
+            </circle>
+          </svg>
+        </div>
+        <div class="research-panel__body">
+          <h3>Hybrid Quantum Systems</h3>
+          <p>Graphene quantum dots coupled to superconductors, optomechanical quantum memories</p>
+          <span class="research-panel__link">Explore &#8594;</span>
+        </div>
+      </a>
+      <a href="research.html" class="research-panel">
+        <div class="research-panel__viz">
+          <svg viewBox="0 0 200 160" fill="none">
+            <circle cx="60" cy="50" r="6" fill="rgba(234,88,12,0.15)" stroke="#ea580c" stroke-width="1.2"/>
+            <circle cx="100" cy="50" r="6" fill="rgba(234,88,12,0.15)" stroke="#ea580c" stroke-width="1.2"/>
+            <circle cx="140" cy="50" r="6" fill="rgba(234,88,12,0.15)" stroke="#ea580c" stroke-width="1.2"/>
+            <circle cx="60" cy="90" r="6" fill="rgba(234,88,12,0.15)" stroke="#ea580c" stroke-width="1.2"/>
+            <circle cx="100" cy="90" r="6" fill="rgba(234,88,12,0.15)" stroke="#ea580c" stroke-width="1.2"/>
+            <circle cx="140" cy="90" r="6" fill="rgba(234,88,12,0.15)" stroke="#ea580c" stroke-width="1.2"/>
+            <circle cx="60" cy="130" r="6" fill="rgba(234,88,12,0.15)" stroke="#ea580c" stroke-width="1.2"/>
+            <circle cx="100" cy="130" r="6" fill="rgba(234,88,12,0.15)" stroke="#ea580c" stroke-width="1.2"/>
+            <circle cx="140" cy="130" r="6" fill="rgba(234,88,12,0.15)" stroke="#ea580c" stroke-width="1.2"/>
+            <line x1="66" y1="50" x2="94" y2="50" stroke="#b87333" stroke-width="1" opacity="0.4"/>
+            <line x1="106" y1="50" x2="134" y2="50" stroke="#b87333" stroke-width="1" opacity="0.4"/>
+            <line x1="66" y1="90" x2="94" y2="90" stroke="#b87333" stroke-width="1" opacity="0.4"/>
+            <line x1="106" y1="90" x2="134" y2="90" stroke="#b87333" stroke-width="1" opacity="0.4"/>
+            <line x1="66" y1="130" x2="94" y2="130" stroke="#b87333" stroke-width="1" opacity="0.4"/>
+            <line x1="106" y1="130" x2="134" y2="130" stroke="#b87333" stroke-width="1" opacity="0.4"/>
+            <line x1="60" y1="56" x2="60" y2="84" stroke="#b87333" stroke-width="1" opacity="0.4"/>
+            <line x1="100" y1="56" x2="100" y2="84" stroke="#b87333" stroke-width="1" opacity="0.4"/>
+            <line x1="140" y1="56" x2="140" y2="84" stroke="#b87333" stroke-width="1" opacity="0.4"/>
+            <line x1="60" y1="96" x2="60" y2="124" stroke="#b87333" stroke-width="1" opacity="0.4"/>
+            <line x1="100" y1="96" x2="100" y2="124" stroke="#b87333" stroke-width="1" opacity="0.4"/>
+            <line x1="140" y1="96" x2="140" y2="124" stroke="#b87333" stroke-width="1" opacity="0.4"/>
+            <rect x="67" y="57" width="26" height="26" rx="4" fill="rgba(234,88,12,0.06)" stroke="rgba(234,88,12,0.2)" stroke-width="0.8"/>
+            <text x="80" y="74" fill="#ea580c" font-size="10" font-weight="bold" text-anchor="middle" font-family="monospace">X</text>
+            <rect x="107" y="97" width="26" height="26" rx="4" fill="rgba(234,88,12,0.06)" stroke="rgba(234,88,12,0.2)" stroke-width="0.8"/>
+            <text x="120" y="114" fill="#ea580c" font-size="10" font-weight="bold" text-anchor="middle" font-family="monospace">X</text>
+            <rect x="107" y="57" width="26" height="26" rx="4" fill="rgba(168,85,247,0.06)" stroke="rgba(168,85,247,0.2)" stroke-width="0.8"/>
+            <text x="120" y="74" fill="#a855f7" font-size="10" font-weight="bold" text-anchor="middle" font-family="monospace">Z</text>
+            <rect x="67" y="97" width="26" height="26" rx="4" fill="rgba(168,85,247,0.06)" stroke="rgba(168,85,247,0.2)" stroke-width="0.8"/>
+            <text x="80" y="114" fill="#a855f7" font-size="10" font-weight="bold" text-anchor="middle" font-family="monospace">Z</text>
+            <rect x="67" y="57" width="26" height="26" rx="4" fill="rgba(234,88,12,0.15)" opacity="0">
+              <animate attributeName="opacity" values="0;0.8;0" dur="3s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="107" y="57" width="26" height="26" rx="4" fill="rgba(168,85,247,0.15)" opacity="0">
+              <animate attributeName="opacity" values="0;0.8;0" dur="3s" repeatCount="indefinite" begin="0.75s"/>
+            </rect>
+            <rect x="107" y="97" width="26" height="26" rx="4" fill="rgba(234,88,12,0.15)" opacity="0">
+              <animate attributeName="opacity" values="0;0.8;0" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+            </rect>
+            <rect x="67" y="97" width="26" height="26" rx="4" fill="rgba(168,85,247,0.15)" opacity="0">
+              <animate attributeName="opacity" values="0;0.8;0" dur="3s" repeatCount="indefinite" begin="2.25s"/>
+            </rect>
+          </svg>
+        </div>
+        <div class="research-panel__body">
+          <h3>Quantum Error Correction</h3>
+          <p>Surface codes, stabilizer measurements, and fault-tolerant quantum computing algorithms</p>
+          <span class="research-panel__link">Explore &#8594;</span>
+        </div>
+      </a>
+    </div>
+  </section>
 
+  <!-- Quantum Quote Display -->
+  <section class="quantum-quote reveal">
+    <div class="quantum-quote__inner">
+      <div class="quantum-quote__bra">&#x27E8;&#x03C8;|</div>
+      <div class="quantum-quote__text" id="quoteText"></div>
+      <cite class="quantum-quote__cite" id="quoteCite"></cite>
+      <div class="quantum-quote__timer"><div class="quantum-quote__timer-fill" id="quoteTimer"></div></div>
+      <div class="quantum-quote__nav" id="quoteNav"></div>
+    </div>
+  </section>
 
+  <!-- Footer -->
+  <footer class="site-footer">
 
-  <script>
-    const cards = document.querySelectorAll('.tilt-card');
-    cards.forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        const rotateX = (-y / (rect.height / 2)) * 12;
-        const rotateY = (x / (rect.width / 2)) * 12;
-        card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.04)`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)';
-      });
-      card.addEventListener('mouseenter', () => {
-        card.style.transition = 'transform 0.12s cubic-bezier(0.68,0.96,0.68,1)';
-      });
-    });
-  </script>
-
-  <!-- Add this inside your <body> where you want the video to appear -->
-<div style="
-  display: flex; justify-content: center; align-items: center; margin: 60px 0;
-">
-  <video controls style="
-    width: 640px; max-width: 95vw;
-    border-radius: 18px;
-    box-shadow: 0 10px 32px rgba(60,80,140,0.12);
-    background: #fff;
-  ">
-    <source src="your-video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</div>
-
-
-<script>
-const outer = document.getElementById('hScroller');
-const inner = document.getElementById('hScrollerInner');
-const scrollLength = inner.scrollWidth - outer.clientWidth;
-
-window.addEventListener('scroll', () => {
-  const rect = outer.getBoundingClientRect();
-  // When the scroller is in view: Map vertical scroll amount to horizontal movement
-  if (rect.top < window.innerHeight && rect.bottom > 0) {
-    const pct = Math.min(Math.max((window.innerHeight - rect.top) / (rect.height + window.innerHeight), 0), 1);
-    inner.style.transform = `translateX(${-pct * scrollLength}px)`;
-  }
-});
-</script>
-
-
-</html>
-
-<style>
-  body {
-    background: #fff;
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  footer {
-    position: relative;
-    width: 100%;
-    height: 160px;
-    background: #fff;
-    overflow: hidden;
-  }
-  #ascii-bg {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    opacity: 0.7;
-  }
-</style>
-
-
-
-
-
-
-<style>
-  .carousel-container {
-    width: 100%;
-    max-width: 1100px;
-    margin: 60px auto;
-    overflow: hidden;
-    position: relative;
-  }
-  .carousel-track {
-    display: flex;
-    gap: 32px;
-    will-change: transform;
-  }
-  .carousel-item {
-    flex: 0 0 300px; /* card width */
-    height: 300px;
-    border-radius: 32px;
-    background: rgb(32, 33, 34);
-    border: 2px solid rgb(189, 240, 240);
-    cursor: pointer;
-    color: white;
-    font-family: 'Arial Black', sans-serif;
-    font-weight: bold;
-    font-size: 1.25rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    user-select: none;
-  }
-</style>
-
-<div class="carousel-container">
-  <div class="carousel-track" id="carouselTrack">
-
-  
-
-    <div class="carousel-item">
-      <img src="" alt="">
-      <div class="carousel-caption">
-        <h3></h3>
-        <p>CTO</p>
+    <div class="site-footer__inner">
+      <div>
+        <h3>Business Bulletin</h3>
+        <p>Subscribe for the latest news and insights in quantum technology.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf2DGh_kwiIJnqhE2Smi9CUsIFgHs0iYI_qRKCbTgtP7u5Yjw/viewform?usp=sharing" class="site-footer__cta">Subscribe &rarr;</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p><a href="mailto:qrivara.tech@gmail.com">qrivara.tech@gmail.com</a></p>
+        <div class="site-footer__social">
+          <a href="https://www.linkedin.com/company/qrivara/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <span class="site-footer__sep">&middot;</span>
+          <a href="https://youtube.com/@qrivara?si=Co2I4QyPCXbuv_1P" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
       </div>
     </div>
+    <div class="site-footer__bottom">&copy; 2026 Qrivara. All rights reserved.</div>
+  </footer>
 
-    <div class="carousel-item">
-      <img src="images/20250102_174033.jpg" alt="">
-      <div class="carousel-caption">
-        <h3></h3>
-        <p>Co-Founder: Shraddhanjali Choudhury</p>
-      </div>
-    </div>
-
-     <div class="carousel-item">
-      <img src="images/CEO.jpg" alt="">
-      <div class="carousel-caption">
-        <h3></h3>
-        <p>Founder: Rajlaxmi Bhoite</p>
-      </div>
-    </div>
-
-      <div class="carousel-item">
-      <img src="images/Screenshot 2025-11-17 at 15.42.05.png" alt="">
-      <div class="carousel-caption">
-        <h3></h3>
-        <p>Head Quantum Simulation: Harshdeep Chhabra</p>
-      </div>
-    </div>
-
-     <div class="carousel-item">
-      <img src="" alt="">
-      <div class="carousel-caption">
-        <h3></h3>
-        <p>Quantum Error Correction Lead</p>
-      </div>
-    </div>
-
-
-    <div class="carousel-item">
-      <img src="" alt="">
-      <div class="carousel-caption">
-        <h3></h3>
-        <p>Senior Web Developer</p>
-      </div>
-    </div>
-
-     <div class="carousel-item">
-      <img src="" alt="">
-      <div class="carousel-caption">
-        <h3></h3>
-        <p>Quantum Circuit Design Lead</p>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-
-<script>
-  const track = document.getElementById('carouselTrack');
-  let translateX = 0;
-
-  function animate() {
-    translateX -= 1; // speed of movement in px per frame
-    if (translateX <= -track.scrollWidth / 2) {
-      translateX = 0;  // reset scroll to loop
-    }
-    track.style.transform = `translateX(${translateX}px)`;
-    requestAnimationFrame(animate);
-  }
-  animate();
-</script>
-
-
-
-
-
-<div id="quote-box">
-  <div class="quote-text active">
-    Welcome to Qrivara — where curiosity sparks discovery, and quantum isn't just a science fiction.
-  </div>
-  <div class="quote-text">
-    However difficult life may seem, there is always something you can do and succeed at — Stephen Hawking
-  </div>
-  <div class="quote-text">
-    When you change the way you look at things, the things you look at change — Max Planck
-  </div>
-  <div class="quote-text">
-    An expert is a person who has made all the mistakes that can be made in a very narrow field — Niels Bohr
-  </div>
-  <div class="quote-text">
-    Nothing in life is to be feared; it is only to be understood — Marie Curie
-  </div>
-  <div class="quote-text">
-    Like Einstein, we never stop questioning, because curiosity has its own reason for existing.
-  </div>
-  <div class="quote-text">
-    In Feynman's words, we’re comfortable being a little uncertain. I can live with doubt and uncertainty and not knowing. I think it is much more interesting to live not knowing than to have answers that might be wrong.
-  </div>
-  <div class="quote-text">
-    So buckle up, keep your mind open, and prepare for a journey where science is as fun as it is profound—because here at Qrivara, we don’t push boundaries, we quantum tunnel right through them!
-  </div>
-</div>
-
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const quotes = document.querySelectorAll('.quote-text');
-    let currentIndex = 0;
-
-    setInterval(() => {
-      quotes[currentIndex].classList.remove('active');
-      currentIndex = (currentIndex + 1) % quotes.length;
-      quotes[currentIndex].classList.add('active');
-    }, 8000); // Change quote every 8 seconds
-  });
-</script>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Qrivara - About Us</title>
-  <style>
-    body {
-      font-family: 'Times New Roman', serif;
-      margin: 0;
-      padding: 2rem;
-      background: #fff;
-      display: flex;
-      justify-content: center;
-      /* Removed align-items center to avoid vertical centering */
-      min-height: 100vh;
-    }
-
-    .container {
-      display: flex;
-      max-width: 1200px;
-      width: 100%;
-      gap: 2rem;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-
-    .text-section {
-      flex: 1 1 50%;
-      max-width: 600px;
-    }
-
-    .graph-section {
-      flex: 1 1 50%;
-      max-width: 600px;
-      margin-left: auto;
-    }
-
-    .animated-text {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeSlideIn 0.8s forwards;
-    }
-
-    .animated-text:nth-child(1) {
-      animation-delay: 1s;
-    }
-    .animated-text:nth-child(2) {
-      animation-delay: 2s;
-    }
-    .animated-text:nth-child(3) {
-      animation-delay: 3s;
-    }
-
-    .highlight {
-      color: #e67e22;
-      font-weight: bold;
-      animation: pulseHighlight 2s infinite alternate;
-    }
-
-    @keyframes fadeSlideIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes pulseHighlight {
-      0% {
-        text-shadow: none;
-      }
-      100% {
-        text-shadow: 0 0 8px #e67e22;
-      }
-    }
-
-    .highlight-link {
-      color: #e67e22;
-      text-decoration: underline;
-      transition: color 0.3s;
-    }
-
-    .highlight-link:hover {
-      color: #d35400;
-    }
-
-    svg {
-      width: 100%;
-      height: 600px;
-
-      border-radius: 12px;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="text-section">
-      <section id="about-animated">
-        <p class="animated-text">
-          At Qrivara, we believe true talent is defined by <span class="highlight">passion</span>, <span class="highlight">creativity</span>, and the drive to do something extraordinary—not just by background, experience, or grades. Our mission is to innovate quantum circuit designs and demonstrate how quantum computers can solve everyday problems. We wish to deliver the developed solutions to leading quantum tech firms.
-        </p>
-        <p class="animated-text">
-          We empower the ambitious, <span class="highlight">curious</span>, and highly motivated—those overlooked or rejected due to conventional norms. Whether you lack formal experience or were dismissed due to lack of vacancies, we see your potential and ideas. Qrivara nurtures <span class="highlight">visionaries</span> who challenge norms, experiment fearlessly, and shape the future of quantum technology.
-        </p>
-        <p class="animated-text">
-          If you have talent, drive, and determination to create something unique, Qrivara is the place for you. We celebrate the brilliant <span class="highlight">“errors”</span> often ignored, turning glitches into <span class="highlight">breakthroughs</span>. Join us and become part of a team where your potential is recognized and empowered. Check out <a href="join.html" class="highlight-link">Join Us</a> page to become a part of our team.
-        </p>
-      </section>
-    </div>
-
-    <div class="graph-section" id="graph"></div>
-  </div>
-
+  <!-- Scripts -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script>
-    const numNodes = 50;
-    const types = ['A', 'B', 'C', 'D'];
-    const nodes = Array.from({ length: numNodes }, (_, i) => ({ id: `Node${i + 1}` }));
-    const links = [];
-
-    for (let i = 0; i < numNodes * 1.5; i++) {
-      const source = `Node${Math.floor(Math.random() * numNodes) + 1}`;
-      let target = `Node${Math.floor(Math.random() * numNodes) + 1}`;
-      while (target === source) {
-        target = `Node${Math.floor(Math.random() * numNodes) + 1}`;
-      }
-      const type = types[Math.floor(Math.random() * types.length)];
-      links.push({ source, target, type });
-    }
-
-    const width = 600, height = 600;
-
-    const color = d3.scaleOrdinal(types, d3.schemeCategory10);
-
-    const simulation = d3.forceSimulation(nodes)
-      .force("link", d3.forceLink(links).id(d => d.id).distance(60))
-      .force("charge", d3.forceManyBody().strength(-120))
-      .force("center", d3.forceCenter(width / 2, height / 2));
-
-    const svg = d3.select("#graph")
-      .append("svg")
-      .attr("width", width)
-      .attr("height", height)
-      .attr("viewBox", [0, 0, width, height]);
-
-    svg.append("defs").selectAll("marker")
-      .data(types)
-      .join("marker")
-      .attr("id", d => `arrow-${d}`)
-      .attr("viewBox", "0 -5 10 10")
-      .attr("refX", 15)
-      .attr("refY", 0)
-      .attr("markerWidth", 6)
-      .attr("markerHeight", 6)
-      .attr("orient", "auto")
-      .append("path")
-      .attr("fill", color)
-      .attr("d", "M0,-5L10,0L0,5");
-
-    const link = svg.append("g")
-      .attr("fill", "none")
-      .attr("stroke-width", 1.5)
-      .selectAll("path")
-      .data(links)
-      .join("path")
-      .attr("stroke", d => color(d.type))
-      .attr("marker-end", d => `url(#arrow-${d.type})`);
-
-    const node = svg.append("g")
-      .attr("stroke", "#fff")
-      .attr("stroke-width", 1.5)
-      .selectAll("circle")
-      .data(nodes)
-      .join("circle")
-      .attr("r", 6)
-      .attr("fill", "#4682b4")
-      .call(drag(simulation));
-
-    function drag(sim) {
-      function dragstarted(event, d) {
-        if(!event.active) sim.alphaTarget(0.3).restart();
-        d.fx = d.x; d.fy = d.y;
-      }
-      function dragged(event, d) {
-        d.fx = event.x; d.fy = event.y;
-      }
-      function dragended(event, d) {
-        if(!event.active) sim.alphaTarget(0);
-        d.fx = null; d.fy = null;
-      }
-      return d3.drag()
-        .on("start", dragstarted)
-        .on("drag", dragged)
-        .on("end", dragended);
-    }
-
-    function linkArc(d) {
-      const dx = d.target.x - d.source.x,
-            dy = d.target.y - d.source.y,
-            dr = Math.hypot(dx, dy);
-      return `M${d.source.x},${d.source.y} A${dr},${dr} 0 0,1 ${d.target.x},${d.target.y}`;
-    }
-
-    simulation.on("tick", () => {
-      link.attr("d", linkArc);
-      node.attr("cx", d => d.x).attr("cy", d => d.y);
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const siteNav = document.getElementById('siteNav');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      siteNav.classList.toggle('open');
     });
+
+    // Letter-by-letter animated title
+    const text = "Qrivara";
+    const logo = document.getElementById('logo');
+    text.split('').forEach((char, i) => {
+      const span = document.createElement('span');
+      span.textContent = char;
+      span.classList.add('letter');
+      span.style.animationDelay = `${i * 0.2}s`;
+      logo.appendChild(span);
+    });
+
+    // Subtitle word-by-word reveal
+    (function() {
+      const words = ['Circuit', 'Quantum', 'Electrodynamics', 'Research'];
+      const sub = document.getElementById('heroSubtitle');
+      const titleDelay = 1600; // wait for "Qrivara" letters to finish
+      words.forEach(function(word, i) {
+        const span = document.createElement('span');
+        span.textContent = word;
+        span.className = 'subtitle-word';
+        span.style.animationDelay = (titleDelay + i * 280) + 'ms';
+        sub.appendChild(span);
+        if (i < words.length - 1) sub.appendChild(document.createTextNode(' '));
+      });
+    })();
+
+    // Animated Bloch Sphere
+    (function() {
+      var c = document.getElementById('blochSphere');
+      if (!c) return;
+      var ctx = c.getContext('2d');
+      var W = c.width, H = c.height;
+      var cx = W / 2, cy = H / 2, R = W * 0.36;
+      var angle = 0;
+      var theta = Math.PI / 3.5;
+      var phi = 0;
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+
+        var tilt = 0.28;
+
+        // Outer sphere circle
+        ctx.beginPath();
+        ctx.arc(cx, cy, R, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(184,115,51,0.45)';
+        ctx.lineWidth = 1.6;
+        ctx.stroke();
+
+        // Subtle sphere fill
+        var sphereGrad = ctx.createRadialGradient(cx - R * 0.3, cy - R * 0.3, 0, cx, cy, R);
+        sphereGrad.addColorStop(0, 'rgba(184,115,51,0.04)');
+        sphereGrad.addColorStop(1, 'rgba(184,115,51,0.01)');
+        ctx.beginPath();
+        ctx.arc(cx, cy, R, 0, Math.PI * 2);
+        ctx.fillStyle = sphereGrad;
+        ctx.fill();
+
+        // Equator ellipse
+        ctx.beginPath();
+        ctx.ellipse(cx, cy, R, R * tilt, 0, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(184,115,51,0.3)';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([4, 4]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Z axis (vertical)
+        ctx.beginPath();
+        ctx.moveTo(cx, cy - R - 14);
+        ctx.lineTo(cx, cy + R + 14);
+        ctx.strokeStyle = 'rgba(100,116,139,0.45)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // X axis (horizontal, perspective)
+        ctx.beginPath();
+        ctx.moveTo(cx - R - 10, cy);
+        ctx.lineTo(cx + R + 10, cy);
+        ctx.stroke();
+
+        // Y axis (depth, perspective)
+        ctx.beginPath();
+        ctx.moveTo(cx - R * 0.5, cy + R * tilt * 1.2);
+        ctx.lineTo(cx + R * 0.5, cy - R * tilt * 1.2);
+        ctx.setLineDash([3, 3]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Axis labels
+        ctx.font = '700 14px "JetBrains Mono", monospace';
+        ctx.textAlign = 'center';
+        ctx.fillStyle = 'rgba(234,88,12,0.85)';
+        ctx.fillText('|0\u27E9', cx + 8, cy - R - 18);
+        ctx.fillText('|1\u27E9', cx + 8, cy + R + 26);
+        ctx.fillStyle = 'rgba(100,116,139,0.6)';
+        ctx.font = '600 12px "JetBrains Mono", monospace';
+        ctx.fillText('x', cx + R + 16, cy + 4);
+        ctx.fillText('y', cx + R * 0.5 + 10, cy - R * tilt * 1.2 - 4);
+
+        // Rotating qubit state vector
+        phi = angle;
+        var sx = Math.sin(theta) * Math.cos(phi);
+        var sy = Math.sin(theta) * Math.sin(phi);
+        var sz = Math.cos(theta);
+
+        // Project 3D to 2D
+        var px = cx + R * sx;
+        var py = cy - R * sz + R * sy * tilt * 0.4;
+
+        // State vector line
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(px, py);
+        ctx.strokeStyle = 'rgba(234,88,12,0.9)';
+        ctx.lineWidth = 2.5;
+        ctx.stroke();
+
+        // Arrowhead
+        var aLen = 11, aAng = Math.atan2(py - cy, px - cx);
+        ctx.beginPath();
+        ctx.moveTo(px, py);
+        ctx.lineTo(px - aLen * Math.cos(aAng - 0.3), py - aLen * Math.sin(aAng - 0.3));
+        ctx.moveTo(px, py);
+        ctx.lineTo(px - aLen * Math.cos(aAng + 0.3), py - aLen * Math.sin(aAng + 0.3));
+        ctx.strokeStyle = 'rgba(234,88,12,0.9)';
+        ctx.lineWidth = 2.5;
+        ctx.stroke();
+
+        // Bloch vector tip dot
+        ctx.beginPath();
+        ctx.arc(px, py, 5, 0, Math.PI * 2);
+        ctx.fillStyle = '#ea580c';
+        ctx.fill();
+
+        // Glow around tip
+        ctx.beginPath();
+        ctx.arc(px, py, 12, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(234,88,12,0.2)';
+        ctx.fill();
+
+        // Projection dashed line to equator
+        var eqx = cx + R * sx;
+        var eqy = cy + R * sy * tilt * 0.4;
+        ctx.beginPath();
+        ctx.moveTo(px, py);
+        ctx.lineTo(eqx, eqy);
+        ctx.strokeStyle = 'rgba(184,115,51,0.4)';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([3, 3]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Small dot at projection point
+        ctx.beginPath();
+        ctx.arc(eqx, eqy, 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(184,115,51,0.5)';
+        ctx.fill();
+
+        // Trace trail (fading arc)
+        for (var seg = 0; seg < 50; seg++) {
+          var t1 = angle - seg * 0.035;
+          var t2 = angle - (seg + 1) * 0.035;
+          var s1x = Math.sin(theta) * Math.cos(t1), s1y = Math.sin(theta) * Math.sin(t1), s1z = Math.cos(theta);
+          var s2x = Math.sin(theta) * Math.cos(t2), s2y = Math.sin(theta) * Math.sin(t2), s2z = Math.cos(theta);
+          ctx.beginPath();
+          ctx.moveTo(cx + R * s1x, cy - R * s1z + R * s1y * tilt * 0.4);
+          ctx.lineTo(cx + R * s2x, cy - R * s2z + R * s2y * tilt * 0.4);
+          ctx.strokeStyle = 'rgba(234,88,12,' + (0.4 - seg * 0.008) + ')';
+          ctx.lineWidth = 2 - seg * 0.03;
+          ctx.stroke();
+        }
+
+        angle += 0.012;
+        requestAnimationFrame(draw);
+      }
+
+      draw();
+    })();
+
+    // Quantum Measurement Quote System
+    (function() {
+      const quotesData = [
+        { text: 'Welcome to Qrivara \u2014 where curiosity sparks discovery, and quantum isn\u2019t just science fiction.', cite: '' },
+        { text: 'Science cannot solve the ultimate mystery of nature. And that is because, in the last analysis, we ourselves are a part of the mystery that we are trying to solve.', cite: 'Max Planck' },
+        { text: 'When you change the way you look at things, the things you look at change.', cite: 'Max Planck' },
+        { text: 'An expert is a person who has made all the mistakes that can be made in a very narrow field.', cite: 'Niels Bohr' },
+        { text: 'Nothing in life is to be feared; it is only to be understood.', cite: 'Marie Curie' },
+        { text: 'I can live with doubt and uncertainty and not knowing. I think it is much more interesting to live not knowing than to have answers that might be wrong.', cite: 'Richard Feynman' },
+        { text: 'Buckle up, keep your mind open, and prepare for a journey where science is as fun as it is profound \u2014 because here at Qrivara, we quantum tunnel right through boundaries!', cite: '' }
+      ];
+
+      const symbols = '\u03C8\u03C6|01\u27E9\u27E8+\u00D7\u2297\u2295\u03B1\u03B2\u2211\u222B\u2248\u221E\u0127';
+      const textEl = document.getElementById('quoteText');
+      const citeEl = document.getElementById('quoteCite');
+      const timerEl = document.getElementById('quoteTimer');
+      const navEl = document.getElementById('quoteNav');
+      let current = 0;
+      let measuring = false;
+      let timerInterval;
+
+      // Create nav dots
+      quotesData.forEach(function(_, i) {
+        const dot = document.createElement('button');
+        dot.className = 'quantum-quote__dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Quote ' + (i + 1));
+        dot.addEventListener('click', function() { if (!measuring) goTo(i); });
+        navEl.appendChild(dot);
+      });
+      const dots = navEl.querySelectorAll('.quantum-quote__dot');
+
+      function measureText(str, callback) {
+        measuring = true;
+        textEl.textContent = '';
+        citeEl.classList.remove('visible');
+        var chars = str.split('');
+        var spans = [];
+        var totalToResolve = 0;
+        var resolved = 0;
+        var callbackFired = false;
+
+        chars.forEach(function(c) {
+          var span = document.createElement('span');
+          span.className = 'qc';
+          span.dataset.target = c;
+          if (c === ' ') {
+            span.textContent = ' ';
+            span.style.whiteSpace = 'normal';
+          } else {
+            span.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            span.classList.add('qc--measuring');
+            totalToResolve++;
+          }
+          textEl.appendChild(span);
+          spans.push(span);
+        });
+
+        function onResolved() {
+          resolved++;
+          if (resolved >= totalToResolve && !callbackFired) {
+            callbackFired = true;
+            setTimeout(function() {
+              measuring = false;
+              if (callback) callback();
+            }, 150);
+          }
+        }
+
+        var charCount = spans.filter(function(s) { return s.dataset.target !== ' '; }).length;
+        var perChar = Math.min(15, 1800 / Math.max(charCount, 1));
+        spans.forEach(function(span, i) {
+          if (span.dataset.target === ' ') return;
+          var delay = i * perChar + Math.random() * 20;
+          setTimeout(function() {
+            var cycles = 0;
+            var max = 2 + Math.floor(Math.random() * 3);
+            var iv = setInterval(function() {
+              if (cycles >= max) {
+                span.textContent = span.dataset.target;
+                span.classList.remove('qc--measuring');
+                span.classList.add('qc--settled');
+                clearInterval(iv);
+                onResolved();
+                return;
+              }
+              span.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+              cycles++;
+            }, 25);
+          }, delay);
+        });
+      }
+
+      function showQuote(index) {
+        current = index;
+        dots.forEach(function(d, i) { d.classList.toggle('active', i === index); });
+        var q = quotesData[index];
+        measureText(q.text, function() {
+          if (q.cite) {
+            citeEl.textContent = q.cite;
+            citeEl.classList.add('visible');
+          } else {
+            citeEl.textContent = '';
+            citeEl.classList.remove('visible');
+          }
+          startTimer();
+        });
+      }
+
+      function goTo(index) {
+        clearInterval(timerInterval);
+        timerEl.style.transition = 'none';
+        timerEl.style.width = '0%';
+        showQuote(index);
+      }
+
+      function startTimer() {
+        var elapsed = 0;
+        var duration = 8000;
+        timerEl.style.transition = 'width 0.3s linear';
+        clearInterval(timerInterval);
+        timerInterval = setInterval(function() {
+          elapsed += 100;
+          timerEl.style.width = ((elapsed / duration) * 100) + '%';
+          if (elapsed >= duration) {
+            clearInterval(timerInterval);
+            timerEl.style.transition = 'none';
+            timerEl.style.width = '0%';
+            showQuote((current + 1) % quotesData.length);
+          }
+        }, 100);
+      }
+
+      showQuote(0);
+    })();
+
+    // Quantum circuit diagram
+    (function() {
+      const graphEl = document.getElementById('graph');
+      if (!graphEl) return;
+
+      const W = 600, H = 400;
+      const marginLeft = 50, marginRight = 30, marginTop = 40;
+      const wireSpacing = 70;
+      const colSpacing = 80;
+      const gateW = 40, gateH = 36;
+      const numWires = 5;
+
+      // Circuit definition
+      const wireLabels = ['|q₀⟩', '|q₁⟩', '|q₂⟩', '|q₃⟩', '|q₄⟩'];
+      const gates = [
+        { type: 'H',    wire: 0, col: 1 },
+        { type: 'CNOT', wire: 0, col: 2, target: 1 },
+        { type: 'H',    wire: 3, col: 1 },
+        { type: 'H',    wire: 1, col: 3 },
+        { type: 'CNOT', wire: 1, col: 4, target: 2 },
+        { type: 'CNOT', wire: 3, col: 3, target: 4 },
+        { type: 'Rz',   wire: 0, col: 4 },
+        { type: 'T',    wire: 2, col: 5 },
+        { type: 'X',    wire: 4, col: 4 },
+        { type: 'Z',    wire: 4, col: 5 },
+        { type: 'S',    wire: 3, col: 5 },
+        { type: 'M',    wire: 0, col: 6 },
+        { type: 'M',    wire: 2, col: 6 },
+        { type: 'M',    wire: 3, col: 6 }
+      ];
+
+      const wireY = i => marginTop + i * wireSpacing;
+      const colX  = c => marginLeft + c * colSpacing;
+      const wireStart = marginLeft - 10;
+      const wireEnd   = W - marginRight;
+
+      // Colors (light theme)
+      const COL = {
+        wire:       'rgba(234,88,12,0.25)',
+        gateBorder: '#ea580c',
+        gateFill:   'rgba(234,88,12,0.1)',
+        cnot:       '#9b59d6',
+        measure:    '#c4943a',
+        label:      '#2d3748',
+        sweep:      'rgba(234,88,12,0.08)'
+      };
+
+      const svg = d3.select('#graph').append('svg')
+        .attr('viewBox', `0 0 ${W} ${H}`)
+        .style('width', '100%')
+        .style('height', 'auto');
+
+      const defs = svg.append('defs');
+
+      // Draw wires
+      for (let i = 0; i < numWires; i++) {
+        const y = wireY(i);
+        svg.append('line')
+          .attr('x1', wireStart).attr('y1', y)
+          .attr('x2', wireEnd).attr('y2', y)
+          .attr('stroke', COL.wire).attr('stroke-width', 1.5);
+        svg.append('text')
+          .attr('x', wireStart - 8).attr('y', y + 5)
+          .attr('text-anchor', 'end')
+          .attr('fill', COL.label)
+          .attr('font-size', '13px')
+          .attr('font-family', 'monospace')
+          .text(wireLabels[i]);
+      }
+
+      // Tooltip
+      const tooltip = d3.select('body').append('div')
+        .style('position', 'absolute')
+        .style('background', 'rgba(255,255,255,0.95)')
+        .style('color', COL.label)
+        .style('padding', '6px 12px')
+        .style('border-radius', '8px')
+        .style('font-size', '13px')
+        .style('pointer-events', 'none')
+        .style('opacity', 0)
+        .style('border', `1px solid rgba(234,88,12,0.3)`)
+        .style('box-shadow', '0 4px 12px rgba(0,0,0,0.08)')
+        .style('z-index', 9999)
+        .style('transition', 'opacity 0.15s');
+
+      const gateNames = {
+        H: 'Hadamard Gate', X: 'Pauli-X Gate', Z: 'Pauli-Z Gate',
+        T: 'T Gate (π/8)', S: 'S Gate (Phase)', Rz: 'Rz Rotation',
+        CNOT: 'CNOT (Controlled-NOT)', M: 'Measurement'
+      };
+
+      function showTip(event, text) {
+        tooltip.text(text)
+          .style('left', (event.pageX + 14) + 'px')
+          .style('top', (event.pageY - 10) + 'px')
+          .style('opacity', 1);
+      }
+      function hideTip() { tooltip.style('opacity', 0); }
+
+      // Draw gates
+      gates.forEach(g => {
+        const cx = colX(g.col), cy = wireY(g.wire);
+
+        if (g.type === 'CNOT') {
+          const ty = wireY(g.target);
+          // Vertical connector
+          svg.append('line')
+            .attr('x1', cx).attr('y1', cy)
+            .attr('x2', cx).attr('y2', ty)
+            .attr('stroke', COL.cnot).attr('stroke-width', 2);
+          // Control dot
+          svg.append('circle')
+            .attr('cx', cx).attr('cy', cy).attr('r', 6)
+            .attr('fill', COL.cnot)
+            .style('cursor', 'pointer')
+            .on('mouseover', e => showTip(e, gateNames.CNOT))
+            .on('mousemove', e => showTip(e, gateNames.CNOT))
+            .on('mouseout', hideTip);
+          // Target ⊕
+          const tg = svg.append('g')
+            .style('cursor', 'pointer')
+            .on('mouseover', e => showTip(e, gateNames.CNOT))
+            .on('mousemove', e => showTip(e, gateNames.CNOT))
+            .on('mouseout', hideTip);
+          tg.append('circle')
+            .attr('cx', cx).attr('cy', ty).attr('r', 12)
+            .attr('fill', 'none').attr('stroke', COL.cnot).attr('stroke-width', 2);
+          tg.append('line')
+            .attr('x1', cx - 12).attr('y1', ty)
+            .attr('x2', cx + 12).attr('y2', ty)
+            .attr('stroke', COL.cnot).attr('stroke-width', 2);
+          tg.append('line')
+            .attr('x1', cx).attr('y1', ty - 12)
+            .attr('x2', cx).attr('y2', ty + 12)
+            .attr('stroke', COL.cnot).attr('stroke-width', 2);
+
+        } else if (g.type === 'M') {
+          // Measurement symbol
+          const mg = svg.append('g')
+            .style('cursor', 'pointer')
+            .on('mouseover', function(e) {
+              d3.select(this).select('rect').attr('stroke', '#e8c264');
+              showTip(e, gateNames.M);
+            })
+            .on('mousemove', e => showTip(e, gateNames.M))
+            .on('mouseout', function() {
+              d3.select(this).select('rect').attr('stroke', COL.measure);
+              hideTip();
+            });
+          mg.append('rect')
+            .attr('x', cx - gateW/2).attr('y', cy - gateH/2)
+            .attr('width', gateW).attr('height', gateH)
+            .attr('rx', 4)
+            .attr('fill', 'rgba(212,165,69,0.15)')
+            .attr('stroke', COL.measure).attr('stroke-width', 1.5);
+          // Meter arc
+          mg.append('path')
+            .attr('d', `M${cx - 10},${cy + 6} A12,12 0 0,1 ${cx + 10},${cy + 6}`)
+            .attr('fill', 'none').attr('stroke', COL.measure).attr('stroke-width', 1.5);
+          // Meter needle
+          mg.append('line')
+            .attr('x1', cx).attr('y1', cy + 6)
+            .attr('x2', cx + 8).attr('y2', cy - 8)
+            .attr('stroke', COL.measure).attr('stroke-width', 1.5);
+
+        } else {
+          // Single-qubit gate rectangle
+          const gg = svg.append('g')
+            .style('cursor', 'pointer')
+            .on('mouseover', function(e) {
+              d3.select(this).select('rect')
+                .attr('stroke', '#ea580c')
+                .attr('fill', 'rgba(234,88,12,0.18)');
+              d3.select(this).transition().duration(100)
+                .attr('transform', `translate(${cx},${cy}) scale(1.08) translate(${-cx},${-cy})`);
+              showTip(e, gateNames[g.type] || g.type);
+            })
+            .on('mousemove', e => showTip(e, gateNames[g.type] || g.type))
+            .on('mouseout', function() {
+              d3.select(this).select('rect')
+                .attr('stroke', COL.gateBorder)
+                .attr('fill', COL.gateFill);
+              d3.select(this).transition().duration(100)
+                .attr('transform', 'translate(0,0)');
+              hideTip();
+            });
+          gg.append('rect')
+            .attr('x', cx - gateW/2).attr('y', cy - gateH/2)
+            .attr('width', gateW).attr('height', gateH)
+            .attr('rx', 4)
+            .attr('fill', COL.gateFill)
+            .attr('stroke', COL.gateBorder).attr('stroke-width', 1.5);
+          gg.append('text')
+            .attr('x', cx).attr('y', cy + 5)
+            .attr('text-anchor', 'middle')
+            .attr('fill', COL.label)
+            .attr('font-size', '14px')
+            .attr('font-weight', 'bold')
+            .attr('font-family', 'monospace')
+            .text(g.type);
+        }
+      });
+
+      // Time-step execution sweep — vertical highlight moves through columns
+      const totalCols = 7;
+      const sweepBar = svg.insert('rect', ':first-child')
+        .attr('y', marginTop - 20)
+        .attr('width', colSpacing * 0.8)
+        .attr('height', wireSpacing * (numWires - 1) + 40)
+        .attr('rx', 8)
+        .attr('fill', COL.sweep);
+
+      let currentCol = 0;
+      function stepSweep() {
+        currentCol = (currentCol + 1) % (totalCols + 1);
+        const x = colX(currentCol) - colSpacing * 0.4;
+        sweepBar.transition().duration(600).ease(d3.easeCubicInOut)
+          .attr('x', x)
+          .attr('opacity', currentCol === 0 ? 0 : 1);
+      }
+      sweepBar.attr('x', colX(0) - colSpacing * 0.4).attr('opacity', 0);
+      setInterval(stepSweep, 1200);
+    })();
   </script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ResearchOrganization",
+    "name": "Qrivara",
+    "url": "https://www.qrivara.tech",
+    "logo": "https://www.qrivara.tech/images/logo.png",
+    "description": "Qrivara is a research organization advancing circuit quantum electrodynamics — designing superconducting quantum circuits, hybrid quantum systems, and quantum error correction algorithms.",
+    "email": "qrivara.tech@gmail.com",
+    "sameAs": [
+      "https://www.linkedin.com/company/qrivara/",
+      "https://youtube.com/@qrivara"
+    ]
+  }
+  </script>
+
+<script src="simplex-noise.js"></script>
+<script src="quantum-bg.js"></script>
+<script>
+// Scroll reveal observer
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger-children').forEach(function(el) {
+    observer.observe(el);
+  });
+
+  // Header scroll shadow
+  var header = document.querySelector('.site-header');
+  window.addEventListener('scroll', function() {
+    header.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+})();
+</script>
 </body>
 </html>
-
-</body>
-</html>
-
